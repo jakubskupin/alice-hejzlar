@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Alice Hejzlarová — 3 návrhy Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --offwhite: #F8F6F3;
+  --beige: #E8E0D4;
+  --gold: #B8976A;
+  --gold-25: rgba(184,151,106,0.25);
+  --gold-10: rgba(184,151,106,0.1);
+  --gold-06: rgba(184,151,106,0.06);
+  --warmgray: #6B6560;
+  --warmgray-40: rgba(107,101,96,0.4);
+  --text: #0A0A0A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--offwhite); }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 600px) { .container { padding: 0 20px; } }
+
+/* NAV */
+.sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(248,246,243,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--gold-06); }
+.nav-inner { display: flex; align-items: center; gap: 0; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+.nav-link { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--warmgray); text-decoration: none; padding: 16px 14px; transition: all 0.2s; border-bottom: 2px solid transparent; }
+.nav-link:hover, .nav-link.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* HERO */
+.doc-hero { background: var(--black); color: var(--offwhite); padding: 100px 0 80px; position: relative; overflow: hidden; }
+.doc-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.035; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 256px; }
+.doc-hero .container { position: relative; }
+.hero-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.doc-hero h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 12px; }
+.doc-hero p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: rgba(232,224,212,0.6); max-width: 560px; }
+.doc-hero .meta { font-size: 12px; color: var(--warmgray); margin-top: 32px; letter-spacing: 1px; }
+
+/* SECTIONS */
+section { padding: 80px 0; border-bottom: 1px solid var(--gold-06); opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+section.visible { opacity: 1; transform: translateY(0); }
+.section-number { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 500; }
+.section-title { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 12px; }
+.section-desc { color: var(--warmgray); font-size: 15px; max-width: 600px; margin-bottom: 48px; }
+
+/* PROPOSAL CARD */
+.proposal { background: white; border-radius: 20px; border: 1px solid var(--gold-06); overflow: hidden; margin-bottom: 48px; }
+.proposal-hero { padding: 48px 40px; position: relative; overflow: hidden; }
+.proposal-hero h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 28px; margin-bottom: 4px; }
+.proposal-hero .subtitle { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; opacity: 0.7; }
+.proposal-hero .claim { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.5; max-width: 480px; }
+.proposal-body { padding: 40px; }
+
+/* COLOR SWATCHES */
+.swatches { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.swatch { width: 48px; height: 48px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.06); position: relative; cursor: default; }
+.swatch-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--warmgray); text-align: center; margin-top: 4px; }
+.swatch-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+.swatch-row .swatch { width: 32px; height: 32px; flex-shrink: 0; }
+.swatch-row span { font-size: 13px; color: var(--warmgray); }
+.swatch-row code { font-size: 12px; color: var(--gold); background: var(--gold-06); padding: 2px 8px; border-radius: 4px; }
+
+/* FONT PREVIEW */
+.font-preview { margin: 16px 0; padding: 20px; background: var(--gold-06); border-radius: 12px; }
+.font-preview .headline { margin-bottom: 8px; }
+.font-preview .body-text { font-size: 14px; color: var(--warmgray); }
+
+/* SECTION STRUCTURE */
+.site-sections { list-style: none; padding: 0; counter-reset: site-section; }
+.site-sections li { padding: 16px 0; border-bottom: 1px solid var(--gold-06); display: flex; align-items: flex-start; gap: 16px; font-size: 14px; }
+.site-sections li::before { counter-increment: site-section; content: counter(site-section, decimal-leading-zero); font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 500; flex-shrink: 0; padding-top: 2px; }
+.site-sections li strong { font-weight: 600; color: var(--text); }
+.site-sections li span { color: var(--warmgray); }
+
+/* ANIMATION SPEC */
+.anim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 16px 0; }
+.anim-card { padding: 16px; background: var(--gold-06); border-radius: 10px; border: 1px solid var(--gold-06); }
+.anim-card h5 { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; font-weight: 600; }
+.anim-card p { font-size: 12px; color: var(--warmgray); line-height: 1.5; }
+.anim-card code { font-size: 11px; background: rgba(184,151,106,0.1); color: var(--gold); padding: 1px 5px; border-radius: 3px; }
+
+/* SUBSECTION */
+.subsection { margin-top: 32px; }
+.subsection h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+
+/* PENCIL PROMPT */
+.pencil-prompt { background: var(--black); color: var(--offwhite); border-radius: 12px; padding: 24px; margin: 16px 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
+.pencil-prompt .comment { color: var(--warmgray); }
+.pencil-prompt .key { color: var(--gold); }
+.pencil-prompt .val { color: #8BC5A3; }
+
+/* COMPARISON TABLE */
+.comparison { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+.comparison th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 12px 16px; border-bottom: 2px solid var(--gold-25); font-weight: 600; }
+.comparison td { padding: 12px 16px; border-bottom: 1px solid var(--gold-06); color: var(--warmgray); vertical-align: top; }
+.comparison td:first-child { color: var(--text); font-weight: 500; }
+.comparison tr:hover td { background: var(--gold-06); }
+
+/* DARK PROPOSAL */
+.proposal.dark .proposal-hero { background: #0A0A0A; color: #F8F6F3; }
+.proposal.warm .proposal-hero { background: #F5EDE3; color: #2C2420; }
+.proposal.editorial .proposal-hero { background: #1A1A2E; color: #E8E0D4; }
+
+/* PILLS */
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.pill { font-size: 11px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--gold-25); color: var(--gold); }
+
+/* UTILITY */
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mb-16 { margin-bottom: 16px; }
+.text-sm { font-size: 13px; color: var(--warmgray); }
+a { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- DOC HERO -->
+<div class="doc-hero">
+  <div class="container">
+    <div class="hero-label">Landing Page Proposals · V1.0</div>
+    <h1>Alice Hejzlarová — 3 směry</h1>
+    <p>Tři distinktivní návrhy osobního webu pro private counsel positioning — od vizuální identity po strukturu sekcí a animace</p>
+    <div class="meta">Březen 2026 · Jakub Skupin · Na základě strategické rešerše V1.0</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#a" class="nav-link">A · Quiet Power</a>
+    <a href="#b" class="nav-link">B · Editorial Noir</a>
+    <a href="#c" class="nav-link">C · Warm Authority</a>
+    <a href="#porovnani" class="nav-link">Porovnání</a>
+    <a href="#pencil" class="nav-link">Pencil Prompts</a>
+    <a href="#animace" class="nav-link">Animace</a>
+  </div>
+</nav>
+
+
+<!-- ============================================================ -->
+<!-- NÁVRH A — QUIET POWER -->
+<!-- ============================================================ -->
+<section id="a">
+  <div class="container">
+    <div class="section-number">Návrh A</div>
+    <div class="section-title">Quiet Power</div>
+    <div class="section-desc">Ultra-minimalistický, Céline/Bottega Veneta estetika. Maximum ticha, minimum slov. Luxus komunikovaný tím, co NENÍ na stránce. Pro klienta, který rozumí understatementu.</div>
+
+    <!-- HERO PREVIEW -->
+    <div class="proposal dark">
+      <div class="proposal-hero" style="background:#0A0A0A;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;">
+        <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#B8976A;margin-bottom:24px;">Private Counsel</div>
+        <h3 style="color:#F8F6F3;font-size:clamp(1.8rem,4vw,2.8rem);">Alice Hejzlarová</h3>
+        <div class="claim" style="color:rgba(232,224,212,0.5);font-size:17px;margin-top:12px;">Klid, struktura a rozhodnutí<br>v momentech, kdy je v sázce všechno</div>
+        <div style="margin-top:40px;display:flex;gap:24px;">
+          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#B8976A;border-bottom:1px solid rgba(184,151,106,0.3);padding-bottom:2px;cursor:pointer;">Domluvit schůzku</span>
+          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(248,246,243,0.4);cursor:pointer;">Jak pracuji</span>
+        </div>
+      </div>
+      <div class="proposal-body">
+
+        <div class="subsection">
+          <h4>Barevná paleta</h4>
+          <div class="swatches">
+            <div>
+              <div class="swatch" style="background:#0A0A0A;"></div>
+              <div class="swatch-label">Ink</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#F8F6F3;"></div>
+              <div class="swatch-label">Ivory</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#B8976A;"></div>
+              <div class="swatch-label">Gold</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#E8E0D4;"></div>
+              <div class="swatch-label">Sand</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#6B6560;"></div>
+              <div class="swatch-label">Stone</div>
+            </div>
+          </div>
+          <p class="text-sm mt-16"><strong>Logika:</strong> Černé hero = autorita, vstupujete do důvěrného prostoru. Světlé sekce = klid, přehlednost. Zlatá jen jako signál — nikdy ne dominantní. Žádné gradienty, žádné stíny. Plochý luxus.</p>
+          <div class="swatch-row mt-16">
+            <div class="swatch" style="background:#0A0A0A;"></div>
+            <span>Hero, footer, dark sections</span>
+            <code>#0A0A0A</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#F8F6F3;"></div>
+            <span>Pozadí, content sections</span>
+            <code>#F8F6F3</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#B8976A;"></div>
+            <span>Akcenty, labels, hover, CTA border</span>
+            <code>#B8976A</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#E8E0D4;"></div>
+            <span>Karty, sekční pozadí, oddělovače</span>
+            <code>#E8E0D4</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#6B6560;"></div>
+            <span>Body text, meta info, secondary</span>
+            <code>#6B6560</code>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h4>Typografie</h4>
+          <div class="font-preview" style="background:#0A0A0A;color:#F8F6F3;padding:32px;">
+            <div class="headline" style="font-family:'Playfair Display',serif;font-size:32px;">Vaše rozhodnutí. Moje odpovědnost.</div>
+            <div class="body-text" style="font-family:'Inter',sans-serif;font-weight:300;color:rgba(248,246,243,0.5);margin-top:12px;">Provázím majitele firem a lídry v nejcitlivějších momentech jejich profesního i osobního života.</div>
+          </div>
+          <p class="text-sm mt-16">
+            <strong>Headlines:</strong> Playfair Display 400 — serif elegance, velké velikosti (clamp 2rem–4rem), tight line-height 1.1<br>
+            <strong>Body:</strong> Inter 300 — clean, čitelný, hodně letter-spacing na labels (3px), line-height 1.7<br>
+            <strong>Labels/meta:</strong> Inter 500, 10-11px, uppercase, letter-spacing 3px, barva gold<br>
+            <strong>Citáty:</strong> Playfair Display italic, 18-21px, barva stone/muted<br>
+            <strong>CTA:</strong> Inter 500, 11px, uppercase, letter-spacing 2px, gold s underline hover
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h4>Hero sdělení</h4>
+          <p class="text-sm mb-16">Hero je tmavý, plná výška viewportu. Žádná fotka v hero — jen text a prostor. Fotka Alice je až v sekci „O mně" (parallax, černobílá s gold tint). Sdělení se odkrývá postupně (RevealText animace).</p>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Label</div>
+            <p style="font-size:14px;"><strong>PRIVATE COUNSEL</strong></p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">H1</div>
+            <p style="font-family:'Playfair Display',serif;font-size:24px;">Alice Hejzlarová</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Claim</div>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--warmgray);">Klid, struktura a rozhodnutí v momentech, kdy je v sázce všechno</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">CTA</div>
+            <p style="font-size:13px;"><span style="color:var(--gold);border-bottom:1px solid var(--gold);">Domluvit schůzku</span> &nbsp;&nbsp; <span style="color:var(--warmgray);">Jak pracuji ↓</span></p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h4>Struktura sekcí</h4>
+          <ol class="site-sections">
+            <li><strong>Hero</strong> — <span>Full viewport, tmavý, RevealText H1, grain overlay, 2 CTA (schůzka + scroll). Žádná fotka.</span></li>
+            <li><strong>Positioning statement</strong> — <span>Jedna věta: „Provázím majitele firem..." Playfair italic, 28px, centrovaná. Fade-in. Pod tím 3 stat karty (15+ let, 31 publikací, exit LP Legal).</span></li>
+            <li><strong>Jak pracuji</strong> — <span>3 pilíře vertikálně: Diskrétnost / Strategický nadhled / Osobní odpovědnost. Každý: ikona + headline + 2 věty. StaggerChildren animace.</span></li>
+            <li><strong>Pro koho</strong> — <span>4 situace jako minimalistické karty: M&amp;A exit, Spor společníků, Restrukturalizace, Citlivé osobní situace. HoverCard efekt.</span></li>
+            <li><strong>O mně</strong> — <span>Asymetrický layout: fotka vlevo (parallax, černobílá s gold tint, ParallaxImage), text vpravo. Bio 3 odstavce. Pod tím pills: JUDr., LL.M., MBA, 15+ let.</span></li>
+            <li><strong>Přístup</strong> — <span>Dark section. „Neprovozuji velkou kancelář..." — kontrast s velkými AK. Citát klienta (nebo navrhovaný). Horizontální linka oddělující „Co NEDĚLÁM" vs „Co DĚLÁM".</span></li>
+            <li><strong>Podcast</strong> — <span>Teaser na podcastovou sérii. Název + 3 epizody jako karty + odkaz na platformu. „Poslechněte si, jak přemýšlím, než mi zavoláte."</span></li>
+            <li><strong>FAQ</strong> — <span>Akordeon, 10-12 otázek. SEO/AI optimalizované. Default collapsed.</span></li>
+            <li><strong>Kontakt</strong> — <span>Minimalistický. „Spolupráce začíná rozhovorem." Email + telefon + LinkedIn. Žádný formulář — HNW klient neplní formuláře.</span></li>
+          </ol>
+        </div>
+
+        <div class="subsection">
+          <h4>Klíčové designové principy</h4>
+          <div class="anim-grid">
+            <div class="anim-card">
+              <h5>Negative space = luxus</h5>
+              <p>Sekce mají 120px+ padding. Texty max-width 560px i když je prostor. Prázdno říká: „Nepotřebuju křičet."</p>
+            </div>
+            <div class="anim-card">
+              <h5>Žádné stock fotky</h5>
+              <p>Pouze 1-2 reálné fotky Alice (profesionální shoot). Zbytek = typografie, prostor, barvy. Méně vizuálů = víc důvěry.</p>
+            </div>
+            <div class="anim-card">
+              <h5>CTA = understatement</h5>
+              <p>Žádné „KONTAKTUJTE MĚ!" buttony. Místo toho: gold text s thin underline. Kdo to potřebuje, klikne. Kdo ne, neruší ho.</p>
+            </div>
+            <div class="anim-card">
+              <h5>Mono-accent</h5>
+              <p>Jediná barva mimo černou/bílou = gold (#B8976A). Nikdy 2 akcenty současně. Gold = signál, ne dekorace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- NÁVRH B — EDITORIAL NOIR -->
+    <!-- ============================================================ -->
+    <div class="section-number" id="b">Návrh B</div>
+    <div class="section-title">Editorial Noir</div>
+    <div class="section-desc">Fashion editorial meets legal authority. Inspirace All's Fair vizuálem, ale pro český kontext. Tmavší, odvážnější, s fotografií jako hlavním nástrojem. Pro klienta, který hledá sílu.</div>
+
+    <div class="proposal editorial">
+      <div class="proposal-hero" style="background:linear-gradient(135deg,#1A1A2E 0%,#0F0F1A 100%);min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;">
+        <div style="position:absolute;top:0;right:0;bottom:0;width:45%;background:linear-gradient(to right,#1A1A2E,transparent 30%);z-index:1;"></div>
+        <div style="position:absolute;top:0;right:0;bottom:0;width:45%;background:rgba(26,26,46,0.3);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,180,155,0.3);">[ Fotografie Alice — editorial style ]</span>
+        </div>
+        <div style="position:relative;z-index:2;">
+          <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#C8B49B;margin-bottom:20px;">JUDr. Alice Hejzlarová, LL.M., MBA</div>
+          <h3 style="color:#F0EBE3;font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.2;">Vaše nejcitlivější rozhodnutí<br>si zaslouží někoho, kdo je unese</h3>
+          <div style="margin-top:32px;">
+            <span style="display:inline-block;padding:12px 28px;border:1px solid #C8B49B;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C8B49B;cursor:pointer;">Domluvit konzultaci</span>
+          </div>
+        </div>
+      </div>
+      <div class="proposal-body">
+
+        <div class="subsection">
+          <h4>Barevná paleta</h4>
+          <div class="swatches">
+            <div>
+              <div class="swatch" style="background:#1A1A2E;"></div>
+              <div class="swatch-label">Midnight</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#0F0F1A;"></div>
+              <div class="swatch-label">Deep</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#C8B49B;"></div>
+              <div class="swatch-label">Champagne</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#F0EBE3;"></div>
+              <div class="swatch-label">Cream</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#8B7E74;"></div>
+              <div class="swatch-label">Taupe</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#2A2540;"></div>
+              <div class="swatch-label">Plum</div>
+            </div>
+          </div>
+          <p class="text-sm mt-16"><strong>Logika:</strong> Midnight blue místo čisté černé = sofistikovanější, méně tvrdé. Champagne gold = teplejší než klasická zlatá. Plum = sekundární akcent pro depth (stíny, hover). Inspirace: All's Fair set design × Tom Ford × noční Praha.</p>
+          <div class="swatch-row mt-16">
+            <div class="swatch" style="background:#1A1A2E;"></div>
+            <span>Primární pozadí, hero, dark sections</span>
+            <code>#1A1A2E</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#C8B49B;"></div>
+            <span>Headlines, CTA border, akcenty</span>
+            <code>#C8B49B</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#F0EBE3;"></div>
+            <span>Body text na dark, light sections bg</span>
+            <code>#F0EBE3</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#2A2540;"></div>
+            <span>Karty bg, hover states, depth layers</span>
+            <code>#2A2540</code>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h4>Typografie</h4>
+          <div class="font-preview" style="background:#1A1A2E;color:#F0EBE3;padding:32px;">
+            <div class="headline" style="font-family:'Playfair Display',serif;font-size:30px;color:#C8B49B;">Vaše nejcitlivější rozhodnutí si zaslouží někoho, kdo je unese</div>
+            <div class="body-text" style="font-family:'Inter',sans-serif;font-weight:300;color:rgba(240,235,227,0.5);margin-top:12px;">15 let v advokacii. Exit vlastní kanceláře. Teď pracuji jen pro ty, kteří potřebují víc než právníka.</div>
+          </div>
+          <p class="text-sm mt-16">
+            <strong>Headlines:</strong> Playfair Display 400, champagne barva na dark bg, 28-48px<br>
+            <strong>Alternativa:</strong> Cormorant Garamond (ostřejší serif, více editorial) nebo Libre Caslon Display<br>
+            <strong>Body:</strong> Inter 300, cream na dark, 15px, line-height 1.8 (více vzdušnosti)<br>
+            <strong>Labels:</strong> Inter 500, 9-10px, letter-spacing 3px, uppercase, champagne<br>
+            <strong>CTA:</strong> Ghost button — border champagne, text champagne, fill on hover
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h4>Hero sdělení</h4>
+          <p class="text-sm mb-16">Split layout: text vlevo (60 %), editorial fotka Alice vpravo (40 %). Fotka: černobílá nebo desaturovaná, strukturovaný blazer, sebejistý pohled. Gradient overlay zprava spojuje fotku s tmavým pozadím. Parallax na fotce.</p>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Titulky (full name)</div>
+            <p style="font-size:13px;">JUDr. Alice Hejzlarová, LL.M., MBA — credentials viditelné, ne skryté</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">H1 (claim)</div>
+            <p style="font-family:'Playfair Display',serif;font-size:20px;">Vaše nejcitlivější rozhodnutí si zaslouží někoho, kdo je unese</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">CTA</div>
+            <p style="font-size:13px;">Ghost button: <span style="border:1px solid var(--gold);padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Domluvit konzultaci</span></p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h4>Struktura sekcí</h4>
+          <ol class="site-sections">
+            <li><strong>Hero (split)</strong> — <span>Text vlevo, editorial foto vpravo. Celý viewport, tmavý. Parallax na fotce, RevealText na H1.</span></li>
+            <li><strong>Credentials bar</strong> — <span>Horizontální pás: „15+ let | 31 publikací | Exit LP Legal | M&amp;A × Korporát × Private". Scrolling marquee nebo static. Champagne text na plum bg.</span></li>
+            <li><strong>Situace</strong> — <span>„Kdy mě potřebujete" — 4 full-width karty, každá s emočním headline + popisem. Hover = reveal. Dark cards na midnight bg.</span></li>
+            <li><strong>Přístup (manifesto)</strong> — <span>Celostránková typografická sekce. Velký Playfair text: „Neprovozuji kancelář s řadou juniorů..." Kontrast malý/velký text. Filmový feel.</span></li>
+            <li><strong>O Alice</strong> — <span>Full-bleed fotka (editorial, barva) s text overlay. Bio. Pod tím: timeline kariéry (horizontální, minimalistická).</span></li>
+            <li><strong>Síť expertů</strong> — <span>„Když situace vyžaduje tým" — abstract vizualizace sítě (SVG nodes), ne fotky lidí. Diskrétnost.</span></li>
+            <li><strong>Podcast</strong> — <span>Dark section, cover art + 3 epizody. Waveform vizualizace jako designový prvek.</span></li>
+            <li><strong>Média &amp; publikace</strong> — <span>Logo wall (Ekonom, Forbes placeholder) + Featured articles. Authority building.</span></li>
+            <li><strong>FAQ</strong> — <span>Light section pro kontrast. Akordeon, 12 otázek.</span></li>
+            <li><strong>Kontakt</strong> — <span>Dark, minimální. „Spolupráce začíná diskrétním rozhovorem." Encrypted email mention. Žádný formulář.</span></li>
+          </ol>
+        </div>
+
+        <div class="subsection">
+          <h4>Klíčové designové principy</h4>
+          <div class="anim-grid">
+            <div class="anim-card">
+              <h5>Fotografie = hlavní nástroj</h5>
+              <p>3-4 editorial fotky Alice (shoot nutný). Černobílé + 1 barevná. Strukturované outfity, čisté pozadí, sebejistý pohled. All's Fair estetika minus provokace.</p>
+            </div>
+            <div class="anim-card">
+              <h5>Cinematic proportions</h5>
+              <p>Sekce s 16:9 nebo 21:9 aspect ratio. Horizontální linie. Typografie jako ve filmových titulcích. Pomalé, důstojné animace (duration 0.8-1.2s).</p>
+            </div>
+            <div class="anim-card">
+              <h5>Depth layers</h5>
+              <p>Plum (#2A2540) karty na midnight (#1A1A2E) bg vytváří depth bez stínů. Overlap elementy. Z-axis design.</p>
+            </div>
+            <div class="anim-card">
+              <h5>Ghost CTA</h5>
+              <p>Tlačítka = border only, champagne. Hover = fill champagne, text midnight. Žádné solid buttons — understatement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- NÁVRH C — WARM AUTHORITY -->
+    <!-- ============================================================ -->
+    <div class="section-number" id="c" style="margin-top:48px;">Návrh C</div>
+    <div class="section-title">Warm Authority</div>
+    <div class="section-desc">Přístupnější, lidštější. Amal Clooney meets český kontext. Teplé tóny, důraz na důvěru a vztah. Pro klientku Karolínu — žena v krizi, která potřebuje cítit bezpečí, ne moc.</div>
+
+    <div class="proposal warm">
+      <div class="proposal-hero" style="background:#F5EDE3;min-height:320px;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center;">
+        <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#8B7355;margin-bottom:24px;">Private Counsel · Praha</div>
+        <h3 style="color:#2C2420;font-size:clamp(1.8rem,4vw,2.6rem);max-width:520px;line-height:1.3;">V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí</h3>
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#8B7355;margin-top:16px;">— Alice Hejzlarová</div>
+        <div style="margin-top:36px;">
+          <span style="display:inline-block;padding:14px 32px;background:#2C2420;color:#F5EDE3;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-radius:999px;cursor:pointer;">Domluvit rozhovor</span>
+        </div>
+      </div>
+      <div class="proposal-body">
+
+        <div class="subsection">
+          <h4>Barevná paleta</h4>
+          <div class="swatches">
+            <div>
+              <div class="swatch" style="background:#2C2420;"></div>
+              <div class="swatch-label">Espresso</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#F5EDE3;"></div>
+              <div class="swatch-label">Linen</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#8B7355;"></div>
+              <div class="swatch-label">Camel</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#D4C4AF;"></div>
+              <div class="swatch-label">Oat</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#A68B6B;"></div>
+              <div class="swatch-label">Walnut</div>
+            </div>
+            <div>
+              <div class="swatch" style="background:#E8DDD0;"></div>
+              <div class="swatch-label">Bisque</div>
+            </div>
+          </div>
+          <p class="text-sm mt-16"><strong>Logika:</strong> Teplá, zemitá paleta. Žádná čistá černá — Espresso (#2C2420) je jemnější. Inspirace: Brunello Cucinelli showroom, Aesop store, teplé dřevo + kašmír. Light-mode dominantní — web je převážně světlý. Evokuje bezpečí, ne moc.</p>
+          <div class="swatch-row mt-16">
+            <div class="swatch" style="background:#F5EDE3;"></div>
+            <span>Hlavní pozadí, hero</span>
+            <code>#F5EDE3</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#2C2420;"></div>
+            <span>Headlines, CTA buttons, footer</span>
+            <code>#2C2420</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#8B7355;"></div>
+            <span>Akcenty, labels, ikony</span>
+            <code>#8B7355</code>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch" style="background:#D4C4AF;"></div>
+            <span>Karty, sekční bg, dividers</span>
+            <code>#D4C4AF</code>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h4>Typografie</h4>
+          <div class="font-preview" style="background:#F5EDE3;padding:32px;">
+            <div class="headline" style="font-family:'Playfair Display',serif;font-size:28px;color:#2C2420;">V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí</div>
+            <div class="body-text" style="font-family:'Inter',sans-serif;font-weight:300;color:#8B7355;margin-top:12px;">15 let zkušeností v advokacii. Individuální přístup. Diskrétnost na prvním místě.</div>
+          </div>
+          <p class="text-sm mt-16">
+            <strong>Headlines:</strong> Playfair Display 400, espresso barva, 28-40px. Jemnější sizing než A/B — méně „křičí".<br>
+            <strong>Alternativa:</strong> Libre Baskerville (měkčí serif) nebo DM Serif Display<br>
+            <strong>Body:</strong> Inter 300-400, camel/espresso, 15px, line-height 1.8<br>
+            <strong>Labels:</strong> Inter 500, 10px, uppercase, letter-spacing 3px, camel<br>
+            <strong>CTA:</strong> Pill button — solid espresso bg, linen text, border-radius 999px (pill shape = jemnější, méně agresivní)
+          </p>
+        </div>
+
+        <div class="subsection">
+          <h4>Hero sdělení</h4>
+          <p class="text-sm mb-16">Světlý hero, centrovaný text. Pod H1 je fotka Alice — barevná, teplé tóny, usmívá se (ne striktně formální). Layout: text → foto → CTA. Celkový dojem: přístupná profesionálka, ne nedosažitelná autorita.</p>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Label</div>
+            <p style="font-size:13px;">PRIVATE COUNSEL · PRAHA</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">H1</div>
+            <p style="font-family:'Playfair Display',serif;font-size:20px;">V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Attribution</div>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--warmgray);">— Alice Hejzlarová</p>
+          </div>
+          <div style="background:var(--gold-06);padding:20px;border-radius:10px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">CTA</div>
+            <p style="font-size:13px;"><span style="background:#2C2420;color:#F5EDE3;padding:8px 20px;border-radius:999px;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Domluvit rozhovor</span></p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h4>Struktura sekcí</h4>
+          <ol class="site-sections">
+            <li><strong>Hero (centered)</strong> — <span>Světlý, centrovaný text, pill CTA. Pod hero: full-width barevná fotka Alice (teplé tóny, parallax).</span></li>
+            <li><strong>„Proč Alice"</strong> — <span>3 karty v řadě s ikonami: Diskrétnost, Zkušenost, Osobní přístup. Oat bg, rounded corners, subtle shadow.</span></li>
+            <li><strong>Situace</strong> — <span>„Pomáhám v momentech, kdy..." — storytelling přístup. Každá situace = krátký příběh (fiktivní, ale realistický). Akordeon nebo tab switch.</span></li>
+            <li><strong>O mně</strong> — <span>Side-by-side: fotka (lifestyle, ne corporate) + bio. Teplý tón. Zmínka o cestě (LP Legal exit, 15 let, publikace). Pill tagy pod bio.</span></li>
+            <li><strong>Jak to funguje</strong> — <span>3-step vizuální proces: Rozhovor → Strategie → Provedení. Timeline s ikonami. Demystifikace „jak to chodí".</span></li>
+            <li><strong>Testimonial</strong> — <span>Velký citát klienta (anonymní). Playfair italic, centrovaný, camel barva. Pod tím: „Jméno na vyžádání — diskrétnost je základ."</span></li>
+            <li><strong>Podcast</strong> — <span>Teplý section. „Nejdřív mě poznejte" — odkaz na podcast. Cover + 3 epizody. Přátelský tón.</span></li>
+            <li><strong>FAQ</strong> — <span>Akordeon, 10 otázek. Přímé, jednoduché odpovědi. Žádný legal jargon.</span></li>
+            <li><strong>Kontakt</strong> — <span>„Zavolejte mi." Telefonní číslo velké (Playfair, 32px). Pod tím email a LinkedIn. Osobní, ne korporátní.</span></li>
+          </ol>
+        </div>
+
+        <div class="subsection">
+          <h4>Klíčové designové principy</h4>
+          <div class="anim-grid">
+            <div class="anim-card">
+              <h5>Teplo = důvěra</h5>
+              <p>Celá stránka je teplá — žádná studená černá/šedá. Espresso místo černé, linen místo bílé. Evokuje bezpečný prostor, ne soudní síň.</p>
+            </div>
+            <div class="anim-card">
+              <h5>Storytelling &gt; features</h5>
+              <p>Místo „nabízím M&A poradenství" → „Martin budoval firmu 25 let. Když dostal nabídku na prodej, potřeboval někoho..." Příběhy, ne bullet points.</p>
+            </div>
+            <div class="anim-card">
+              <h5>Pill shapes</h5>
+              <p>Všechny CTA, tagy, badges = pill shape (border-radius: 999px). Jemnější, přátelštější než ostré rohy. Evokuje přístupnost.</p>
+            </div>
+            <div class="anim-card">
+              <h5>Fotky = lifestyle</h5>
+              <p>Ne corporate headshot. Alice v kavárně, u stolu, v přirozeném prostředí. Teplé světlo, bokeh. Přístupná profesionálka, ne nedosažitelná figura.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- POROVNÁNÍ -->
+<!-- ============================================================ -->
+<section id="porovnani">
+  <div class="container">
+    <div class="section-number">Porovnání</div>
+    <div class="section-title">3 směry vedle sebe</div>
+    <div class="section-desc">Rychlý přehled klíčových rozdílů mezi návrhy</div>
+
+    <div style="overflow-x:auto;">
+    <table class="comparison">
+      <thead>
+        <tr>
+          <th style="width:20%;">Aspekt</th>
+          <th style="width:27%;">A · Quiet Power</th>
+          <th style="width:27%;">B · Editorial Noir</th>
+          <th style="width:27%;">C · Warm Authority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dominantní barva</td>
+          <td>Černá + ivory</td>
+          <td>Midnight blue + champagne</td>
+          <td>Linen + espresso</td>
+        </tr>
+        <tr>
+          <td>Hero styl</td>
+          <td>Tmavý, text only, žádná fotka</td>
+          <td>Split: text + editorial foto</td>
+          <td>Světlý, centrovaný, fotka pod</td>
+        </tr>
+        <tr>
+          <td>Fotografie</td>
+          <td>Minimální (1-2), černobílé</td>
+          <td>Klíčové (3-4), editorial, desaturované</td>
+          <td>Hodně (4-5), barevné, lifestyle</td>
+        </tr>
+        <tr>
+          <td>CTA styl</td>
+          <td>Text link + underline</td>
+          <td>Ghost button (border only)</td>
+          <td>Pill button (solid fill)</td>
+        </tr>
+        <tr>
+          <td>Emoce</td>
+          <td>Klid, ticho, respekt</td>
+          <td>Síla, autorita, odvaha</td>
+          <td>Důvěra, bezpečí, empatie</td>
+        </tr>
+        <tr>
+          <td>Inspirace</td>
+          <td>Céline, Bottega Veneta</td>
+          <td>All's Fair, Tom Ford, Vogue</td>
+          <td>Aesop, Brunello Cucinelli, Amal</td>
+        </tr>
+        <tr>
+          <td>Primární persona</td>
+          <td>Martin (CEO, exit)</td>
+          <td>Oba — ale hlavně Martin</td>
+          <td>Karolína (rozvod, krize)</td>
+        </tr>
+        <tr>
+          <td>Border-radius</td>
+          <td>16px (soft), 0 na hero</td>
+          <td>8px (sharper), 0 na fotky</td>
+          <td>20px (softer), 999px na CTA</td>
+        </tr>
+        <tr>
+          <td>Animace tempo</td>
+          <td>Pomalé (0.8s), subtilní</td>
+          <td>Pomalé (1.0s), dramatické</td>
+          <td>Střední (0.6s), přirozené</td>
+        </tr>
+        <tr>
+          <td>Risk</td>
+          <td>Až příliš minimální — „kde je obsah?"</td>
+          <td>Může působit „příliš módně" pro AK</td>
+          <td>Může působit „příliš měkce" pro M&A</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div style="background:var(--gold-10);border:1px solid var(--gold-25);border-radius:12px;padding:24px;margin-top:32px;">
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;">Doporučení</div>
+      <p style="font-size:14px;line-height:1.7;">Můj návrh: <strong>hybrid A + B</strong>. Základ z A (Quiet Power — understatement, negative space, mono-accent gold). Hero a klíčové sekce z B (Editorial Noir — split layout s editorial fotkou, credentials bar, cinematic typografie). Tím vznikne web, který je <strong>diskrétně luxusní</strong> (A) ale má <strong>vizuální sílu</strong> (B). Varianta C je záloha, pokud Alice preferuje teplejší, přístupnější tón — ale pro private counsel positioning je A+B silnější signál. Finální rozhodnutí by mělo padnout po konzultaci s Alice.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- PENCIL.DEV PROMPTS -->
+<!-- ============================================================ -->
+<section id="pencil">
+  <div class="container">
+    <div class="section-number">Pencil.dev</div>
+    <div class="section-title">Design prompts pro Pencil</div>
+    <div class="section-desc">Zadání pro Pencil MCP server — 3 varianty hero + klíčových sekcí k prototypování</div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin-bottom:20px;">Prompt A — Quiet Power</h4>
+    <div class="pencil-prompt"><span class="comment">// PENCIL DESIGN PROMPT — Alice Hejzlarová Landing Page: "Quiet Power"</span>
+<span class="comment">// Style: Ultra-minimal luxury. Céline / Bottega Veneta aesthetic.</span>
+
+<span class="key">FRAME:</span> <span class="val">Desktop landing page, 1440×3200px</span>
+
+<span class="key">HERO SECTION</span> (0-900px):
+- Background: solid <span class="val">#0A0A0A</span>, full viewport height
+- SVG grain texture overlay, opacity 0.035
+- Top-left: label "PRIVATE COUNSEL" — Inter 500, 10px, letter-spacing 4px, uppercase, <span class="val">#B8976A</span>
+- Center-left: H1 "Alice Hejzlarová" — Playfair Display 400, 64px, <span class="val">#F8F6F3</span>
+- Below H1: "Klid, struktura a rozhodnutí v momentech, kdy je v sázce všechno" — Playfair Display italic, 21px, <span class="val">rgba(232,224,212,0.5)</span>
+- Bottom-left: Two CTAs inline — "Domluvit schůzku" (gold text, thin underline) + "Jak pracuji ↓" (muted text)
+- NO image in hero. Just typography and space.
+- Padding: 80px left, content max-width 560px, aligned bottom-left
+
+<span class="key">STICKY NAV</span> (pinned):
+- Background: <span class="val">rgba(248,246,243,0.85)</span>, backdrop-blur 16px
+- Height: 56px, border-bottom 1px solid <span class="val">rgba(184,151,106,0.06)</span>
+- Links: Inter 500, 11px, uppercase, letter-spacing 1.5px, <span class="val">#6B6560</span>
+- Active link: <span class="val">#B8976A</span> text + gold-10 bg + 2px bottom border gold
+
+<span class="key">POSITIONING STATEMENT</span> (900-1300px):
+- Background: <span class="val">#F8F6F3</span>
+- Centered text: "Provázím majitele firem a lídry v nejcitlivějších momentech jejich profesního i osobního života" — Playfair Display italic, 28px, <span class="val">#0A0A0A</span>, max-width 640px, text-align center
+- Below: 3 stat cards in row — "15+ let" / "31 publikací" / "Exit LP Legal" — each card: 200px wide, gold-06 bg, 16px border-radius, gold label + black number
+
+<span class="key">HOW I WORK</span> (1300-1900px):
+- 3 vertical pillars: Diskrétnost / Strategický nadhled / Osobní odpovědnost
+- Each: minimal icon (line-art, gold stroke), Playfair headline 20px, Inter body 14px muted
+- Cards: transparent bg, gold-06 border, 16px radius, 32px padding
+- Stagger animation implied (offset positioning)
+
+<span class="key">FOR WHOM</span> (1900-2500px):
+- 4 cards grid (2×2): M&A exit / Spor společníků / Restrukturalizace / Citlivé osobní situace
+- Cards: gold-06 bg, gold-25 border on hover, Playfair headline, Inter description
+- Hover state: scale 1.02, shadow 0 8px 30px rgba(184,151,106,0.1)
+
+<span class="key">ABOUT</span> (2500-3200px):
+- Asymmetric layout: photo left 45%, text right 55%
+- Photo placeholder: grayscale portrait, gold tint overlay, 0px border-radius (sharp)
+- Text: 3 paragraphs bio, Inter 300, 15px
+- Below text: pill tags — "JUDr." "LL.M." "MBA" "15+ let" — gold-06 bg, gold-25 border, pill shape
+
+<span class="key">COLOR TOKENS:</span>
+--bg-primary: <span class="val">#0A0A0A</span>
+--bg-secondary: <span class="val">#F8F6F3</span>
+--accent: <span class="val">#B8976A</span>
+--text-primary: <span class="val">#0A0A0A</span> (on light) / <span class="val">#F8F6F3</span> (on dark)
+--text-muted: <span class="val">#6B6560</span>
+--card-bg: <span class="val">rgba(184,151,106,0.06)</span>
+--card-border: <span class="val">rgba(184,151,106,0.06)</span>
+--card-border-hover: <span class="val">rgba(184,151,106,0.25)</span>
+
+<span class="key">TYPOGRAPHY:</span>
+Headlines: Playfair Display 400, sizes 64/28/20px
+Body: Inter 300, 15px, line-height 1.7
+Labels: Inter 500, 10-11px, uppercase, letter-spacing 3px
+Quotes: Playfair Display italic, 21px</div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:40px 0 20px;">Prompt B — Editorial Noir</h4>
+    <div class="pencil-prompt"><span class="comment">// PENCIL DESIGN PROMPT — Alice Hejzlarová Landing Page: "Editorial Noir"</span>
+<span class="comment">// Style: Fashion editorial meets legal authority. All's Fair aesthetic for Czech context.</span>
+
+<span class="key">FRAME:</span> <span class="val">Desktop landing page, 1440×4000px</span>
+
+<span class="key">HERO SECTION</span> (0-900px):
+- Background: linear-gradient 135deg from <span class="val">#1A1A2E</span> to <span class="val">#0F0F1A</span>
+- SPLIT LAYOUT: Left 55% = text content, Right 45% = editorial photo placeholder
+- Photo area: desaturated portrait placeholder, gradient overlay from left (midnight→transparent)
+- Top-left: "JUDr. Alice Hejzlarová, LL.M., MBA" — Inter 500, 9px, letter-spacing 3px, <span class="val">#C8B49B</span>
+- Main headline: "Vaše nejcitlivější rozhodnutí si zaslouží někoho, kdo je unese" — Playfair 400, 42px, <span class="val">#F0EBE3</span>, line-height 1.2
+- CTA: Ghost button — border 1px <span class="val">#C8B49B</span>, text <span class="val">#C8B49B</span>, 12px padding 28px, letter-spacing 2px, uppercase "DOMLUVIT KONZULTACI"
+
+<span class="key">CREDENTIALS BAR</span> (900-960px):
+- Full-width bar, background: <span class="val">#2A2540</span>
+- Horizontal items: "15+ let advokátní praxe" | "31 odborných publikací" | "Exit LP Legal" | "M&A × Korporát × Private"
+- Inter 500, 10px, uppercase, letter-spacing 2px, <span class="val">#C8B49B</span>
+- Separator: vertical line 1px <span class="val">rgba(200,180,155,0.2)</span>
+
+<span class="key">SITUATIONS</span> (960-1800px):
+- Background: <span class="val">#1A1A2E</span>
+- Section label: "KDY MĚ POTŘEBUJETE" — gold label style
+- 4 full-width cards stacked vertically, each 200px height
+- Card bg: <span class="val">#2A2540</span>, border-radius 8px
+- Each: champagne headline left, muted description right, hover = reveal detail panel
+- Cards: "Prodáváte firmu" / "Konflikt se společníkem" / "Restrukturalizace" / "Rozvod nebo osobní krize"
+
+<span class="key">MANIFESTO</span> (1800-2400px):
+- Background: <span class="val">#0F0F1A</span>, full-bleed
+- Large typographic section — alternating sizes:
+  "Neprovozuji velkou kancelář" — Playfair 400, 48px, <span class="val">#C8B49B</span>
+  "s řadou juniorních právníků." — Playfair 400, 48px, <span class="val">rgba(240,235,227,0.3)</span>
+  "Pracuji přímo s vámi." — Playfair 400, 48px, <span class="val">#F0EBE3</span>
+- Staggered reveal animation implied
+
+<span class="key">ABOUT</span> (2400-3200px):
+- Full-bleed editorial photo (color, warm), text overlay bottom
+- Gradient from bottom: midnight → transparent
+- Bio text over gradient: Inter 300, 16px, <span class="val">#F0EBE3</span>
+- Below photo: horizontal career timeline — minimal line + dots + year labels
+
+<span class="key">EXPERT NETWORK</span> (3200-3600px):
+- "Když situace vyžaduje tým" — section headline
+- Abstract SVG node visualization (circles + lines, champagne strokes on midnight)
+- 4 expertise labels around the network: Právní strategie / Byznys / Technologie / Ekonomika
+- NO photos of people — discretion
+
+<span class="key">COLOR TOKENS:</span>
+--bg-primary: <span class="val">#1A1A2E</span>
+--bg-deep: <span class="val">#0F0F1A</span>
+--bg-card: <span class="val">#2A2540</span>
+--accent: <span class="val">#C8B49B</span>
+--text-primary: <span class="val">#F0EBE3</span>
+--text-muted: <span class="val">#8B7E74</span>
+
+<span class="key">TYPOGRAPHY:</span>
+Headlines: Playfair Display 400, sizes 48/42/28/20px
+Body: Inter 300, 15-16px, line-height 1.8
+Labels: Inter 500, 9-10px, uppercase, letter-spacing 3px
+CTA: Inter 500, 11-12px, uppercase, ghost button style</div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:40px 0 20px;">Prompt C — Warm Authority</h4>
+    <div class="pencil-prompt"><span class="comment">// PENCIL DESIGN PROMPT — Alice Hejzlarová Landing Page: "Warm Authority"</span>
+<span class="comment">// Style: Approachable luxury. Aesop / Brunello Cucinelli / Amal Clooney warmth.</span>
+
+<span class="key">FRAME:</span> <span class="val">Desktop landing page, 1440×3600px</span>
+
+<span class="key">HERO SECTION</span> (0-900px):
+- Background: solid <span class="val">#F5EDE3</span>
+- CENTERED LAYOUT, text-align center
+- Label: "PRIVATE COUNSEL · PRAHA" — Inter 500, 10px, letter-spacing 4px, <span class="val">#8B7355</span>
+- H1: "V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí" — Playfair 400, 40px, <span class="val">#2C2420</span>, max-width 520px, centered
+- Attribution: "— Alice Hejzlarová" — Playfair italic, 16px, <span class="val">#8B7355</span>
+- CTA: Pill button — bg <span class="val">#2C2420</span>, text <span class="val">#F5EDE3</span>, border-radius 999px, padding 14px 32px
+- Below hero: full-width warm-toned photo of Alice (lifestyle, natural light), parallax
+
+<span class="key">WHY ALICE</span> (900-1400px):
+- Background: <span class="val">#F8F6F3</span> (slightly lighter than hero)
+- 3 cards in row: Diskrétnost / Zkušenost / Osobní přístup
+- Cards: <span class="val">#E8DDD0</span> bg, border-radius 20px, 32px padding
+- Each: line-art icon (camel stroke), Playfair headline 18px, Inter body 13px
+- Subtle shadow: 0 4px 20px rgba(44,36,32,0.06) — tinted, not gray
+
+<span class="key">SITUATIONS (storytelling)</span> (1400-2200px):
+- Tab switch or accordion: 4 stories
+- Each story: "Martin budoval firmu 25 let..." — narrative format
+- Active tab: espresso bg, linen text. Inactive: oat bg, camel text
+- Transition between tabs: crossfade 0.4s
+
+<span class="key">ABOUT</span> (2200-2800px):
+- Side-by-side: photo left (lifestyle, warm light, natural, colored), text right
+- Photo: border-radius 20px, warm tones
+- Bio: 3 paragraphs, conversational tone
+- Pill tags below: "JUDr." "LL.M." "MBA" "15+ let" — oat bg, camel border
+
+<span class="key">PROCESS</span> (2800-3200px):
+- 3-step horizontal timeline: Rozhovor → Strategie → Provedení
+- Each step: circle icon (numbered), headline, description
+- Connecting line: 2px solid <span class="val">#D4C4AF</span>
+- Demystifies "how it works" for first-time clients
+
+<span class="key">CONTACT</span> (3200-3600px):
+- Background: <span class="val">#2C2420</span> (espresso), text <span class="val">#F5EDE3</span>
+- "Zavolejte mi." — Playfair 400, 32px
+- Phone number large: Playfair 400, 28px, <span class="val">#A68B6B</span>
+- Email + LinkedIn below, Inter 14px
+- NO form. Personal, direct.
+
+<span class="key">COLOR TOKENS:</span>
+--bg-primary: <span class="val">#F5EDE3</span>
+--bg-card: <span class="val">#E8DDD0</span>
+--bg-dark: <span class="val">#2C2420</span>
+--accent: <span class="val">#8B7355</span>
+--accent-light: <span class="val">#A68B6B</span>
+--text-primary: <span class="val">#2C2420</span>
+--text-muted: <span class="val">#8B7355</span>
+
+<span class="key">TYPOGRAPHY:</span>
+Headlines: Playfair Display 400, sizes 40/28/20/18px
+Body: Inter 300-400, 15px, line-height 1.8
+Labels: Inter 500, 10px, uppercase, letter-spacing 3px
+CTA: Inter 500, 11px, uppercase, pill button (border-radius 999px)</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- ANIMACE -->
+<!-- ============================================================ -->
+<section id="animace">
+  <div class="container">
+    <div class="section-number">Framer Motion</div>
+    <div class="section-title">Animační systém</div>
+    <div class="section-desc">Společný pro všechny 3 varianty — komponenty z knowledgebase, adaptované na luxury tempo</div>
+
+    <div class="anim-grid">
+      <div class="anim-card">
+        <h5>AnimatedSection</h5>
+        <p>Fade-up při scrollu. Wrapper pro každou sekci. <code>whileInView</code>, <code>translateY: 30→0</code>, <code>opacity: 0→1</code>. Duration: <strong>0.8s</strong> (A/B) nebo <strong>0.6s</strong> (C). Threshold: 0.1.</p>
+      </div>
+      <div class="anim-card">
+        <h5>RevealText</h5>
+        <p>H1 v hero se odkrývá po slovech. Každé slovo <code>clipPath</code> reveal s <strong>0.05s stagger</strong>. Luxury feel — pomalé, důstojné. Jen na hero H1, ne na každý headline.</p>
+      </div>
+      <div class="anim-card">
+        <h5>ParallaxImage</h5>
+        <p>Fotky Alice s parallax efektem. <code>useScroll</code> + <code>useTransform</code>. Range: <strong>translateY -5% → 5%</strong> (subtle). <code>object-cover object-top scale-[1.15] origin-top</code> — hlavy se neoříznou.</p>
+      </div>
+      <div class="anim-card">
+        <h5>GrainOverlay</h5>
+        <p>SVG <code>feTurbulence</code> noise na dark sections. <code>baseFrequency: 0.9</code>, <code>numOctaves: 4</code>, <code>opacity: 0.03-0.04</code>. Pointer-events: none. Textura, ne šum.</p>
+      </div>
+      <div class="anim-card">
+        <h5>ScrollNav</h5>
+        <p>Navbar: <code>backdrop-filter: blur(16px)</code>. Při scrollu > 100px: compact mode (menší padding), shadow. <code>useMotionValueEvent</code> na scroll position.</p>
+      </div>
+      <div class="anim-card">
+        <h5>HoverCard</h5>
+        <p>Karty služeb/situací. Hover: <code>scale: 1.02</code>, <code>boxShadow</code> s tónovanou barvou (gold pro A, champagne pro B, espresso pro C). <code>transition: { duration: 0.2 }</code>.</p>
+      </div>
+      <div class="anim-card">
+        <h5>StaggerChildren</h5>
+        <p>Pilíře, stat karty, FAQ items. Parent: <code>staggerChildren: 0.1</code> (A/B: 0.15). Children: fade-up. Spouští se <code>whileInView</code>.</p>
+      </div>
+      <div class="anim-card">
+        <h5>Scroll-aware CTA</h5>
+        <p>Kontaktní CTA se objeví fixed bottom-right po scrollu přes hero. <code>AnimatePresence</code> + <code>motion.div</code> slide-up. Jen na desktopu, ne mobile.</p>
+      </div>
+    </div>
+
+    <div class="subsection mt-32">
+      <h4>Timing guidelines</h4>
+      <div style="overflow-x:auto;">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>A · Quiet Power</th>
+            <th>B · Editorial Noir</th>
+            <th>C · Warm Authority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Section fade-in</td>
+            <td>0.8s, ease-out</td>
+            <td>1.0s, ease-out</td>
+            <td>0.6s, ease-out</td>
+          </tr>
+          <tr>
+            <td>RevealText stagger</td>
+            <td>0.05s per word</td>
+            <td>0.06s per word</td>
+            <td>0.04s per word</td>
+          </tr>
+          <tr>
+            <td>Card hover scale</td>
+            <td>1.01 (subtle)</td>
+            <td>1.02 (medium)</td>
+            <td>1.02 (medium)</td>
+          </tr>
+          <tr>
+            <td>Parallax range</td>
+            <td>±3% (minimal)</td>
+            <td>±5% (noticeable)</td>
+            <td>±4% (moderate)</td>
+          </tr>
+          <tr>
+            <td>Stagger delay</td>
+            <td>0.15s</td>
+            <td>0.12s</td>
+            <td>0.10s</td>
+          </tr>
+          <tr>
+            <td>Easing</td>
+            <td>[0.25, 0.1, 0.25, 1]</td>
+            <td>[0.16, 1, 0.3, 1]</td>
+            <td>[0.33, 1, 0.68, 1]</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="subsection mt-32">
+      <h4>Next.js Tech Stack</h4>
+      <div class="pencil-prompt" style="font-family:'Inter',sans-serif;">
+<span class="key">Framework:</span> <span class="val">Next.js 14+ (App Router)</span>
+<span class="key">Styling:</span> <span class="val">Tailwind CSS 3.4+</span>
+<span class="key">Animation:</span> <span class="val">Framer Motion 11+</span>
+<span class="key">Fonts:</span> <span class="val">next/font — Playfair Display + Inter (local)</span>
+<span class="key">Deploy:</span> <span class="val">Vercel</span>
+<span class="key">Analytics:</span> <span class="val">Vercel Analytics + Web Vitals</span>
+
+<span class="comment">// Instalace:</span>
+npx create-next-app@latest alice-hejzlarova --typescript --tailwind --app
+npm install framer-motion
+
+<span class="comment">// Struktura komponent:</span>
+src/components/motion/
+  ├── AnimatedSection.tsx
+  ├── RevealText.tsx
+  ├── ParallaxImage.tsx
+  ├── GrainOverlay.tsx
+  ├── ScrollNav.tsx
+  ├── HoverCard.tsx
+  └── StaggerChildren.tsx
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const sectionObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('section').forEach(s => sectionObs.observe(s));
+
+const navLinks = document.querySelectorAll('.nav-link');
+const navObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const id = e.target.id;
+      const link = document.querySelector('.nav-link[href="#' + id + '"]');
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-72px 0px -60% 0px' });
+document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
+</script>
+
+</body>
+</html>
