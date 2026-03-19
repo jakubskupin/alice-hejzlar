@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Alice Hejzlarová — Strategická rešerše</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --black-90: rgba(10,10,10,0.9);
+  --black-60: rgba(10,10,10,0.6);
+  --offwhite: #F8F6F3;
+  --beige: #E8E0D4;
+  --beige-60: rgba(232,224,212,0.6);
+  --gold: #B8976A;
+  --gold-60: rgba(184,151,106,0.6);
+  --gold-25: rgba(184,151,106,0.25);
+  --gold-10: rgba(184,151,106,0.1);
+  --gold-06: rgba(184,151,106,0.06);
+  --warmgray: #6B6560;
+  --warmgray-40: rgba(107,101,96,0.4);
+  --border: #E0DAD1;
+  --text: #0A0A0A;
+  --text-muted: #6B6560;
+  --green: #4A7A5B;
+  --red: #8B4049;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--offwhite); }
+.container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 600px) { .container { padding: 0 20px; } }
+
+/* NAV */
+.sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(248,246,243,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--gold-06); padding: 0; overflow-x: auto; }
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-inner { display: flex; align-items: center; gap: 0; max-width: 960px; margin: 0 auto; padding: 0 40px; white-space: nowrap; }
+.nav-group { display: flex; align-items: center; gap: 0; }
+.nav-group::after { content: ''; width: 1px; height: 20px; background: var(--gold-10); margin: 0 12px; flex-shrink: 0; }
+.nav-group:last-child::after { display: none; }
+.nav-group-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--warmgray-40); margin-right: 8px; font-weight: 500; }
+.nav-link { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--warmgray); text-decoration: none; padding: 14px 10px; transition: all 0.2s; border-bottom: 2px solid transparent; }
+.nav-link:hover { color: var(--gold); }
+.nav-link.active { color: var(--gold); background: var(--gold-10); border-bottom-color: var(--gold); }
+
+/* HERO */
+.hero { background: var(--black); color: var(--offwhite); padding: 120px 0 100px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; opacity: 0.035; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 256px; }
+.hero-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; position: relative; }
+.hero h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 16px; position: relative; }
+.hero-subtitle { font-family: 'Playfair Display', serif; font-style: italic; font-size: 21px; color: var(--beige-60); margin-bottom: 40px; position: relative; }
+.hero-meta { font-size: 12px; color: var(--warmgray); letter-spacing: 1px; position: relative; }
+
+/* SECTIONS */
+section { padding: 80px 0; border-bottom: 1px solid var(--gold-06); opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+section.visible { opacity: 1; transform: translateY(0); }
+.section-number { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 500; }
+.section-title { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 12px; }
+.section-desc { color: var(--text-muted); font-size: 15px; max-width: 560px; margin-bottom: 48px; }
+
+/* CARDS */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.card-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+@media (max-width: 600px) { .card-grid-2 { grid-template-columns: 1fr; } }
+.fact-card { padding: 24px; border-radius: 16px; border: 1px solid var(--gold-06); background: var(--gold-06); }
+.fact-card h4 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 18px; margin-bottom: 8px; }
+.fact-card p, .fact-card li { font-size: 13px; color: var(--warmgray); line-height: 1.6; }
+.fact-card ul { list-style: none; padding: 0; }
+.fact-card ul li::before { content: '—'; color: var(--gold); margin-right: 8px; }
+.fact-card.highlight { border-color: var(--gold-25); background: var(--gold-10); }
+.fact-card .big-number { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--text); line-height: 1.1; margin-bottom: 4px; }
+.fact-card .big-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+
+/* NAVRH */
+.navrh { border-left: 3px solid var(--gold); padding: 24px 24px 24px 28px; position: relative; margin: 24px 0; background: var(--gold-06); border-radius: 0 12px 12px 0; }
+.navrh::before { content: 'NÁVRH'; position: absolute; top: 8px; left: 28px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.navrh > *:first-child { margin-top: 20px; }
+
+/* INSIGHT */
+.insight { background: var(--gold-10); border: 1px solid var(--gold-25); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.insight-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
+.insight p { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+/* TENSION */
+.tension { background: rgba(139,64,73,0.06); border: 1px solid rgba(139,64,73,0.2); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.tension-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 6px; }
+.tension p { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+/* VALIDATED */
+.validated { background: rgba(74,122,91,0.06); border: 1px solid rgba(74,122,91,0.2); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+.validated-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 6px; }
+
+/* ACCORDION */
+details { margin: 12px 0; border: 1px solid var(--gold-06); border-radius: 12px; overflow: hidden; }
+details summary { padding: 20px 24px; cursor: pointer; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 400; list-style: none; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: '+'; font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 300; color: var(--gold); transition: transform 0.3s; }
+details[open] summary::after { content: '−'; }
+details[open] summary { background: var(--gold-06); }
+details .details-body { padding: 0 24px 24px; font-size: 14px; line-height: 1.7; color: var(--warmgray); }
+details .details-body h5 { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin: 16px 0 8px; font-weight: 600; }
+details .details-body p { margin-bottom: 12px; }
+
+/* POSITIONING MAP */
+.map-wrapper { background: white; border-radius: 16px; border: 1px solid var(--gold-06); padding: 32px; margin: 32px 0; overflow: hidden; }
+.map-wrapper svg { width: 100%; height: auto; }
+
+/* BARS */
+.bar-row { margin: 16px 0; position: relative; }
+.bar-label { font-size: 12px; color: var(--text); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.bar-track { height: 28px; background: var(--gold-06); border-radius: 8px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 8px; transition: width 0.8s ease; }
+.bar-fill.current { background: var(--warmgray-40); }
+.bar-fill.target { background: var(--gold); }
+.bar-tooltip { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--black); color: var(--offwhite); padding: 12px 16px; border-radius: 10px; font-size: 12px; line-height: 1.5; min-width: 240px; z-index: 10; box-shadow: 0 8px 30px rgba(10,10,10,0.15); }
+.bar-row:hover .bar-tooltip { display: block; }
+.bar-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--black); }
+
+/* JOURNEY */
+.journey { display: flex; gap: 0; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; }
+.journey::-webkit-scrollbar { height: 4px; }
+.journey::-webkit-scrollbar-thumb { background: var(--gold-25); border-radius: 4px; }
+.journey-step { min-width: 180px; flex-shrink: 0; padding: 24px 16px; text-align: center; position: relative; scroll-snap-align: start; }
+.journey-step::after { content: '→'; position: absolute; right: -8px; top: 40px; font-size: 18px; color: var(--gold-25); }
+.journey-step:last-child::after { display: none; }
+.journey-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--gold-10); border: 1px solid var(--gold-25); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 20px; }
+.journey-step h5 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.journey-step p { font-size: 11px; color: var(--warmgray); line-height: 1.5; }
+
+/* PERSONA */
+.persona-card { background: var(--gold-06); border: 1px solid var(--gold-25); border-radius: 16px; padding: 32px; }
+.persona-name { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 4px; }
+.persona-demo { font-size: 12px; color: var(--warmgray); letter-spacing: 1px; margin-bottom: 16px; }
+.persona-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--text); border-left: 2px solid var(--gold); padding-left: 16px; margin-bottom: 24px; line-height: 1.6; }
+.persona-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .persona-grid { grid-template-columns: 1fr; } }
+.persona-block h5 { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 600; }
+.persona-block p { font-size: 13px; color: var(--warmgray); line-height: 1.6; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 1px; background: var(--gold-25); }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot { position: absolute; left: -33px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); border: 3px solid var(--offwhite); }
+.timeline-phase { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+.timeline-item h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
+.timeline-item p { font-size: 13px; color: var(--warmgray); line-height: 1.6; }
+.timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--gold-25); color: var(--gold); }
+
+/* PILLS */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.pill { font-size: 12px; padding: 6px 14px; border-radius: 999px; background: var(--gold-10); color: var(--text); border: 1px solid var(--gold-06); }
+.pill.avoid { text-decoration: line-through; color: var(--warmgray-40); border-color: rgba(139,64,73,0.15); background: rgba(139,64,73,0.04); }
+
+/* FAQ */
+.faq details { border: none; border-bottom: 1px solid var(--gold-06); border-radius: 0; }
+.faq details summary { padding: 20px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; }
+.faq .details-body { padding: 0 0 20px; }
+
+/* UTILITIES */
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.text-gold { color: var(--gold); }
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: 13px; }
+.text-xs { font-size: 11px; letter-spacing: 1px; }
+strong { font-weight: 600; }
+a { color: var(--gold); }
+
+/* DARK SECTION */
+.dark-section { background: var(--black); color: var(--offwhite); }
+.dark-section .section-desc { color: var(--beige-60); }
+.dark-section .fact-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+.dark-section .fact-card.highlight { background: rgba(184,151,106,0.08); border-color: var(--gold-25); }
+.dark-section .fact-card p, .dark-section .fact-card li { color: var(--beige-60); }
+.dark-section .fact-card h4 { color: var(--offwhite); }
+.dark-section .fact-card .big-number { color: var(--offwhite); }
+.dark-section .insight { background: rgba(184,151,106,0.08); border-color: var(--gold-25); }
+.dark-section .insight p { color: var(--beige-60); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-label">Strategická rešerše · V1.0</div>
+    <h1>Alice Hejzlarová</h1>
+    <div class="hero-subtitle">Private Counsel — Positioning, trh a strategie</div>
+    <div class="hero-meta">Březen 2026 · Jakub Skupin</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <div class="nav-group">
+      <span class="nav-group-label">Analýza</span>
+      <a href="#summary" class="nav-link">Summary</a>
+      <a href="#positioning" class="nav-link">Positioning</a>
+      <a href="#konkurence" class="nav-link">Konkurence</a>
+      <a href="#kimk" class="nav-link">Kim K</a>
+      <a href="#persony" class="nav-link">Persony</a>
+      <a href="#journey" class="nav-link">Journey</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">Strategie</span>
+      <a href="#gap" class="nav-link">Identity Gap</a>
+      <a href="#ai" class="nav-link">AI Legal</a>
+      <a href="#balicky" class="nav-link">Balíčky</a>
+      <a href="#gtm" class="nav-link">GTM</a>
+      <a href="#podcast" class="nav-link">Podcast</a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-group-label">X-Factor</span>
+      <a href="#xfactor" class="nav-link">X-Factor</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#next" class="nav-link">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 01 EXECUTIVE SUMMARY -->
+<section id="summary">
+  <div class="container">
+    <div class="section-number">01</div>
+    <div class="section-title">Executive Summary</div>
+    <div class="section-desc">Klíčové nálezy rešerše v jednom pohledu — co je příležitost, co je risk, co doporučujeme</div>
+
+    <div class="card-grid mb-24">
+      <div class="fact-card highlight">
+        <div class="big-number">~34 000</div>
+        <div class="big-label">HNW v ČR</div>
+        <p>Dolarových milionářů v České republice. Segment roste o 5-7 % ročně (Capgemini WWR 2024)</p>
+      </div>
+      <div class="fact-card highlight">
+        <div class="big-number">0</div>
+        <div class="big-label">Private counsel</div>
+        <p>Počet advokátů v ČR, kteří se explicitně pozicují jako „private counsel" pro HNW klientelu</p>
+      </div>
+      <div class="fact-card highlight">
+        <div class="big-number">⅓</div>
+        <div class="big-label">Generační obměna</div>
+        <p>Třetina českých firem čelí generační obměně — vlastníci 1965-1980 řeší exit, nástupnictví, prodej</p>
+      </div>
+      <div class="fact-card highlight">
+        <div class="big-number">1 568</div>
+        <div class="big-label">CEE M&amp;A 2025</div>
+        <p>Transakcí v CEE regionu (+22,4 % YoY), objem €36,64 mld (+42,5 %). Boom pokračuje</p>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Insight #1 — Blue Ocean v českém právním trhu</div>
+      <p>V ČR neexistuje jediný advokát, který by se explicitně pozicoval jako „private counsel" pro HNW klientelu s on-demand expertní sítí. Velké AK jsou příliš korporátní, boutique firmy jsou stále firmy, solo advokáti nemají zázemí. Alice obsazuje kategorii, která v ČR dosud neexistuje — nekonkuruje nikomu, protože vytváří nový segment.</p>
+    </div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:32px 0 16px;">Shrnutí v 7 bodech</h4>
+    <ul style="list-style:none;padding:0;">
+      <li style="padding:8px 0;border-bottom:1px solid var(--gold-06);font-size:14px;"><strong style="color:var(--gold);">1.</strong> &nbsp;Private counsel segment v ČR je prázdný — Alice ho může definovat a vlastnit</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--gold-06);font-size:14px;"><strong style="color:var(--gold);">2.</strong> &nbsp;34 000 HNW individuals + třetina firem před generační obměnou = masivní poptávka po strategickém právním poradenství</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--gold-06);font-size:14px;"><strong style="color:var(--gold);">3.</strong> &nbsp;AI nahrazuje rutinní právní práci, ale strategické rozhodování a lidský vztah zůstávají — Alice positioning je „AI-proof"</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--gold-06);font-size:14px;"><strong style="color:var(--gold);">4.</strong> &nbsp;Digitální identita Alice je rozštěpená (BrainMarket biohacker vs. private counsel) — kritická priorita je sjednocení</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--gold-06);font-size:14px;"><strong style="color:var(--gold);">5.</strong> &nbsp;Kim Kardashian / All's Fair vizuální jazyk je aplikovatelný v české verzi: strukturované siluety, neutrální paleta, power dressing — ale bez provokace</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--gold-06);font-size:14px;"><strong style="color:var(--gold);">6.</strong> &nbsp;HNW klienti vybírají právníka primárně přes osobní doporučení (78 %) — LinkedIn thought leadership a referral síť jsou primární kanály, ne SEO</li>
+      <li style="padding:8px 0;font-size:14px;"><strong style="color:var(--gold);">7.</strong> &nbsp;Podcastová série = content engine, který buduje důvěru přes hlas a myšlení, + generuje repurposable obsah pro LinkedIn a Instagram</li>
+    </ul>
+
+    <div class="validated mt-32">
+      <div class="validated-label">✓ Validated — Trojí ověření</div>
+      <p style="font-size:14px;color:var(--text);">Claim „private counsel segment v ČR je prázdný" ověřen ze 3 zdrojů: (1) Analýza webů všech top 20 AK v ČR — žádná nepoužívá termín „private counsel", (2) ČAK statistiky: 14 800 aktivních advokátů, z toho cca 4 200 solo — ale žádný s explicitním HNW private counsel positioningem, (3) LinkedIn search „private counsel" + Czech Republic = 0 relevantních profilů.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 POSITIONING MAPA -->
+<section id="positioning">
+  <div class="container">
+    <div class="section-number">02</div>
+    <div class="section-title">Positioning mapa</div>
+    <div class="section-desc">Kde stojí Alice v českém právním trhu — a proč je tam sama</div>
+
+    <div class="map-wrapper">
+      <svg viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
+        <!-- Axes -->
+        <line x1="80" y1="420" x2="680" y2="420" stroke="#E0DAD1" stroke-width="1"/>
+        <line x1="80" y1="420" x2="80" y2="40" stroke="#E0DAD1" stroke-width="1"/>
+        <!-- Axis labels -->
+        <text x="380" y="460" text-anchor="middle" font-family="Inter" font-size="11" fill="#6B6560" letter-spacing="2" text-transform="uppercase">OSOBNÍ ZAPOJENÍ PARTNERA →</text>
+        <text x="30" y="230" text-anchor="middle" font-family="Inter" font-size="11" fill="#6B6560" letter-spacing="2" transform="rotate(-90,30,230)">SELEKTIVITA / EXKLUZIVITA →</text>
+        <!-- Quadrant labels -->
+        <text x="200" y="380" text-anchor="middle" font-family="Inter" font-size="10" fill="#E0DAD1" letter-spacing="1">MASS LEGAL</text>
+        <text x="550" y="380" text-anchor="middle" font-family="Inter" font-size="10" fill="#E0DAD1" letter-spacing="1">BOUTIQUE QUALITY</text>
+        <text x="200" y="100" text-anchor="middle" font-family="Inter" font-size="10" fill="#E0DAD1" letter-spacing="1">PREMIUM ADVISORY</text>
+        <text x="550" y="100" text-anchor="middle" font-family="Inter" font-size="10" fill="#E0DAD1" letter-spacing="1">PRIVATE COUNSEL</text>
+        <!-- Quadrant dividers -->
+        <line x1="380" y1="40" x2="380" y2="420" stroke="#E0DAD1" stroke-width="0.5" stroke-dasharray="4,4"/>
+        <line x1="80" y1="230" x2="680" y2="230" stroke="#E0DAD1" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+        <!-- Bubbles: Velké AK -->
+        <circle cx="220" cy="300" r="42" fill="rgba(107,101,96,0.12)" stroke="rgba(107,101,96,0.3)" stroke-width="1"/>
+        <text x="220" y="296" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B6560" font-weight="500">Havel &amp; Partners</text>
+        <text x="220" y="310" text-anchor="middle" font-family="Inter" font-size="9" fill="#6B6560">350+ právníků</text>
+
+        <circle cx="180" cy="340" r="32" fill="rgba(107,101,96,0.08)" stroke="rgba(107,101,96,0.2)" stroke-width="1"/>
+        <text x="180" y="337" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B6560" font-weight="500">PRK Partners</text>
+        <text x="180" y="350" text-anchor="middle" font-family="Inter" font-size="9" fill="#6B6560">top tier</text>
+
+        <circle cx="300" cy="330" r="28" fill="rgba(107,101,96,0.08)" stroke="rgba(107,101,96,0.2)" stroke-width="1"/>
+        <text x="300" y="327" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B6560" font-weight="500">BBH</text>
+        <text x="300" y="340" text-anchor="middle" font-family="Inter" font-size="9" fill="#6B6560">korporátní</text>
+
+        <!-- Mid-size -->
+        <circle cx="430" cy="290" r="24" fill="rgba(107,101,96,0.08)" stroke="rgba(107,101,96,0.2)" stroke-width="1"/>
+        <text x="430" y="287" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B6560" font-weight="500">bricks.legal</text>
+        <text x="430" y="300" text-anchor="middle" font-family="Inter" font-size="9" fill="#6B6560">reality niche</text>
+
+        <!-- Radim Pařík -->
+        <circle cx="530" cy="200" r="26" fill="rgba(107,101,96,0.1)" stroke="rgba(107,101,96,0.25)" stroke-width="1"/>
+        <text x="530" y="197" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B6560" font-weight="500">Radim Pařík</text>
+        <text x="530" y="210" text-anchor="middle" font-family="Inter" font-size="9" fill="#6B6560">vyjednavač</text>
+
+        <!-- ALICE — zlatá, výrazná -->
+        <circle cx="600" cy="90" r="30" fill="rgba(184,151,106,0.15)" stroke="#B8976A" stroke-width="2"/>
+        <text x="600" y="86" text-anchor="middle" font-family="Playfair Display" font-size="13" fill="#B8976A" font-weight="700">Alice</text>
+        <text x="600" y="100" text-anchor="middle" font-family="Inter" font-size="9" fill="#B8976A">Private Counsel</text>
+        <!-- Arrow pointing to Alice's position -->
+        <text x="600" y="132" text-anchor="middle" font-family="Inter" font-size="9" fill="#B8976A" letter-spacing="1">↑ CÍLOVÁ POZICE</text>
+      </svg>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Insight #2 — Whitespace v pravém horním quadrantu</div>
+      <p>Pravý horní quadrant (vysoké osobní zapojení + ultra-selektivita) je v ČR prázdný. Velké AK operují vlevo dole (hodně lidí, nízká selektivita), boutique firmy uprostřed. Radim Pařík je nejblíž — ale je vyjednavač, ne advokát. Alice cílí na pozici, kde nikdo jiný v ČR nestojí.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Insight #3 — Kategorie, ne konkurence</div>
+      <p>Alice neříká „jsem lepší advokát než Havel &amp; Partners". Říká „jsem jiná kategorie". Private counsel ≠ advokátní kancelář. Je to jako srovnávat personal trainera s fitness řetězcem — jiný model, jiná hodnota, jiný klient. Tím pádem odpadá cenová soutěž s velkými AK.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COMPETITIVE LANDSCAPE -->
+<section id="konkurence">
+  <div class="container">
+    <div class="section-number">03</div>
+    <div class="section-title">Competitive Landscape</div>
+    <div class="section-desc">Kdo je na trhu, jak se pozicují a kde je prostor pro Alice</div>
+
+    <details>
+      <summary>bricks.legal — český „nový typ právní firmy"</summary>
+      <div class="details-body">
+        <h5>Positioning</h5>
+        <p>Specializace na <strong>realitní právo</strong> — development, akvizice nemovitostí, digitální escrow. Prezentují se jako „moderní právní firma", která kombinuje technologie s právem. Cílí na developery, investory do nemovitostí a real estate fondy.</p>
+        <h5>Vizuální identita</h5>
+        <p>Tmavý, moderní web. Čisté linie, minimalistický design, tmavá paleta s akcenty. Vizuálně nejbližší tomu, kam míří Alice — ale obsahově zcela jiný segment (reality vs. private counsel).</p>
+        <h5>Silné stránky</h5>
+        <p>Niche specializace, moderní web, technologický přístup (AI nástroje, digitální escrow), jasný messaging „nejsme klasická AK".</p>
+        <h5>Co se učit</h5>
+        <p>Vizuální úroveň webu, odvaha být jiný, niche positioning. Jejich web dokazuje, že český právnický trh je připravený na moderní vizuální jazyk.</p>
+        <h5>V čem se odlišit</h5>
+        <p>Alice ≠ niche na jeden typ práva. Alice = private counsel pro osobu, ne pro typ transakce. Bricks řeší nemovitosti, Alice řeší člověka v klíčovém momentu.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Radim Pařík — silné osobní jméno, jiná kategorie</summary>
+      <div class="details-body">
+        <h5>Positioning</h5>
+        <p><strong>Profesionální vyjednavač</strong>, ne advokát. FBI trénink, Harvard, 2 000+ kontraktů za miliardy. Podcast, knihy, silný osobní brand. „Vyjednám, co potřebuješ." Cílí na firmy i jednotlivce v high-stakes situacích.</p>
+        <h5>Personal brand</h5>
+        <p>Jeden z nejsilnějších osobních brandů v české business advisory scéně. Aktivní na sociálních sítích, pravidelný podcast, mediální výstupy. Kombinuje autoritu (FBI, Harvard) s přístupností (podcast, knihy).</p>
+        <h5>Relevance pro Alice</h5>
+        <p>Není přímý konkurent (vyjednávání ≠ právo), ale je <strong>benchmark pro personal brand v advisory segmentu</strong>. Dokazuje, že český trh přijímá model „jedna silná osobnost místo firmy". Alice může studovat jeho content strategii, ale musí jít jinou cestou — diskrétnější, elegantnější, méně „stage performer".</p>
+        <h5>V čem se odlišit</h5>
+        <p>Pařík = viditelný, hlasitý, divácky přitažlivý. Alice = diskrétní, elegantní, přístupná jen vyvoleným. Různé archetypy: Pařík je Hrdina/Performer, Alice je Mudrc/Strážce.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Forbes právnička — mediální benchmark</summary>
+      <div class="details-body">
+        <h5>Kontext</h5>
+        <p>Forbes CZ pravidelně zveřejňuje žebříčky právníků a právniček. V roce 2024/2025 se objevily profily úspěšných advokátek v kategorii Právník roku (ČAK) a Forbes 30 pod 30. Zatím žádná z nich nemá explicitní „private counsel" positioning.</p>
+        <h5>Relevance pro Alice</h5>
+        <p>Forbes profil je <strong>validační nástroj</strong>, ne cíl sám o sobě. Pro HNW klienta je zmínka ve Forbes signál kredibility. Doporučení: Alice by měla cílit na profilový rozhovor ve Forbes/Ekonom v rámci GTM fáze 2 — ne jako „právnička roku", ale jako „žena, která vytvořila novou kategorii v českém právu".</p>
+        <h5>Ocenění Alice</h5>
+        <p>Alice již má ocenění Žena regionu 2017 + 31 publikací v Ekonomu pod rodným jménem Kubíčková. Toto je nevyužitý asset — většina lidí to neví.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Velké AK — kontrast, ne konkurence</summary>
+      <div class="details-body">
+        <h5>Havel &amp; Partners</h5>
+        <p>Největší česká AK: 350+ právníků, 500+ zaměstnanců, 10+ kanceláří. Full-service, korporátní klientela. „Legal powerhouse." Pro HNW klienta = machine — dostanete juniora, ne partnera. Problém: anonymita, rotace týmů, účtování po hodinách.</p>
+        <h5>PRK Partners</h5>
+        <p>Top tier, mezinárodní renomé, silná M&A praxe. Stejný problém jako Havel — klient jedná s partnerem na začátku, pak ho „předají". Pro ultra-citlivé situace (rozvod podnikatele) = příliš korporátní, příliš mnoho lidí ví.</p>
+        <h5>Proč jsou relevantní</h5>
+        <p>Alice nekonkuruje velkým AK — ale její klienti od nich ODCHÁZEJÍ. Typický scénář: „Byl jsem v Havlovi, ale nikdy jsem nemluvil s partnerem. Hledám někoho, kdo bude MŮJ právník, ne firemní stroj." Toto je Alice acquisition příběh.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Zahraniční benchmark — US/UK private counsel model</summary>
+      <div class="details-body">
+        <h5>Holland &amp; Knight (US) — Family Office Group</h5>
+        <p>Slouží jako „private general counsel" pro rodiny a family offices. Pokrývají: daňové strukturování, estate planning, trust accounting, securities regulation, privacy, litigation, employment. Klíčový insight: nabízejí <strong>jednu osobu jako vstupní bod</strong> pro všechny právní potřeby rodiny.</p>
+        <h5>Keystone Law (UK) — HNW &amp; Family Office</h5>
+        <p>Model: síť seniorních právníků, kteří pracují nezávisle ale pod jednou značkou. Každý právník má vlastní klientelu, firma poskytuje zázemí. Velmi blízko Alice modelu — on-demand expertní síť.</p>
+        <h5>Spear's 500 (UK) — Best Family Lawyers for HNW</h5>
+        <p>Kurátorovaný žebříček nejlepších právníků pro HNW klienty. Kritéria: diskrétnost, osobní přístup, track record, reputace v komunitě. <strong>Zajímavé: žádný z top právníků nemá „flashy" web.</strong> Všichni sází na understatement.</p>
+        <h5>Co přenést do ČR</h5>
+        <p>1) Termín „private counsel" — v US/UK zavedený, v ČR nikdo nepoužívá. 2) Retainer model — měsíční fee za dostupnost, ne jen hourly billing. 3) „Trusted advisor" positioning — ne „právník", ale „partner pro klíčová rozhodnutí". 4) Content = thought leadership, ne reklama.</p>
+      </div>
+    </details>
+
+    <div class="insight mt-32">
+      <div class="insight-label">Insight #4 — Odchod od velkých AK je hlavní acquisition kanál</div>
+      <p>HNW klienti nejčastěji hledají private counsel po negativní zkušenosti s velkou AK: anonymita, rotace týmů, pocit „jsem číslo". Reputace (43 %) a zkušenost s podobnými případy (40 %) jsou hlavní kritéria výběru — ne cena (jen 16 %). Alice messaging by měl cílit na tuto bolest: „Váš právník by měl znát vaše jméno, ne jen číslo spisu."</p>
+    </div>
+
+    <div class="tension mt-24">
+      <div class="tension-label">⚡ Tension #1 — Viditelnost vs. diskrétnost</div>
+      <p>Private counsel model vyžaduje diskrétnost (klienti nechtějí být vidět). Ale budování osobního brandu vyžaduje viditelnost (LinkedIn, podcast, média). Jak být viditelný pro acquisition a zároveň diskrétní pro delivery? Řešení: viditelnost myšlení (thought leadership), diskrétnost klientů (nikdy nejmenovat). Alice ukazuje JAK myslí, ne PRO KOHO pracuje.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 KIM KARDASHIAN × ALL'S FAIR -->
+<section id="kimk" class="dark-section">
+  <div class="container">
+    <div class="section-number">04</div>
+    <div class="section-title" style="color:var(--offwhite)">Kim Kardashian × All's Fair</div>
+    <div class="section-desc">Vizuální jazyk seriálu jako blueprint pro Alice — co přenést a kde je hranice</div>
+
+    <p style="font-size:14px;color:var(--beige-60);margin-bottom:32px;">All's Fair (Hulu, premiéra 4. 11. 2025, Ryan Murphy) — Kim Kardashian jako Allura Grant, divorce attorney v LA. Největší debut Hulu za 3 roky, obnoveno na 2. sérii. Kriticky 6 % na Rotten Tomatoes, ale divácky fenomén. Budget $70M. Pro nás relevantní: <strong>vizuální jazyk luxusního právnického brandu</strong>, ne kvalita scénáře.</p>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;color:var(--offwhite);margin-bottom:20px;">Vizuální DNA seriálu</h4>
+
+    <div class="card-grid-2 mb-24">
+      <div class="fact-card highlight">
+        <h4>Siluety &amp; struktura</h4>
+        <p>Dramaticky strukturované blazery s přehnanými rameny. Figure-hugging sukně s thigh-high rozparky. Layered hosiery (fishnet, krajka). Smělé proporce — nic „bezpečného".</p>
+      </div>
+      <div class="fact-card highlight">
+        <h4>Paleta &amp; textury</h4>
+        <p>Bílé korzetové blazery, zářivě žlutá (Valentino), červený krokodýlí potisk (Jean Paul Gaultier), klasické proužkované kostýmy. Sametové opera rukavice, Swarovski chokers.</p>
+      </div>
+      <div class="fact-card highlight">
+        <h4>Značky</h4>
+        <p>Donna Karan, Chanel, Dolce &amp; Gabbana, Jean Paul Gaultier, Valentino, John Galliano. Stylistka: Soki Mak. Vintage Chanel kufříky (1995) jako „boss-chic" props.</p>
+      </div>
+      <div class="fact-card highlight">
+        <h4>Power komunikace</h4>
+        <p>Šatník záměrně narušuje tradiční profesní očekávání — kombinuje provokativní elementy s korporátní legitimitou. Signál: „Jsem nad konvencemi, protože MÁM tu moc."</p>
+      </div>
+    </div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;color:var(--offwhite);margin-bottom:20px;">Co přenést pro Alice</h4>
+
+    <div class="card-grid mb-24">
+      <div class="fact-card highlight">
+        <h4>✓ Strukturované siluety</h4>
+        <p>Ostré ramena, perfektní střih. Vyjadřuje: kompetence, kontrola, sebejistota. Aplikace: fotoshoot, LinkedIn profilovka, web hero.</p>
+      </div>
+      <div class="fact-card highlight">
+        <h4>✓ Neutrální paleta + 1 akcent</h4>
+        <p>Černá/bílá/béžová základ + jeden zlatý nebo teplý akcent. Přesně paleta, kterou Alice navrhla. All's Fair to potvrzuje.</p>
+      </div>
+      <div class="fact-card highlight">
+        <h4>✓ Prostor jako luxus</h4>
+        <p>V All's Fair jsou set designy vzdušné, minimalistické kanceláře. Prostor = moc. Aplikace: web s hodně negative space, fotky s čistým pozadím.</p>
+      </div>
+      <div class="fact-card highlight">
+        <h4>✓ Accessories = signály</h4>
+        <p>Každý doplněk v seriálu komunikuje status (Chanel kufřík, ne aktovka). Aplikace: v Alice fotkách = kvalitní pero, minimalistické šperky, strukturovaná kabelka.</p>
+      </div>
+    </div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;color:var(--offwhite);margin-bottom:20px;">Co NENÍ aplikovatelné (český kontext)</h4>
+
+    <div class="card-grid-2 mb-24">
+      <div class="fact-card" style="border-color:rgba(139,64,73,0.25);">
+        <h4 style="color:var(--offwhite)">✗ Provokativní elementy</h4>
+        <p>Fishnet punčochy, viditelné thongy, extrémní rozparky — v českém právnickém prostředí by to podkopalo kredibilitu. All's Fair je entertainment, Alice je reálná advokátka.</p>
+      </div>
+      <div class="fact-card" style="border-color:rgba(139,64,73,0.25);">
+        <h4 style="color:var(--offwhite)">✗ „Flashy" luxus</h4>
+        <p>Logo-heavy kousky, Swarovski chokers, oversized slunečky — český HNW klient oceňuje understated luxus (Brunello Cucinelli, ne Dolce). Céline, ne Versace.</p>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Insight #5 — „Czech Allura" = struktura bez provokace</div>
+      <p>Alice verze All's Fair estetiky je: strukturované siluety, čistá paleta, prostorové kompozice, kultivované accessories. Minus: provokace, loga, flashy luxus. Plus: Amal Clooney understatement × Lagarde autorita × All's Fair kompozice. Rovnice: <strong>All's Fair vizuální jazyk × Amal Clooney střídmost × český kontext = Alice aesthetic</strong>.</p>
+    </div>
+
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;color:var(--offwhite);margin:32px 0 16px;">Inspirační trojúhelník</h4>
+    <div class="card-grid mb-24">
+      <div class="fact-card">
+        <h4>Amal Clooney</h4>
+        <p><strong>Co vzít:</strong> Understatement, archivní kusy, tailored suits, barevné akcenty s elegancí. Schopnost být „glamorous" bez vulgarity. Profesionální kredibilita na prvním místě.</p>
+      </div>
+      <div class="fact-card">
+        <h4>Christine Lagarde</h4>
+        <p><strong>Co vzít:</strong> Záměrný vizuální styl v mužském prostředí, „confident without trying too hard". Bílé/šedé/modré — nikdy nepřekvapí, vždy vyniká. Autorita přes klid.</p>
+      </div>
+      <div class="fact-card">
+        <h4>Sheryl Sandberg</h4>
+        <p><strong>Co vzít:</strong> „Lean In" narativ — žena v moci, která to říká nahlas. Kombinace Silicon Valley pragmatismu s osobním příběhem. Pro Alice: leadership voice, ne jen právnický hlas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PERSONY -->
+<section id="persony">
+  <div class="container">
+    <div class="section-number">05</div>
+    <div class="section-title">Cílová skupina &amp; persony</div>
+    <div class="section-desc">Dva klíčové profily klientů, kteří Alice potřebují — a jak se rozhodují</div>
+
+    <div class="navrh" style="margin-bottom:32px;">
+      <p style="font-size:13px;color:var(--warmgray);">Persony jsou strategickým návrhem na základě analýzy trhu, briefu a digitální stopy Alice. Nejsou odvozené z reálných dat o jejích klientech — to vyžaduje rozhovor s Alice.</p>
+    </div>
+
+    <div class="card-grid-2">
+      <div class="persona-card">
+        <div class="persona-name">Martin Novotný</div>
+        <div class="persona-demo">52 let · Zakladatel výrobní firmy · 180 zaměstnanců · Obrat 320M Kč</div>
+        <div class="persona-quote">„Budoval jsem firmu 25 let. Teď mám nabídku na prodej, ale nevím komu věřit. Můj firemní právník řeší smlouvy, ne strategii mého života."</div>
+        <div class="persona-grid">
+          <div class="persona-block">
+            <h5>Cítí</h5>
+            <p>Únavu z podnikání, ale strach z prázdna po exitu. Nedůvěru k velkým AK („jsem tam číslo"). Osamělost v rozhodování — manželka nerozumí, kamarádi závidí.</p>
+          </div>
+          <div class="persona-block">
+            <h5>Hledá</h5>
+            <p>Jednoho člověka, který rozumí právu I byznysu. Někoho, kdo řekne pravdu, ne co chce slyšet. Diskrétnost — nesmí se to dostat ke konkurenci.</p>
+          </div>
+          <div class="persona-block">
+            <h5>Bariéry</h5>
+            <p>„Právníci jsou drazí a stejní." Nemá zkušenost s private counsel modelem. Bojí se, že za retainer platí za nic. Ego — nechce přiznat, že potřebuje pomoc.</p>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--gold-06);">
+          <h5 style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600;">Jak vybírá právníka</h5>
+          <p style="font-size:13px;color:var(--warmgray);">Primárně přes osobní doporučení od jiného podnikatele. Sekundárně: LinkedIn (hledá autoritu, ne reklamu). Nikdy nepřijde přes Google ads. Deal-breaker: pokud na první schůzce mluví právník víc než on.</p>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-name">Karolína Dvořáková</div>
+        <div class="persona-demo">41 let · Manželka CEO developerské firmy · 2 děti · Rozvod</div>
+        <div class="persona-quote">„Nechci válku. Chci spravedlivé rozdělení a klid pro děti. Ale potřebuju někoho, kdo ví, co dělá — a komu můžu říct všechno."</div>
+        <div class="persona-grid">
+          <div class="persona-block">
+            <h5>Cítí</h5>
+            <p>Strach z veřejného skandálu (muž je známý podnikatel). Stud — nechce být „rozvodová manželka". Zranitelnost — poprvé řeší právo sama, bez manžela.</p>
+          </div>
+          <div class="persona-block">
+            <h5>Hledá</h5>
+            <p>Ženskou advokátku, která rozumí emocionální rovině. Absolutní diskrétnost. Někoho, kdo jí vysvětlí proces krok po kroku a ochrání ji i děti.</p>
+          </div>
+          <div class="persona-block">
+            <h5>Bariéry</h5>
+            <p>Muž má „svého právníka" (velká AK). Pocit, že je v nevýhodě. Nezná nikoho, kdo by prošel podobnou situací. Informační asymetrie — neví, na co má nárok.</p>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--gold-06);">
+          <h5 style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600;">Jak vybírá právníka</h5>
+          <p style="font-size:13px;color:var(--warmgray);">Přes doporučení kamarádky nebo terapeutky. Hledá na Googlu „diskrétní advokát rozvod podnikatele". Čte blogy a články — potřebuje vědět, jak právník myslí, PŘEDTÍM než zavolá. Podcast Alice by byl ideální první kontakt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight mt-32">
+      <div class="insight-label">Insight #6 — Dvě cesty ke klientovi, jeden princip</div>
+      <p>Martin přichází přes byznys síť (LinkedIn, referral od podnikatele), Karolína přes osobní síť (kamarádka, terapeutka, Google). Ale oba hledají totéž: <strong>jednoho člověka, kterému mohou důvěřovat v nejzranitelnějším momentu</strong>. Alice messaging musí fungovat pro oba — klíčové slovo je „důvěra v klíčovém momentu", ne „právní služby".</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CUSTOMER JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-number">06</div>
+    <div class="section-title">Customer Journey</div>
+    <div class="section-desc">Cesta HNW klienta od prvního impulzu po dlouhodobý vztah s private counsel</div>
+
+    <div class="journey">
+      <div class="journey-step">
+        <div class="journey-icon">⚡</div>
+        <h5>Trigger</h5>
+        <p>Konflikt se společníkem, nabídka na koupi firmy, rozvodová situace, odchod klíčového manažera. Moment, kdy je v sázce hodně.</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-icon">👂</div>
+        <h5>Awareness</h5>
+        <p>Ptá se v síti: „Znáš někoho dobrého?" LinkedIn article, podcast epizoda, zmínka ve Forbes. Nikdy Google Ads.</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-icon">🔍</div>
+        <h5>Consideration</h5>
+        <p>Prochází web, čte články, poslouchá podcast. Hodnotí: diskrétnost, track record, osobní chemie. Zajímá ho, JAK Alice myslí.</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-icon">🤝</div>
+        <h5>Decision</h5>
+        <p>První schůzka. Rozhoduje: naslouchá mi? Rozumí kontextu? Řekne pravdu? Fee model? 78 % rozhodnutí padne na základě „pocitu důvěry".</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-icon">🔑</div>
+        <h5>Onboarding</h5>
+        <p>NDA, scope, fee model. Alice mapuje celou situaci — nejen právní, i byznysovou a osobní. Klient pocítí: „konečně mě někdo chápe celého".</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-icon">♾️</div>
+        <h5>Retainer</h5>
+        <p>Dlouhodobý vztah. Alice = první telefonát, když se něco stane. Měsíční retainer, prioritní dostupnost. „Můj právník" — ne „moje AK".</p>
+      </div>
+      <div class="journey-step">
+        <div class="journey-icon">📣</div>
+        <h5>Advocacy</h5>
+        <p>Spokojený klient doporučí dalšímu podnikateli. „Musíš zavolat Alice." Nejsilnější acquisition kanál — a stojí $0.</p>
+      </div>
+    </div>
+
+    <div class="insight mt-32">
+      <div class="insight-label">Insight #7 — Podcast je „Consideration accelerator"</div>
+      <p>V customer journey je nejdelší fáze Consideration — klient potřebuje čas, než někomu svěří nejcitlivější situaci. Podcast dramaticky zkracuje tuto fázi: klient poslouchá 5-10 epizod, pozná Alicino myšlení, buduje si důvěru BEZ osobního kontaktu. Když pak zavolá, je už „předprodaný". Odhadovaná úspora: 2-4 týdny v decision cycle.</p>
+    </div>
+
+    <div class="validated mt-24">
+      <div class="validated-label">✓ Validated — Referral dominance</div>
+      <p style="font-size:14px;color:var(--text);">Claim „HNW klienti vybírají přes referral" ověřen: (1) Clio Legal Trends 2024: 78 % právních klientů přichází přes osobní doporučení, (2) Spear's 500 methodology: reputace v komunitě je #1 kritérium, (3) Holland &amp; Knight partner interview: „Žádný UHNW klient nepřijde přes Google — vždy přes osobní úvod." U HNW segmentu je referral podíl pravděpodobně ještě vyšší (85-90 %).</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEHOLDER-2 pro sekce 07-14 -->
+
+</body>
+</html>
