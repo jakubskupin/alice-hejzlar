@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>JUDr. Alice Hejzlarová — Soukromá právní poradkyně · Praha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display+SC:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --deep-black: #0A0008;
+      --burgundy: #1A0A12;
+      --plum: #6B2D5B;
+      --plum-light: #8B3D7B;
+      --gold: #D4C0A0;
+      --cream: #E8DDD0;
+      --muted: #7A6A60;
+      --divider: #2A1520;
+      --card-bg: #0E0510;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-display-sc: 'Playfair Display SC', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--deep-black);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--plum);
+      color: var(--cream);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LAYER 1 — FIXED BACKGROUND PHOTO
+       ═══════════════════════════════════════════════════ */
+    .fixed-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .fixed-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      opacity: 0.55;
+    }
+
+    .fixed-bg .vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 40%, transparent 0%, rgba(10,0,8,0.3) 40%, rgba(10,0,8,0.85) 70%, rgba(10,0,8,1) 100%);
+    }
+
+    .fixed-bg .parametric-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: url('./noir-midjoureny-bcgrnd.png');
+      background-size: cover;
+      background-position: center;
+      mix-blend-mode: screen;
+      opacity: 0.35;
+      animation: parametricFloat 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes parametricFloat {
+      0% { transform: scale(1) translateY(0); }
+      50% { transform: scale(1.05) translateY(-10px); }
+      100% { transform: scale(1.02) translateY(5px); }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LAYER 2 — SCROLLING CONTENT WRAPPER
+       ═══════════════════════════════════════════════════ */
+    .content-layer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav.scrolled {
+      padding: 1rem 2.5rem;
+      background: rgba(10, 0, 8, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(42, 21, 32, 0.5);
+    }
+
+    .nav-brand {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .nav-brand span {
+      color: var(--muted);
+      margin-left: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-family: var(--font-body) !important;
+      font-size: 0.65rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 2.5px !important;
+      text-transform: uppercase;
+      color: var(--gold) !important;
+      border: 1px solid var(--plum);
+      padding: 0.6rem 1.5rem;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--plum);
+      border-color: var(--plum-light);
+      color: var(--cream) !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    /* Mobile menu toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      /* Transparent — photo shows through */
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display-sc);
+      font-size: clamp(50px, 8vw, 100px);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: 3px;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+    }
+
+    .hero-headline span {
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+    }
+
+    .hero-subtitle .dot {
+      display: inline-block;
+      margin: 0 0.8rem;
+      color: var(--plum);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 1.4s forwards;
+    }
+
+    .scroll-indicator span {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: var(--plum);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MARQUEE BAR
+       ═══════════════════════════════════════════════════ */
+    .marquee-section {
+      background: var(--deep-black);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      padding: 1.2rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 2rem;
+      flex-shrink: 0;
+    }
+
+    .marquee-item .sep {
+      color: var(--plum);
+      margin: 0 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       ABOUT / BORN SECTION
+       ═══════════════════════════════════════════════════ */
+    .about-section {
+      background: var(--deep-black);
+      padding: 8rem 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* Ingredients list */
+    .ingredients {
+      padding-top: 1rem;
+    }
+
+    .ingredient-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(42, 21, 32, 0.4);
+    }
+
+    .ingredient-item:last-child {
+      border-bottom: none;
+    }
+
+    .ingredient-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .ingredient-line {
+      width: 30px;
+      height: 1px;
+      background: rgba(212, 192, 160, 0.2);
+      flex-shrink: 0;
+    }
+
+    .ingredient-text {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .ingredient-diamond {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 10px;
+    }
+
+    /* About content */
+    .about-content .section-label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--plum-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content .section-headline {
+      font-family: var(--font-display-sc);
+      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      letter-spacing: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-content p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MANIFESTO / QUOTE
+       ═══════════════════════════════════════════════════ */
+    .quote-section {
+      background: var(--deep-black);
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .quote-line {
+      width: 60px;
+      height: 1px;
+      background: var(--plum);
+      margin: 0 auto 3.5rem;
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--gold);
+      max-width: 750px;
+      margin: 0 auto 2rem;
+    }
+
+    .quote-attribution {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 3.5rem;
+    }
+
+    .quote-line-bottom {
+      width: 60px;
+      height: 1px;
+      background: var(--plum);
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SERVICES
+       ═══════════════════════════════════════════════════ */
+    .services-section {
+      background: var(--deep-black);
+      padding: 6rem 0 8rem;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header .section-label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .services-header .section-headline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 400;
+      color: var(--cream);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--plum), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(107, 45, 91, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(107, 45, 91, 0.08);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-numeral {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--plum-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .service-title {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .service-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PROCESS
+       ═══════════════════════════════════════════════════ */
+    .process-section {
+      background: var(--burgundy);
+      padding: 7rem 0;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .process-header .section-headline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 400;
+      color: var(--cream);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      border-top: 1px dashed rgba(107, 45, 91, 0.5);
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border: 1px solid var(--plum);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      background: var(--burgundy);
+    }
+
+    .step-title {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+
+    .step-desc {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CONTACT CTA
+       ═══════════════════════════════════════════════════ */
+    .contact-section {
+      background: var(--card-bg);
+      padding: 8rem 0;
+      text-align: center;
+    }
+
+    .contact-section .section-label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-section .section-headline {
+      font-family: var(--font-display-sc);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-section p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--plum);
+      border: 1px solid var(--plum);
+      padding: 1rem 2.5rem;
+      transition: all 0.4s;
+      cursor: pointer;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button:hover {
+      background: var(--plum-light);
+      border-color: var(--plum-light);
+      box-shadow: 0 8px 30px rgba(107, 45, 91, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .contact-email {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .contact-email:hover {
+      color: var(--gold);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════ */
+    .footer {
+      background: var(--deep-black);
+      border-top: 1px solid var(--divider);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left,
+    .footer-right {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       ANIMATIONS
+       ═══════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(0.6);
+        transform-origin: top;
+      }
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger children */
+    .stagger-1 { transition-delay: 0s; }
+    .stagger-2 { transition-delay: 0.12s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.36s; }
+
+    /* ═══════════════════════════════════════════════════
+       GRAIN OVERLAY
+       ═══════════════════════════════════════════════════ */
+    .grain {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem 2rem;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 0, 8, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 99;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+      }
+
+      .nav-toggle {
+        display: flex;
+        z-index: 101;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-section {
+        padding: 5rem 0;
+      }
+
+      .services-section {
+        padding: 4rem 0 5rem;
+      }
+
+      .process-section {
+        padding: 5rem 0;
+      }
+
+      .contact-section {
+        padding: 5rem 0;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .hero-headline {
+        letter-spacing: 1px;
+      }
+
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav.scrolled {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .service-card {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-brand span {
+        display: none;
+      }
+
+      .hero-subtitle .dot {
+        display: none;
+      }
+
+      .hero-subtitle {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GRAIN OVERLAY -->
+  <div class="grain"></div>
+
+  <!-- LAYER 1 — FIXED BACKGROUND -->
+  <div class="fixed-bg">
+    <img src="./alice-hero-2-resize.png" alt="Alice Hejzlarová" loading="eager">
+    <div class="parametric-overlay"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- LAYER 2 — SCROLLING CONTENT -->
+  <div class="content-layer">
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav" id="nav">
+      <div class="nav-brand">
+        Alice Hejzlarová<span>| Soukromá právní poradkyně · Praha</span>
+      </div>
+      <div class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#sluzby">Služby</a>
+        <a href="#pribeh">Příběh</a>
+        <a href="#proces">Proces</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#kontakt" class="nav-cta">Napište mi</a>
+      </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-label">Soukromá právní poradkyně</div>
+        <h1 class="hero-headline">
+          <span>PRÁVO</span>
+          <span>S VIZÍ</span>
+        </h1>
+        <p class="hero-subtitle">
+          Kde se preciznost setkává s důvěrou<span class="dot">·</span>Právo bez kompromisů
+        </p>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══ MARQUEE BAR ═══ -->
+    <section class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-item">M&A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
+        <div class="marquee-item">M&A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
+        <div class="marquee-item">M&A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT / BORN ═══ -->
+    <section class="about-section" id="pribeh">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Ingredients column -->
+          <div class="ingredients reveal">
+            <div class="ingredient-item">
+              <div class="ingredient-dot"></div>
+              <div class="ingredient-line"></div>
+              <div class="ingredient-text">M&A transakce</div>
+            </div>
+            <div class="ingredient-item">
+              <div class="ingredient-dot"></div>
+              <div class="ingredient-line"></div>
+              <div class="ingredient-text">Korporátní právo</div>
+            </div>
+            <div class="ingredient-diamond">◆ &nbsp; ◆ &nbsp; ◆</div>
+            <div class="ingredient-item">
+              <div class="ingredient-dot"></div>
+              <div class="ingredient-line"></div>
+              <div class="ingredient-text">Ochrana majetku</div>
+            </div>
+            <div class="ingredient-item">
+              <div class="ingredient-dot"></div>
+              <div class="ingredient-line"></div>
+              <div class="ingredient-text">Korporátní spory</div>
+            </div>
+          </div>
+
+          <!-- Text column -->
+          <div class="about-content reveal" style="transition-delay: 0.15s;">
+            <div class="section-label">— I</div>
+            <h2 class="section-headline">ZROZENA Z PRECIZNOSTI</h2>
+            <p>Více než 15 let zkušeností v obchodním právu. Praxe v předních mezinárodních kancelářích i vedení právního oddělení Exit LP formovaly pohled, který kombinuje strategické myšlení s důkladnou znalostí praxe.</p>
+            <p>Věřím, že kvalitní právní poradenství není o objemu — je o hloubce. Proto přijímám omezený počet mandátů a každému klientovi se věnuji osobně.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ MANIFESTO QUOTE ═══ -->
+    <section class="quote-section">
+      <div class="container">
+        <div class="reveal-scale">
+          <div class="quote-line"></div>
+          <blockquote class="quote-text">
+            &bdquo;Skutečný právní poradce nejen řeší problémy — předvídá je.&ldquo;
+          </blockquote>
+          <div class="quote-attribution">— JUDr. Alice Hejzlarová</div>
+          <div class="quote-line-bottom"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="services-section" id="sluzby">
+      <div class="container">
+        <div class="services-header reveal">
+          <div class="section-label">DISCIPLÍNY PRÁVA</div>
+          <h2 class="section-headline">Na průsečíku práva a strategie.</h2>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal stagger-1">
+            <div class="service-numeral">I</div>
+            <h3 class="service-title">Fúze a akvizice</h3>
+            <p class="service-desc">Komplexní právní podpora M&A transakcí od due diligence po closing. Zkušenosti z desítek úspěšných transakcí.</p>
+          </div>
+          <div class="service-card reveal stagger-2">
+            <div class="service-numeral">II</div>
+            <h3 class="service-title">Korporátní právo</h3>
+            <p class="service-desc">Správa a řízení obchodních společností, corporate governance, reorganizace a restrukturalizace.</p>
+          </div>
+          <div class="service-card reveal stagger-3">
+            <div class="service-numeral">III</div>
+            <h3 class="service-title">Ochrana majetku</h3>
+            <p class="service-desc">Strukturování majetku, svěřenské fondy, rodinné holdingové struktury a mezigenerační transfer bohatství.</p>
+          </div>
+          <div class="service-card reveal stagger-4">
+            <div class="service-numeral">IV</div>
+            <h3 class="service-title">Korporátní spory</h3>
+            <p class="service-desc">Zastupování v obchodních sporech, akcionářských konfliktech a sporech z porušení smluv.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROCESS ═══ -->
+    <section class="process-section" id="proces">
+      <div class="container">
+        <div class="process-header reveal">
+          <h2 class="section-headline">Jak spolupracujeme</h2>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step reveal stagger-1">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Naslouchání</h3>
+            <p class="step-desc">Pochopení vaší situace, cílů a kontextu</p>
+          </div>
+          <div class="process-step reveal stagger-2">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Analýza</h3>
+            <p class="step-desc">Důkladná právní rešerše a identifikace rizik</p>
+          </div>
+          <div class="process-step reveal stagger-3">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Strategie</h3>
+            <p class="step-desc">Návrh řešení šitého na míru vaší situaci</p>
+          </div>
+          <div class="process-step reveal stagger-4">
+            <div class="step-number">04</div>
+            <h3 class="step-title">Realizace</h3>
+            <p class="step-desc">Provedení, podpora a průběžná komunikace</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT CTA ═══ -->
+    <section class="contact-section" id="kontakt">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Kontakt</div>
+          <h2 class="section-headline">PŘINESTE VÝZVU.<br>NAJDEME ŘEŠENÍ.</h2>
+          <p>Přijímám omezený počet mandátů ročně. Pokud hledáte právní poradkyni, která se vašemu případu skutečně věnuje, ozvěte se.</p>
+          <a href="mailto:alice@hejzlarova.cz" class="cta-button">Nezávazná konzultace</a>
+          <br>
+          <a href="mailto:alice@hejzlarova.cz" class="contact-email">alice@hejzlarova.cz</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="footer-left">&copy; 2026 JUDr. Alice Hejzlarová</div>
+      <div class="footer-right">Soukromá právní poradkyně · Praha</div>
+    </footer>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT
+       ═══════════════════════════════════════════════════ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ── Nav scroll effect ──
+      const nav = document.getElementById('nav');
+      const hero = document.getElementById('hero');
+
+      const navObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            nav.classList.remove('scrolled');
+          } else {
+            nav.classList.add('scrolled');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      navObserver.observe(hero);
+
+      // ── Scroll reveal ──
+      const reveals = document.querySelectorAll('.reveal, .reveal-scale');
+
+      const revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      reveals.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+
+      // ── Mobile nav toggle ──
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+
+      toggle.addEventListener('click', function() {
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+
+      // Close mobile nav on link click
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          toggle.classList.remove('open');
+          links.classList.remove('open');
+        });
+      });
+
+      // ── Smooth scroll for anchor links ──
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
