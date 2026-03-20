@@ -23,18 +23,24 @@
       --burgundy: #1A0A12;
       --plum: #6B2D5B;
       --plum-light: #8B3D7B;
+      --plum-dim: rgba(107, 45, 91, 0.4);
       --gold: #D4C0A0;
       --cream: #E8DDD0;
+      --cream-mid: rgba(232, 221, 208, 0.6);
+      --cream-low: rgba(232, 221, 208, 0.25);
       --muted: #7A6A60;
       --divider: #2A1520;
       --card-bg: #0E0510;
+      --surface: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.06);
       --font-display: 'Playfair Display', Georgia, serif;
       --font-display-sc: 'Playfair Display SC', Georgia, serif;
       --font-body: 'Inter', -apple-system, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     html {
-      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -59,6 +65,84 @@
     }
 
     /* ═══════════════════════════════════════════════════
+       LOADER
+       ═══════════════════════════════════════════════════ */
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: var(--deep-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s var(--ease), visibility 1s;
+    }
+
+    #loader.done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-inner {
+      text-align: center;
+      perspective: 1000px;
+    }
+
+    .loader-brand {
+      font-family: var(--font-display-sc);
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--cream);
+      display: inline-flex;
+    }
+
+    .fold-letter {
+      display: inline-block;
+      opacity: 0;
+      transform: rotateX(-90deg);
+      transform-origin: top center;
+      animation: foldIn 0.6s var(--ease) forwards;
+    }
+
+    @keyframes foldIn {
+      to {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+    }
+
+    .loader-sub {
+      display: block;
+      margin-top: 1rem;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 1.2s forwards;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LAYER 0 — THREE.JS BEAMS
+       ═══════════════════════════════════════════════════ */
+    #beams {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      mix-blend-mode: lighten;
+      pointer-events: none;
+    }
+
+    #beams canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ═══════════════════════════════════════════════════
        LAYER 1 — FIXED BACKGROUND PHOTO
        ═══════════════════════════════════════════════════ */
     .fixed-bg {
@@ -67,7 +151,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: 1;
       pointer-events: none;
     }
 
@@ -77,13 +161,7 @@
       object-fit: cover;
       object-position: center 20%;
       opacity: 0.55;
-    }
-
-    .fixed-bg .vignette {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 40%, transparent 0%, rgba(10,0,8,0.3) 40%, rgba(10,0,8,0.85) 70%, rgba(10,0,8,1) 100%);
+      will-change: transform, opacity;
     }
 
     .fixed-bg .parametric-overlay {
@@ -93,34 +171,59 @@
       background-size: cover;
       background-position: center;
       mix-blend-mode: screen;
-      opacity: 0.35;
-      animation: parametricFloat 20s ease-in-out infinite alternate;
+      opacity: 0.3;
+      will-change: transform, opacity;
     }
 
-    @keyframes parametricFloat {
-      0% { transform: scale(1) translateY(0); }
-      50% { transform: scale(1.05) translateY(-10px); }
-      100% { transform: scale(1.02) translateY(5px); }
+    .fixed-bg .vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 35%, transparent 0%, rgba(10,0,8,0.25) 30%, rgba(10,0,8,0.7) 60%, rgba(10,0,8,0.92) 100%);
+      will-change: opacity;
     }
 
     /* ═══════════════════════════════════════════════════
-       LAYER 2 — SCROLLING CONTENT WRAPPER
+       LAYER 2 — SCROLLING SCENES
        ═══════════════════════════════════════════════════ */
-    .content-layer {
+    #sections {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+    .scene {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scene-tall {
+      height: 200vh;
+      align-items: flex-start;
+    }
+
+    .scene-content {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5vw;
+    }
+
+    /* Hero scene: transparent so photo shows through fully */
+    #scene-hero .scene-content {
+      background: none;
     }
 
     /* ═══════════════════════════════════════════════════
        NAVIGATION
        ═══════════════════════════════════════════════════ */
-    .nav {
+    #nav {
       position: fixed;
       top: 0;
       left: 0;
@@ -130,15 +233,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s var(--ease);
     }
 
-    .nav.scrolled {
+    #nav.scrolled {
       padding: 1rem 2.5rem;
       background: rgba(10, 0, 8, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(42, 21, 32, 0.5);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
     }
 
     .nav-brand {
@@ -148,12 +257,15 @@
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--gold);
-      white-space: nowrap;
+      text-decoration: none;
     }
 
-    .nav-brand span {
+    .nav-tagline {
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 1px;
       color: var(--muted);
-      margin-left: 0.5rem;
     }
 
     .nav-links {
@@ -193,11 +305,9 @@
     }
 
     .nav-cta {
-      font-family: var(--font-body) !important;
       font-size: 0.65rem !important;
       font-weight: 500 !important;
       letter-spacing: 2.5px !important;
-      text-transform: uppercase;
       color: var(--gold) !important;
       border: 1px solid var(--plum);
       padding: 0.6rem 1.5rem;
@@ -214,13 +324,13 @@
       display: none !important;
     }
 
-    /* Mobile menu toggle */
     .nav-toggle {
       display: none;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
       padding: 5px;
+      z-index: 101;
     }
 
     .nav-toggle span {
@@ -232,25 +342,19 @@
     }
 
     /* ═══════════════════════════════════════════════════
-       HERO SECTION
+       SCENE 1 — HERO
        ═══════════════════════════════════════════════════ */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hero-wrap {
       text-align: center;
-      /* Transparent — photo shows through */
+      /* Override text-wrap backdrop for hero */
+      background: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: none !important;
+      padding: 0 !important;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-label {
+    .hero-wrap .eyebrow {
       font-family: var(--font-body);
       font-size: 0.65rem;
       font-weight: 400;
@@ -258,43 +362,35 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+      text-shadow: 0 2px 20px rgba(10,0,8,0.8);
     }
 
-    .hero-headline {
+    .hero-wrap .display {
       font-family: var(--font-display-sc);
-      font-size: clamp(50px, 8vw, 100px);
+      font-size: clamp(50px, 8vw, 110px);
       font-weight: 400;
       line-height: 1.05;
       color: var(--cream);
       letter-spacing: 3px;
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+      text-shadow: 0 4px 40px rgba(10,0,8,0.9), 0 2px 15px rgba(10,0,8,0.7);
     }
 
-    .hero-headline span {
-      display: block;
-    }
-
-    .hero-subtitle {
+    .hero-wrap .tagline {
       font-family: var(--font-body);
       font-size: 0.85rem;
       font-weight: 300;
       color: var(--muted);
       letter-spacing: 1px;
-      opacity: 0;
-      animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
+      text-shadow: 0 2px 20px rgba(10,0,8,0.8);
     }
 
-    .hero-subtitle .dot {
+    .hero-wrap .tagline .dot {
       display: inline-block;
       margin: 0 0.8rem;
       color: var(--plum);
     }
 
-    /* Scroll indicator */
     .scroll-indicator {
       position: absolute;
       bottom: 3rem;
@@ -304,8 +400,6 @@
       flex-direction: column;
       align-items: center;
       gap: 0.8rem;
-      opacity: 0;
-      animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 1.4s forwards;
     }
 
     .scroll-indicator span {
@@ -325,192 +419,63 @@
     }
 
     /* ═══════════════════════════════════════════════════
-       MARQUEE BAR
+       TEXT WRAP — Noir-style appear/disappear
        ═══════════════════════════════════════════════════ */
-    .marquee-section {
-      background: var(--deep-black);
-      border-top: 1px solid var(--divider);
-      border-bottom: 1px solid var(--divider);
-      padding: 1.2rem 0;
-      overflow: hidden;
-      position: relative;
+    .text-wrap {
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      text-shadow: 0 2px 30px rgba(10,0,8,0.9), 0 1px 10px rgba(10,0,8,0.7);
     }
 
-    .marquee-track {
-      display: flex;
-      white-space: nowrap;
-      animation: marquee 30s linear infinite;
+    .text-wrap.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .marquee-item {
-      font-family: var(--font-body);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0 2rem;
-      flex-shrink: 0;
+    .text-wrap.text-center {
+      text-align: center;
+      margin: 0 auto;
     }
 
-    .marquee-item .sep {
-      color: var(--plum);
-      margin: 0 1rem;
+    .text-wrap.text-right {
+      text-align: right;
+      margin-left: auto;
     }
 
-    /* ═══════════════════════════════════════════════════
-       ABOUT / BORN SECTION
-       ═══════════════════════════════════════════════════ */
-    .about-section {
-      background: var(--deep-black);
-      padding: 8rem 0;
+    .text-wrap.text-left {
+      text-align: left;
+      margin-right: auto;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    /* Ingredients list */
-    .ingredients {
-      padding-top: 1rem;
-    }
-
-    .ingredient-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(42, 21, 32, 0.4);
-    }
-
-    .ingredient-item:last-child {
-      border-bottom: none;
-    }
-
-    .ingredient-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .ingredient-line {
-      width: 30px;
-      height: 1px;
-      background: rgba(212, 192, 160, 0.2);
-      flex-shrink: 0;
-    }
-
-    .ingredient-text {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--cream);
-    }
-
-    .ingredient-diamond {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem 0;
-      color: var(--gold);
-      font-size: 0.7rem;
-      letter-spacing: 10px;
-    }
-
-    /* About content */
-    .about-content .section-label {
-      font-family: var(--font-body);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .chapter {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
       color: var(--plum-light);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .about-content .section-headline {
+    .heading {
       font-family: var(--font-display-sc);
-      font-size: clamp(30px, 3.5vw, 48px);
+      font-size: clamp(28px, 3.5vw, 48px);
       font-weight: 400;
       line-height: 1.2;
       color: var(--cream);
       letter-spacing: 2px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .about-content p {
+    .body {
       font-family: var(--font-body);
       font-size: 0.95rem;
       font-weight: 300;
       line-height: 1.85;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
+      color: var(--cream-mid);
     }
 
-    /* ═══════════════════════════════════════════════════
-       MANIFESTO / QUOTE
-       ═══════════════════════════════════════════════════ */
-    .quote-section {
-      background: var(--deep-black);
-      padding: 6rem 0;
-      text-align: center;
-    }
-
-    .quote-line {
-      width: 60px;
-      height: 1px;
-      background: var(--plum);
-      margin: 0 auto 3.5rem;
-    }
-
-    .quote-text {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(22px, 3vw, 36px);
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--gold);
-      max-width: 750px;
-      margin: 0 auto 2rem;
-    }
-
-    .quote-attribution {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: var(--muted);
-      margin-bottom: 3.5rem;
-    }
-
-    .quote-line-bottom {
-      width: 60px;
-      height: 1px;
-      background: var(--plum);
-      margin: 0 auto;
-    }
-
-    /* ═══════════════════════════════════════════════════
-       SERVICES
-       ═══════════════════════════════════════════════════ */
-    .services-section {
-      background: var(--deep-black);
-      padding: 6rem 0 8rem;
-    }
-
-    .services-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .services-header .section-label {
+    .eyebrow {
       font-family: var(--font-body);
       font-size: 0.65rem;
       font-weight: 400;
@@ -520,12 +485,134 @@
       margin-bottom: 1.2rem;
     }
 
-    .services-header .section-headline {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(26px, 3vw, 40px);
+    /* ═══════════════════════════════════════════════════
+       SCENE — SPLIT LAYOUT (ingredients + text)
+       ═══════════════════════════════════════════════════ */
+    .scene-split {
+      display: flex;
+      align-items: center;
+      gap: 8vw;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 2rem;
+    }
+
+    .creative-left {
+      flex: 0 0 280px;
+      opacity: 0;
+    }
+
+    .creative-left.visible {
+      opacity: 1;
+    }
+
+    .note-line {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(42, 21, 32, 0.4);
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    .note-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .note-dash {
+      width: 30px;
+      height: 1px;
+      background: rgba(212, 192, 160, 0.2);
+      flex-shrink: 0;
+    }
+
+    .note-text {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
       font-weight: 400;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
       color: var(--cream);
+    }
+
+    .note-accent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 10px;
+      opacity: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SCENE — U-SHAPE (statement)
+       ═══════════════════════════════════════════════════ */
+    .u-shape-wrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .u-shape {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 0;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .u-word {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      opacity: 0;
+      padding: 0.3em 0.2em;
+    }
+
+    .u-word.accent {
+      color: var(--gold);
+    }
+
+    .u-top-left { grid-area: 1 / 1; text-align: left; }
+    .u-top-right { grid-area: 1 / 2; text-align: right; }
+    .u-body-cell { grid-area: 2 / 1 / auto / -1; padding: 1.5rem 0.2em; }
+    .u-body {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--cream-mid);
+      max-width: 600px;
+      opacity: 0;
+    }
+    .u-mid-right { grid-area: 3 / 2; text-align: right; }
+    .u-bot-left { grid-area: 3 / 1; text-align: left; }
+    .u-bot-right { grid-area: 4 / 2; text-align: right; font-size: 2rem; }
+
+    /* ═══════════════════════════════════════════════════
+       SCENE — SERVICES GRID
+       ═══════════════════════════════════════════════════ */
+    .services-wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
     .services-grid {
@@ -538,9 +625,11 @@
       background: var(--card-bg);
       border: 1px solid var(--divider);
       padding: 2.5rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s var(--ease);
       position: relative;
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
     .service-card::before {
@@ -557,7 +646,7 @@
 
     .service-card:hover {
       border-color: rgba(107, 45, 91, 0.5);
-      transform: translateY(-3px);
+      transform: translateY(-3px) !important;
       box-shadow: 0 15px 40px rgba(107, 45, 91, 0.08);
     }
 
@@ -591,24 +680,51 @@
     }
 
     /* ═══════════════════════════════════════════════════
-       PROCESS
+       SCENE — QUOTE / MANIFESTO
        ═══════════════════════════════════════════════════ */
-    .process-section {
-      background: var(--burgundy);
-      padding: 7rem 0;
+    .quote-wrap {
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .quote-line {
+      width: 60px;
+      height: 1px;
+      background: var(--plum);
+      margin: 0 auto 2.5rem;
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 38px);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .quote-attribution {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SCENE — PROCESS (4 steps)
+       ═══════════════════════════════════════════════════ */
+    .process-wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .process-header {
       text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .process-header .section-headline {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(26px, 3vw, 40px);
-      font-weight: 400;
-      color: var(--cream);
+      margin-bottom: 4rem;
     }
 
     .process-steps {
@@ -632,6 +748,8 @@
       text-align: center;
       padding: 0 1.5rem;
       position: relative;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
     .step-number {
@@ -649,7 +767,7 @@
       margin-bottom: 1.5rem;
       position: relative;
       z-index: 2;
-      background: var(--burgundy);
+      background: var(--deep-black);
     }
 
     .step-title {
@@ -671,42 +789,11 @@
     }
 
     /* ═══════════════════════════════════════════════════
-       CONTACT CTA
+       SCENE — CONTACT CTA
        ═══════════════════════════════════════════════════ */
-    .contact-section {
-      background: var(--card-bg);
-      padding: 8rem 0;
+    .contact-wrap {
       text-align: center;
-    }
-
-    .contact-section .section-label {
-      font-family: var(--font-body);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-section .section-headline {
-      font-family: var(--font-display-sc);
-      font-size: clamp(28px, 3.5vw, 48px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--cream);
-      letter-spacing: 2px;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-section p {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
+      max-width: 600px;
     }
 
     .cta-button {
@@ -746,103 +833,86 @@
     }
 
     /* ═══════════════════════════════════════════════════
-       FOOTER
+       MARQUEE BAR
        ═══════════════════════════════════════════════════ */
-    .footer {
-      background: var(--deep-black);
+    .marquee-section {
+      background: rgba(10, 0, 8, 0.9);
       border-top: 1px solid var(--divider);
-      padding: 2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      border-bottom: 1px solid var(--divider);
+      padding: 1.2rem 0;
+      overflow: hidden;
+      position: relative;
     }
 
-    .footer-left,
-    .footer-right {
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-item {
       font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 300;
-      letter-spacing: 1px;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
       color: var(--muted);
+      padding: 0 2rem;
+      flex-shrink: 0;
+    }
+
+    .marquee-item .sep {
+      color: var(--plum);
+      margin: 0 1rem;
     }
 
     /* ═══════════════════════════════════════════════════
-       ANIMATIONS
+       FOOTER
        ═══════════════════════════════════════════════════ */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    #footer {
+      position: relative;
+      z-index: 2;
+      background: var(--deep-black);
+      border-top: 1px solid var(--divider);
+      padding: 2rem 2.5rem;
     }
 
-    @keyframes fadeScale {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    @keyframes scrollPulse {
-      0%, 100% {
-        opacity: 0.3;
-        transform: scaleY(0.6);
-        transform-origin: top;
-      }
-      50% {
-        opacity: 1;
-        transform: scaleY(1);
-        transform-origin: top;
-      }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
     }
 
-    @keyframes marquee {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    .footer-logo {
+      font-family: var(--font-display-sc);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--cream-mid);
     }
 
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    .footer-copy {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: var(--muted);
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .footer-right {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 1px;
     }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.96);
-      transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
-                  transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Stagger children */
-    .stagger-1 { transition-delay: 0s; }
-    .stagger-2 { transition-delay: 0.12s; }
-    .stagger-3 { transition-delay: 0.24s; }
-    .stagger-4 { transition-delay: 0.36s; }
 
     /* ═══════════════════════════════════════════════════
        GRAIN OVERLAY
@@ -860,12 +930,34 @@
     }
 
     /* ═══════════════════════════════════════════════════
+       ANIMATIONS
+       ═══════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════════════════
        RESPONSIVE
        ═══════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+      .scene-split {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .creative-left {
+        display: none;
       }
 
       .services-grid {
@@ -912,7 +1004,6 @@
 
       .nav-toggle {
         display: flex;
-        z-index: 101;
       }
 
       .nav-toggle.open span:nth-child(1) {
@@ -927,6 +1018,10 @@
         transform: rotate(-45deg) translate(4px, -4px);
       }
 
+      .nav-tagline {
+        display: none;
+      }
+
       .services-grid {
         grid-template-columns: 1fr;
       }
@@ -936,208 +1031,213 @@
         gap: 2.5rem;
       }
 
-      .about-section {
-        padding: 5rem 0;
+      .u-shape {
+        max-width: 100%;
       }
 
-      .services-section {
-        padding: 4rem 0 5rem;
+      .u-word {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
       }
 
-      .process-section {
-        padding: 5rem 0;
-      }
-
-      .contact-section {
-        padding: 5rem 0;
-      }
-
-      .footer {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-        padding: 1.5rem;
-      }
-
-      .hero-headline {
-        letter-spacing: 1px;
-      }
-
-      .nav {
-        padding: 1rem 1.5rem;
-      }
-
-      .nav.scrolled {
+      #nav {
         padding: 0.8rem 1.5rem;
       }
 
-      .container {
+      .scene-content {
         padding: 0 1.5rem;
       }
 
-      .service-card {
-        padding: 2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-brand span {
-        display: none;
+      .footer-inner {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
       }
 
-      .hero-subtitle .dot {
-        display: none;
-      }
-
-      .hero-subtitle {
-        max-width: 280px;
-        margin: 0 auto;
+      #footer {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- ═══ LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-brand" id="loaderBrand"></div>
+      <span class="loader-sub">Soukromá právní poradkyně · Praha</span>
+    </div>
+  </div>
+
   <!-- GRAIN OVERLAY -->
   <div class="grain"></div>
 
+  <!-- LAYER 0 — BEAMS (Three.js shader) -->
+  <div id="beams"></div>
+
   <!-- LAYER 1 — FIXED BACKGROUND -->
-  <div class="fixed-bg">
-    <img src="./alice-hero-2-resize.png" alt="Alice Hejzlarová" loading="eager">
-    <div class="parametric-overlay"></div>
-    <div class="vignette"></div>
+  <div class="fixed-bg" id="fixedBg">
+    <img src="./alice-hero-2-resize.png" alt="Alice Hejzlarová" loading="eager" id="bgPhoto">
+    <div class="parametric-overlay" id="parametric"></div>
+    <div class="vignette" id="vignette"></div>
   </div>
 
-  <!-- LAYER 2 — SCROLLING CONTENT -->
-  <div class="content-layer">
+  <!-- NAVIGATION -->
+  <nav id="nav">
+    <div class="nav-left">
+      <a href="#" class="nav-brand">ALICE HEJZLAROVÁ</a>
+      <span class="nav-tagline">| Soukromá právní poradkyně · Praha</span>
+    </div>
+    <div class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#scene-services">Služby</a>
+      <a href="#scene-story">Příběh</a>
+      <a href="#scene-process">Proces</a>
+      <a href="#scene-contact">Kontakt</a>
+      <a href="#scene-contact" class="nav-cta">Napište mi</a>
+    </div>
+  </nav>
 
-    <!-- ═══ NAVIGATION ═══ -->
-    <nav class="nav" id="nav">
-      <div class="nav-brand">
-        Alice Hejzlarová<span>| Soukromá právní poradkyně · Praha</span>
-      </div>
-      <div class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="#sluzby">Služby</a>
-        <a href="#pribeh">Příběh</a>
-        <a href="#proces">Proces</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#kontakt" class="nav-cta">Napište mi</a>
-      </div>
-    </nav>
+  <!-- ═══ SCENES ═══ -->
+  <main id="sections">
 
-    <!-- ═══ HERO ═══ -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div class="hero-label">Soukromá právní poradkyně</div>
-        <h1 class="hero-headline">
-          <span>PRÁVO</span>
-          <span>S VIZÍ</span>
-        </h1>
-        <p class="hero-subtitle">
-          Kde se preciznost setkává s důvěrou<span class="dot">·</span>Právo bez kompromisů
-        </p>
-      </div>
-      <div class="scroll-indicator">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+    <!-- SCENE 1 — HERO (tall for scroll parallax) -->
+    <section class="scene scene-tall" id="scene-hero">
+      <div class="scene-content">
+        <div class="hero-wrap" id="heroText">
+          <p class="eyebrow">Soukromá právní poradkyně</p>
+          <h1 class="display">PRÁVO<br>S VIZÍ</h1>
+          <p class="tagline">
+            Kde se preciznost setkává s důvěrou<span class="dot">·</span>Právo bez kompromisů
+          </p>
+        </div>
+        <div class="scroll-indicator" id="scrollInd">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
       </div>
     </section>
 
-    <!-- ═══ MARQUEE BAR ═══ -->
-    <section class="marquee-section">
+    <!-- MARQUEE BAR -->
+    <section class="marquee-section" id="marquee">
       <div class="marquee-track">
-        <div class="marquee-item">M&A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
-        <div class="marquee-item">M&A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
-        <div class="marquee-item">M&A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
+        <div class="marquee-item">M&amp;A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
+        <div class="marquee-item">M&amp;A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
+        <div class="marquee-item">M&amp;A TRANSAKCE<span class="sep">·</span>KORPORÁTNÍ PRÁVO<span class="sep">·</span>15+ LET PRAXE<span class="sep">·</span>31 PUBLIKACÍ<span class="sep">·</span>OCHRANA MAJETKU<span class="sep">·</span>EXIT LP LEGAL<span class="sep">·</span>OMEZENÝ POČET MANDÁTŮ</div>
       </div>
     </section>
 
-    <!-- ═══ ABOUT / BORN ═══ -->
-    <section class="about-section" id="pribeh">
-      <div class="container">
-        <div class="about-grid">
+    <!-- SCENE 2 — STORY (split layout: ingredients + text) -->
+    <section class="scene scene-tall" id="scene-story">
+      <div class="scene-content">
+        <div class="scene-split">
 
-          <!-- Ingredients column -->
-          <div class="ingredients reveal">
-            <div class="ingredient-item">
-              <div class="ingredient-dot"></div>
-              <div class="ingredient-line"></div>
-              <div class="ingredient-text">M&A transakce</div>
+          <div class="creative-left" id="creativeLeft">
+            <div class="note-line">
+              <div class="note-dot"></div>
+              <div class="note-dash"></div>
+              <div class="note-text">M&amp;A transakce</div>
             </div>
-            <div class="ingredient-item">
-              <div class="ingredient-dot"></div>
-              <div class="ingredient-line"></div>
-              <div class="ingredient-text">Korporátní právo</div>
+            <div class="note-line">
+              <div class="note-dot"></div>
+              <div class="note-dash"></div>
+              <div class="note-text">Korporátní právo</div>
             </div>
-            <div class="ingredient-diamond">◆ &nbsp; ◆ &nbsp; ◆</div>
-            <div class="ingredient-item">
-              <div class="ingredient-dot"></div>
-              <div class="ingredient-line"></div>
-              <div class="ingredient-text">Ochrana majetku</div>
+            <div class="note-accent">◆ &nbsp; ◆ &nbsp; ◆</div>
+            <div class="note-line">
+              <div class="note-dot"></div>
+              <div class="note-dash"></div>
+              <div class="note-text">Ochrana majetku</div>
             </div>
-            <div class="ingredient-item">
-              <div class="ingredient-dot"></div>
-              <div class="ingredient-line"></div>
-              <div class="ingredient-text">Korporátní spory</div>
+            <div class="note-line">
+              <div class="note-dot"></div>
+              <div class="note-dash"></div>
+              <div class="note-text">Korporátní spory</div>
+            </div>
+            <div class="note-accent">∞</div>
+            <div class="note-line">
+              <div class="note-dot"></div>
+              <div class="note-dash"></div>
+              <div class="note-text">Due diligence</div>
             </div>
           </div>
 
-          <!-- Text column -->
-          <div class="about-content reveal" style="transition-delay: 0.15s;">
-            <div class="section-label">— I</div>
-            <h2 class="section-headline">ZROZENA Z PRECIZNOSTI</h2>
-            <p>Více než 15 let zkušeností v obchodním právu. Praxe v předních mezinárodních kancelářích i vedení právního oddělení Exit LP formovaly pohled, který kombinuje strategické myšlení s důkladnou znalostí praxe.</p>
-            <p>Věřím, že kvalitní právní poradenství není o objemu — je o hloubce. Proto přijímám omezený počet mandátů a každému klientovi se věnuji osobně.</p>
+          <div class="text-wrap text-right" id="storyText">
+            <p class="chapter">I</p>
+            <h2 class="heading">ZROZENA<br>Z PRECIZNOSTI</h2>
+            <p class="body">
+              Více než 15 let zkušeností v obchodním právu. Praxe v předních mezinárodních kancelářích i vedení právního oddělení Exit LP formovaly pohled, který kombinuje strategické myšlení s důkladnou znalostí praxe.
+              <br><br>
+              Věřím, že kvalitní právní poradenství není o objemu — je o hloubce. Proto přijímám omezený počet mandátů a každému klientovi se věnuji osobně.
+            </p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ═══ MANIFESTO QUOTE ═══ -->
-    <section class="quote-section">
-      <div class="container">
-        <div class="reveal-scale">
-          <div class="quote-line"></div>
-          <blockquote class="quote-text">
-            &bdquo;Skutečný právní poradce nejen řeší problémy — předvídá je.&ldquo;
-          </blockquote>
-          <div class="quote-attribution">— JUDr. Alice Hejzlarová</div>
-          <div class="quote-line-bottom"></div>
+    <!-- SCENE 3 — U-SHAPE STATEMENT -->
+    <section class="scene scene-tall" id="scene-statement">
+      <div class="scene-content">
+        <div class="u-shape-wrap" id="uShapeSection">
+          <div class="u-shape">
+            <div class="u-word u-top-left">Absolutní</div>
+            <div class="u-word u-top-right accent">Diskrétnost</div>
+            <div class="u-body-cell">
+              <p class="u-body">Každý případ je jedinečný. Nepracuji s šablonami — pracuji s důvěrou. Vaše záležitosti zůstávají pouze mezi námi, s maximální pozorností k detailu a bez kompromisů na kvalitě.</p>
+            </div>
+            <div class="u-word u-bot-left">Důvěra</div>
+            <div class="u-word u-mid-right">Ochrana</div>
+            <div class="u-word u-bot-right accent">◆</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ SERVICES ═══ -->
-    <section class="services-section" id="sluzby">
-      <div class="container">
-        <div class="services-header reveal">
-          <div class="section-label">DISCIPLÍNY PRÁVA</div>
-          <h2 class="section-headline">Na průsečíku práva a strategie.</h2>
+    <!-- SCENE 4 — QUOTE / MANIFESTO -->
+    <section class="scene scene-tall" id="scene-quote">
+      <div class="scene-content">
+        <div class="text-wrap text-center" id="quoteText">
+          <div class="quote-wrap">
+            <div class="quote-line"></div>
+            <blockquote class="quote-text">
+              &bdquo;Skutečný právní poradce nejen řeší problémy — předvídá je.&ldquo;
+            </blockquote>
+            <div class="quote-attribution">— JUDr. Alice Hejzlarová</div>
+            <div class="quote-line"></div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="services-grid">
-          <div class="service-card reveal stagger-1">
+    <!-- SCENE 5 — SERVICES -->
+    <section class="scene" id="scene-services" style="min-height: auto; display: block; padding: 8rem 0;">
+      <div class="services-wrap" style="padding: 0 2rem;">
+        <div class="services-header" id="servicesHeader">
+          <p class="eyebrow">Disciplíny práva</p>
+          <h2 class="heading" style="font-family: var(--font-display); font-style: italic;">Na průsečíku práva a strategie</h2>
+        </div>
+        <div class="services-grid" id="servicesGrid">
+          <div class="service-card">
             <div class="service-numeral">I</div>
             <h3 class="service-title">Fúze a akvizice</h3>
-            <p class="service-desc">Komplexní právní podpora M&A transakcí od due diligence po closing. Zkušenosti z desítek úspěšných transakcí.</p>
+            <p class="service-desc">Komplexní právní podpora M&amp;A transakcí od due diligence po closing. Zkušenosti z desítek úspěšných transakcí.</p>
           </div>
-          <div class="service-card reveal stagger-2">
+          <div class="service-card">
             <div class="service-numeral">II</div>
             <h3 class="service-title">Korporátní právo</h3>
             <p class="service-desc">Správa a řízení obchodních společností, corporate governance, reorganizace a restrukturalizace.</p>
           </div>
-          <div class="service-card reveal stagger-3">
+          <div class="service-card">
             <div class="service-numeral">III</div>
             <h3 class="service-title">Ochrana majetku</h3>
             <p class="service-desc">Strukturování majetku, svěřenské fondy, rodinné holdingové struktury a mezigenerační transfer bohatství.</p>
           </div>
-          <div class="service-card reveal stagger-4">
+          <div class="service-card">
             <div class="service-numeral">IV</div>
             <h3 class="service-title">Korporátní spory</h3>
             <p class="service-desc">Zastupování v obchodních sporech, akcionářských konfliktech a sporech z porušení smluv.</p>
@@ -1146,30 +1246,29 @@
       </div>
     </section>
 
-    <!-- ═══ PROCESS ═══ -->
-    <section class="process-section" id="proces">
-      <div class="container">
-        <div class="process-header reveal">
-          <h2 class="section-headline">Jak spolupracujeme</h2>
+    <!-- SCENE 6 — PROCESS -->
+    <section class="scene" id="scene-process" style="min-height: auto; display: block; padding: 6rem 0;">
+      <div class="process-wrap" style="padding: 0 2rem;">
+        <div class="process-header" id="processHeader">
+          <h2 class="heading" style="font-family: var(--font-display); font-style: italic;">Jak spolupracujeme</h2>
         </div>
-
-        <div class="process-steps">
-          <div class="process-step reveal stagger-1">
+        <div class="process-steps" id="processSteps">
+          <div class="process-step">
             <div class="step-number">01</div>
             <h3 class="step-title">Naslouchání</h3>
             <p class="step-desc">Pochopení vaší situace, cílů a kontextu</p>
           </div>
-          <div class="process-step reveal stagger-2">
+          <div class="process-step">
             <div class="step-number">02</div>
             <h3 class="step-title">Analýza</h3>
             <p class="step-desc">Důkladná právní rešerše a identifikace rizik</p>
           </div>
-          <div class="process-step reveal stagger-3">
+          <div class="process-step">
             <div class="step-number">03</div>
             <h3 class="step-title">Strategie</h3>
             <p class="step-desc">Návrh řešení šitého na míru vaší situaci</p>
           </div>
-          <div class="process-step reveal stagger-4">
+          <div class="process-step">
             <div class="step-number">04</div>
             <h3 class="step-title">Realizace</h3>
             <p class="step-desc">Provedení, podpora a průběžná komunikace</p>
@@ -1178,97 +1277,585 @@
       </div>
     </section>
 
-    <!-- ═══ CONTACT CTA ═══ -->
-    <section class="contact-section" id="kontakt">
-      <div class="container">
-        <div class="reveal">
-          <div class="section-label">Kontakt</div>
-          <h2 class="section-headline">PŘINESTE VÝZVU.<br>NAJDEME ŘEŠENÍ.</h2>
-          <p>Přijímám omezený počet mandátů ročně. Pokud hledáte právní poradkyni, která se vašemu případu skutečně věnuje, ozvěte se.</p>
+    <!-- SCENE 7 — CONTACT CTA -->
+    <section class="scene" id="scene-contact" style="min-height: 80vh;">
+      <div class="scene-content" style="height: auto; min-height: 80vh;">
+        <div class="contact-wrap" id="contactText">
+          <p class="eyebrow">Kontakt</p>
+          <h2 class="heading">PŘINESTE VÝZVU.<br>NAJDEME ŘEŠENÍ.</h2>
+          <p class="body" style="margin-bottom: 2.5rem;">Přijímám omezený počet mandátů ročně. Pokud hledáte právní poradkyni, která se vašemu případu skutečně věnuje, ozvěte se.</p>
           <a href="mailto:alice@hejzlarova.cz" class="cta-button">Nezávazná konzultace</a>
-          <br>
+          <br><br>
           <a href="mailto:alice@hejzlarova.cz" class="contact-email">alice@hejzlarova.cz</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══ FOOTER ═══ -->
-    <footer class="footer">
-      <div class="footer-left">&copy; 2026 JUDr. Alice Hejzlarová</div>
-      <div class="footer-right">Soukromá právní poradkyně · Praha</div>
-    </footer>
+  </main>
 
-  </div>
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">◆ ALICE HEJZLAROVÁ</span>
+        <span class="footer-copy">&copy; 2026 · Soukromá právní poradkyně</span>
+      </div>
+      <div class="footer-right">Praha</div>
+    </div>
+  </footer>
 
-  <!-- ═══════════════════════════════════════════════════
-       JAVASCRIPT
-       ═══════════════════════════════════════════════════ -->
+  <!-- ═══ DEPENDENCIES ═══ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- ═══ BEAMS SHADER (plum palette) ═══ -->
   <script>
-    (function() {
-      'use strict';
+  (function () {
+    'use strict';
 
-      // ── Nav scroll effect ──
-      const nav = document.getElementById('nav');
-      const hero = document.getElementById('hero');
+    var container = document.getElementById('beams');
+    if (!container || typeof THREE === 'undefined') return;
 
-      const navObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            nav.classList.remove('scrolled');
-          } else {
-            nav.classList.add('scrolled');
+    var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 1);
+    container.appendChild(renderer.domElement);
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+    var vertexShader = [
+      'varying vec2 vUv;',
+      'void main() {',
+      '  vUv = uv;',
+      '  gl_Position = vec4(position, 1.0);',
+      '}'
+    ].join('\n');
+
+    var fragmentShader = [
+      'precision highp float;',
+      'uniform vec3 iResolution;',
+      'uniform vec2 iMouse;',
+      'uniform float iTime;',
+      'uniform float uAngle;',
+      'uniform float uNoise;',
+      'uniform float uBlindCount;',
+      'uniform float uSpotlightRadius;',
+      'uniform float uSpotlightSoftness;',
+      'uniform float uSpotlightOpacity;',
+      'uniform float uOpacity;',
+      'uniform vec3 uColor0;',
+      'uniform vec3 uColor1;',
+      'uniform vec3 uColor2;',
+      'uniform vec3 uColor3;',
+      'varying vec2 vUv;',
+      '',
+      'float rand(vec2 co) {',
+      '  return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);',
+      '}',
+      '',
+      'vec2 rotate2D(vec2 p, float a) {',
+      '  float c = cos(a); float s = sin(a);',
+      '  return mat2(c, -s, s, c) * p;',
+      '}',
+      '',
+      'vec3 getGradientColor(float t) {',
+      '  float tt = clamp(t, 0.0, 1.0);',
+      '  float scaled = tt * 3.0;',
+      '  float seg = floor(scaled);',
+      '  float f = fract(scaled);',
+      '  f = f * f * (3.0 - 2.0 * f);',
+      '  if (seg < 1.0) return mix(uColor0, uColor1, f);',
+      '  if (seg < 2.0) return mix(uColor1, uColor2, f);',
+      '  return mix(uColor2, uColor3, f);',
+      '}',
+      '',
+      'void main() {',
+      '  vec2 uv0 = vUv;',
+      '  float aspect = iResolution.x / iResolution.y;',
+      '  vec2 p = uv0 * 2.0 - 1.0;',
+      '  p.x *= aspect;',
+      '  vec2 pr = rotate2D(p, uAngle);',
+      '  pr.x /= aspect;',
+      '  vec2 uv = pr * 0.5 + 0.5;',
+      '',
+      '  vec3 base = getGradientColor(uv.x);',
+      '',
+      '  vec2 offset = vec2(iMouse.x / iResolution.x, iMouse.y / iResolution.y);',
+      '  float d = length(uv0 - offset);',
+      '  float r = max(uSpotlightRadius, 0.0001);',
+      '  float dn = d / r;',
+      '  float spot = (1.0 - 2.0 * pow(dn, uSpotlightSoftness)) * uSpotlightOpacity;',
+      '  vec3 cir = vec3(spot);',
+      '',
+      '  float stripe = fract(uv.x * max(uBlindCount, 1.0));',
+      '  vec3 ran = vec3(stripe);',
+      '',
+      '  vec3 col = cir + base - ran;',
+      '  col += (rand(gl_FragCoord.xy + iTime) - 0.5) * uNoise;',
+      '  col *= uOpacity;',
+      '',
+      '  gl_FragColor = vec4(col, 1.0);',
+      '}'
+    ].join('\n');
+
+    // Plum/burgundy palette instead of gold
+    var uniforms = {
+      iResolution: { value: new THREE.Vector3(innerWidth, innerHeight, 1) },
+      iMouse: { value: new THREE.Vector2(innerWidth / 2, innerHeight / 2) },
+      iTime: { value: 0 },
+      uAngle: { value: 0.52 },
+      uNoise: { value: 0.3 },
+      uBlindCount: { value: 12 },
+      uSpotlightRadius: { value: 0.5 },
+      uSpotlightSoftness: { value: 1.0 },
+      uSpotlightOpacity: { value: 1.0 },
+      uOpacity: { value: 1.0 },
+      uColor0: { value: new THREE.Vector3(0.42, 0.18, 0.36) },  // plum
+      uColor1: { value: new THREE.Vector3(0.15, 0.05, 0.10) },  // deep burgundy
+      uColor2: { value: new THREE.Vector3(0.35, 0.12, 0.28) },  // mid plum
+      uColor3: { value: new THREE.Vector3(0.08, 0.02, 0.05) },  // near black
+    };
+
+    var geo = new THREE.PlaneGeometry(2, 2);
+    var mat = new THREE.ShaderMaterial({
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader,
+      uniforms: uniforms,
+      depthWrite: false,
+    });
+    scene.add(new THREE.Mesh(geo, mat));
+
+    var mouseTarget = { x: innerWidth / 2, y: innerHeight / 2 };
+    var mouseCurrent = { x: innerWidth / 2, y: innerHeight / 2 };
+    var dampening = 0.15;
+
+    document.addEventListener('mousemove', function(e) {
+      var dpr = renderer.getPixelRatio();
+      mouseTarget.x = e.clientX * dpr;
+      mouseTarget.y = (innerHeight - e.clientY) * dpr;
+    });
+
+    function onResize() {
+      renderer.setSize(innerWidth, innerHeight);
+      var dpr = renderer.getPixelRatio();
+      uniforms.iResolution.value.set(innerWidth * dpr, innerHeight * dpr, 1);
+    }
+    addEventListener('resize', onResize);
+    onResize();
+
+    var targetOpacity = 1.0;
+    var lastTime = 0;
+
+    function animate(time) {
+      requestAnimationFrame(animate);
+      var dt = (time - lastTime) / 1000;
+      lastTime = time;
+
+      uniforms.iTime.value = time * 0.001;
+
+      var factor = 1 - Math.exp(-dt / Math.max(dampening, 0.001));
+      mouseCurrent.x += (mouseTarget.x - mouseCurrent.x) * factor;
+      mouseCurrent.y += (mouseTarget.y - mouseCurrent.y) * factor;
+      uniforms.iMouse.value.set(mouseCurrent.x, mouseCurrent.y);
+
+      var cur = uniforms.uOpacity.value;
+      uniforms.uOpacity.value += (targetOpacity - cur) * 0.03;
+
+      renderer.render(scene, camera);
+    }
+    animate(0);
+
+    window.beamsDim = function (dimmed) {
+      targetOpacity = dimmed ? 0.0 : 1.0;
+    };
+  })();
+  </script>
+
+  <!-- ═══ MAIN APP (GSAP ScrollTrigger) ═══ -->
+  <script>
+  (function () {
+    'use strict';
+
+    // ─── Loader ───
+    var loader = document.getElementById('loader');
+    var brand = document.getElementById('loaderBrand');
+    var letters = 'ALICE HEJZLAROVÁ'.split('');
+
+    letters.forEach(function(ch, i) {
+      var span = document.createElement('span');
+      span.className = 'fold-letter';
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      span.style.animationDelay = (i * 0.06) + 's';
+      brand.appendChild(span);
+    });
+
+    // Start after fonts + images
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        loader.classList.add('done');
+        initGSAP();
+      }, 1800);
+    });
+
+    // Fallback
+    setTimeout(function() {
+      if (!loader.classList.contains('done')) {
+        loader.classList.add('done');
+        initGSAP();
+      }
+    }, 4000);
+
+    function initGSAP() {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      var nav = document.getElementById('nav');
+      var bgPhoto = document.getElementById('bgPhoto');
+      var parametric = document.getElementById('parametric');
+      var vignette = document.getElementById('vignette');
+      var heroText = document.getElementById('heroText');
+      var scrollInd = document.getElementById('scrollInd');
+
+      // ─── Hero text entrance then scroll fade-out ───
+      heroText.style.opacity = '0';
+      heroText.style.transform = 'translateY(40px)';
+      scrollInd.style.opacity = '0';
+
+      // Entrance animation
+      var heroEntrance = gsap.timeline({ delay: 0.3 });
+      heroEntrance.to(heroText, {
+        opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
+        clearProps: 'transform',
+        onComplete: function() {
+          // Only set up scroll fade AFTER entrance is done
+          heroText.style.willChange = 'opacity, transform';
+        }
+      });
+      heroEntrance.to(scrollInd, { opacity: 1, duration: 0.8 }, 0.9);
+
+      // ─── SCENE 1: Hero — text fades out on scroll ───
+      var heroScene = document.getElementById('scene-hero');
+
+      // Use fromTo so GSAP knows both start AND end values
+      gsap.fromTo(heroText,
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -80,
+          ease: 'power2.in',
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: heroScene,
+            start: '10% top',
+            end: '50% top',
+            scrub: 1.5,
+          }
+        }
+      );
+
+      gsap.to(scrollInd, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: heroScene,
+          start: 'top top',
+          end: '15% top',
+          scrub: true,
+        }
+      });
+
+      // Photo zoom + parametric shift on hero scroll
+      gsap.to(bgPhoto, {
+        scale: 1.15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroScene,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 2,
+        }
+      });
+
+      gsap.to(parametric, {
+        opacity: 0.55,
+        scale: 1.1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroScene,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 2,
+        }
+      });
+
+      // ─── SCENE 2: Story — split layout ───
+      var storyScene = document.getElementById('scene-story');
+      var storyText = document.getElementById('storyText');
+      var creativeLeft = document.getElementById('creativeLeft');
+      var noteLines = creativeLeft ? creativeLeft.querySelectorAll('.note-line') : [];
+      var noteAccents = creativeLeft ? creativeLeft.querySelectorAll('.note-accent') : [];
+
+      // Text appear / disappear
+      ScrollTrigger.create({
+        trigger: storyScene,
+        start: 'top 75%',
+        end: '80% top',
+        onEnter: function() { storyText.classList.add('visible'); },
+        onLeave: function() { storyText.classList.remove('visible'); },
+        onEnterBack: function() { storyText.classList.add('visible'); },
+        onLeaveBack: function() { storyText.classList.remove('visible'); },
+      });
+
+      // Creative left stagger
+      if (creativeLeft && noteLines.length) {
+        var leftTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: storyScene,
+            start: 'top 70%',
+            end: '60% top',
+            onEnter: function() {
+              creativeLeft.classList.add('visible');
+              leftTl.restart();
+            },
+            onLeave: function() { creativeLeft.classList.remove('visible'); },
+            onEnterBack: function() {
+              creativeLeft.classList.add('visible');
+              leftTl.restart();
+            },
+            onLeaveBack: function() { creativeLeft.classList.remove('visible'); },
           }
         });
-      }, { threshold: 0.15 });
 
-      navObserver.observe(hero);
+        noteLines.forEach(function(line, i) {
+          leftTl.to(line, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+          }, i * 0.12);
+        });
 
-      // ── Scroll reveal ──
-      const reveals = document.querySelectorAll('.reveal, .reveal-scale');
+        noteAccents.forEach(function(acc, i) {
+          leftTl.fromTo(acc,
+            { opacity: 0, scale: 0.5 },
+            { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' },
+            0.3 + i * 0.4
+          );
+        });
+      }
 
-      const revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+      // ─── SCENE 3: U-Shape Statement ───
+      var statementScene = document.getElementById('scene-statement');
+      var uSection = document.getElementById('uShapeSection');
+      var uWords = uSection ? uSection.querySelectorAll('.u-word') : [];
+      var uBody = uSection ? uSection.querySelector('.u-body') : null;
+      var uPlayed = false;
+
+      ScrollTrigger.create({
+        trigger: statementScene,
+        start: '25% top',
+        end: '90% top',
+        onEnter: function() {
+          if (!uPlayed) {
+            uPlayed = true;
+            gsap.fromTo(uWords[0],
+              { opacity: 0, x: -80, rotateZ: -5 },
+              { opacity: 1, x: 0, rotateZ: 0, duration: 0.8, ease: 'power3.out' }
+            );
+            gsap.fromTo(uWords[1],
+              { opacity: 0, x: 80, rotateZ: 5 },
+              { opacity: 1, x: 0, rotateZ: 0, duration: 0.8, ease: 'power3.out', delay: 0.15 }
+            );
+            if (uBody) {
+              gsap.fromTo(uBody,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.3 }
+              );
+            }
+            if (uWords[2]) gsap.fromTo(uWords[2],
+              { opacity: 0, y: -50 },
+              { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.4 }
+            );
+            if (uWords[3]) gsap.fromTo(uWords[3],
+              { opacity: 0, y: 60 },
+              { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.55 }
+            );
+            if (uWords[4]) gsap.fromTo(uWords[4],
+              { opacity: 0, scale: 0.3, rotateZ: -180 },
+              { opacity: 1, scale: 1, rotateZ: 0, duration: 1, ease: 'elastic.out(1, 0.5)', delay: 0.65 }
+            );
           }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -60px 0px'
+        },
+        onLeave: function() {
+          var all = [].concat(Array.from(uWords));
+          if (uBody) all.push(uBody);
+          gsap.to(all, { opacity: 0, duration: 0.4 });
+          uPlayed = false;
+        },
+        onEnterBack: function() {
+          var all = [].concat(Array.from(uWords));
+          if (uBody) all.push(uBody);
+          gsap.to(all, { opacity: 1, duration: 0.4 });
+        },
+        onLeaveBack: function() {
+          var all = [].concat(Array.from(uWords));
+          if (uBody) all.push(uBody);
+          gsap.to(all, { opacity: 0, duration: 0.3 });
+          uPlayed = false;
+        },
       });
 
-      reveals.forEach(function(el) {
-        revealObserver.observe(el);
-      });
+      // ─── SCENE 4: Quote — text reveal ───
+      setupTextReveal(document.getElementById('scene-quote'), 'quoteText', 30);
 
-      // ── Mobile nav toggle ──
-      var toggle = document.getElementById('navToggle');
-      var links = document.getElementById('navLinks');
-
-      toggle.addEventListener('click', function() {
-        toggle.classList.toggle('open');
-        links.classList.toggle('open');
-      });
-
-      // Close mobile nav on link click
-      links.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() {
-          toggle.classList.remove('open');
-          links.classList.remove('open');
-        });
-      });
-
-      // ── Smooth scroll for anchor links ──
-      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          var target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // ─── SCENE 5: Services — card stagger ───
+      var servicesGrid = document.getElementById('servicesGrid');
+      if (servicesGrid) {
+        var cards = servicesGrid.querySelectorAll('.service-card');
+        gsap.fromTo(cards,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: servicesGrid,
+              start: 'top 80%',
+            }
           }
-        });
+        );
+      }
+
+      var servicesHeader = document.getElementById('servicesHeader');
+      if (servicesHeader) {
+        gsap.fromTo(servicesHeader,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+            scrollTrigger: { trigger: servicesHeader, start: 'top 85%' }
+          }
+        );
+      }
+
+      // ─── SCENE 6: Process — step stagger ───
+      var processSteps = document.getElementById('processSteps');
+      if (processSteps) {
+        var steps = processSteps.querySelectorAll('.process-step');
+        gsap.fromTo(steps,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: processSteps,
+              start: 'top 80%',
+            }
+          }
+        );
+      }
+
+      var processHeader = document.getElementById('processHeader');
+      if (processHeader) {
+        gsap.fromTo(processHeader,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+            scrollTrigger: { trigger: processHeader, start: 'top 85%' }
+          }
+        );
+      }
+
+      // ─── SCENE 7: Contact — reveal ───
+      setupTextReveal(document.getElementById('scene-contact'), 'contactText', 30);
+
+      // ─── Photo/overlay parallax through entire page ───
+      gsap.to(bgPhoto, {
+        y: -100,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#sections',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 3,
+        }
       });
-    })();
+
+      // Subtle vignette shift — don't go full dark
+      gsap.fromTo(vignette,
+        { opacity: 1 },
+        {
+          opacity: 0.8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#sections',
+            start: '20% top',
+            end: '80% top',
+            scrub: 2,
+          }
+        }
+      );
+
+      // ─── Nav scroll state + beams dim ───
+      ScrollTrigger.create({
+        start: 100,
+        onUpdate: function() {
+          var scrolled = scrollY > 100;
+          nav.classList.toggle('scrolled', scrolled);
+          if (window.beamsDim) window.beamsDim(scrollY > innerHeight * 0.5);
+        }
+      });
+
+      // ─── Helper: simple text toggle ───
+      function setupTextReveal(sceneEl, textId, startPct) {
+        if (!sceneEl) return;
+        var tw = document.getElementById(textId);
+        if (!tw) return;
+        ScrollTrigger.create({
+          trigger: sceneEl,
+          start: startPct + '% top',
+          end: '90% top',
+          onEnter: function() { tw.classList.add('visible'); },
+          onLeave: function() { tw.classList.remove('visible'); },
+          onEnterBack: function() { tw.classList.add('visible'); },
+          onLeaveBack: function() { tw.classList.remove('visible'); },
+        });
+      }
+    }
+
+    // ─── Mobile nav toggle ───
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', function() {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        toggle.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+
+    // ─── Smooth scroll for anchor links ───
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
   </script>
 </body>
 </html>
