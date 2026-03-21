@@ -154,29 +154,38 @@
         <!-- Main Content Wrapper -->
         <main class="relative z-10 bg-parchment overflow-hidden">
 
-            <!-- Services — 2×2 grid -->
-            <section id="sluzby" class="py-16 px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" style="--card-size: minmax(0, 1fr);">
-                    <style>.card-square { aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: center; }</style>
-                    <div class="p-7 md:p-10 transition-all duration-500 hover:scale-[1.02] reveal card-square" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); border-radius: 20px 20px 10px 10px; opacity: 0; transform: translateY(3rem); transition: opacity 0.8s ease, transform 0.8s ease;">
-                        <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Exit & strategické transakce</span>
-                        <h3 class="text-lg md:text-xl tracking-tight text-plum-800 mb-3" style="font-family: 'DM Serif Display', serif;">„Mám nabídku na prodej firmy. Nevím, komu věřit."</h3>
-                        <p class="text-sm leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">Prodej firmy, generační obměna, akvizice. Rozumím exitům, protože jsem jedním sama prošla.</p>
+            <!-- Services — cinematic list -->
+            <section id="sluzby" class="py-20 md:py-32 px-6 md:px-12 lg:px-16" style="background: #0E0A12;">
+                <div class="max-w-6xl mx-auto">
+                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease, transform 0.8s ease;">
+                        <div class="flex items-baseline justify-between">
+                            <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Exit</h3>
+                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Prodej firmy, generační obměna</span>
+                        </div>
                     </div>
-                    <div class="p-7 md:p-10 transition-all duration-500 hover:scale-[1.02] reveal card-square" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); border-radius: 20px 20px 10px 10px; opacity: 0; transform: translateY(3rem); transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;">
-                        <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Rodinné situace podnikatelů</span>
-                        <h3 class="text-lg md:text-xl tracking-tight text-plum-800 mb-3" style="font-family: 'DM Serif Display', serif;">„Rozvádím se a zároveň řeším budoucnost firmy."</h3>
-                        <p class="text-sm leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">Rozvod, majetkové vypořádání, ochrana dětí — absolutní diskrétnost je základ.</p>
+                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;">
+                        <div class="flex items-baseline justify-between">
+                            <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Konflikt</h3>
+                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Spory společníků, rozpad partnerství</span>
+                        </div>
                     </div>
-                    <div class="p-7 md:p-10 transition-all duration-500 hover:scale-[1.02] reveal card-square" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); border-radius: 20px 20px 10px 10px; opacity: 0; transform: translateY(3rem); transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;">
-                        <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Konflikt společníků</span>
-                        <h3 class="text-lg md:text-xl tracking-tight text-plum-800 mb-3" style="font-family: 'DM Serif Display', serif;">„Společník chce odejít. Nebo chci odejít já."</h3>
-                        <p class="text-sm leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">Deadlock, rozpad partnerství, restrukturalizace. Jeden špatný krok mění všechno.</p>
+                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;">
+                        <div class="flex items-baseline justify-between">
+                            <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Restrukturalizace</h3>
+                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Strategické změny struktury firmy</span>
+                        </div>
                     </div>
-                    <div class="p-7 md:p-10 transition-all duration-500 hover:scale-[1.02] relative overflow-hidden reveal card-square" style="background: linear-gradient(170deg, #1A1420 0%, #2E1833 70%, #3D2045 100%); border-radius: 20px 20px 10px 10px; opacity: 0; transform: translateY(3rem); transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;">
-                        <span class="block mb-3 relative z-10" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Private Counsel</span>
-                        <h3 class="text-lg md:text-xl tracking-tight text-parchment mb-3 relative z-10" style="font-family: 'DM Serif Display', serif;">„Potřebuju jednoho člověka, kterému můžu říct všechno."</h3>
-                        <p class="text-sm leading-relaxed relative z-10" style="color: rgba(240,235,232,0.6); font-family: 'Crimson Pro', serif;">Neplatíte za hodiny — platíte za to, že znám celý váš příběh.</p>
+                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;">
+                        <div class="flex items-baseline justify-between">
+                            <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Ochrana</h3>
+                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Osobní situace s maximální diskrétností</span>
+                        </div>
+                    </div>
+                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); border-bottom: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;">
+                        <div class="flex items-baseline justify-between">
+                            <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Rozhodnutí</h3>
+                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Průsečík práva, byznysu a osobní situace</span>
+                        </div>
                     </div>
                 </div>
             </section>
