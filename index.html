@@ -90,11 +90,24 @@
         <!-- Main Content Wrapper -->
         <main class="relative z-10 bg-parchment rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-1rem_3rem_rgba(0,0,0,0.6)] overflow-hidden">
 
-            <!-- Statement -->
-            <section class="py-24 md:py-32 px-6 md:px-12 lg:px-24" style="background: #FDFCFB;">
-                <div class="max-w-3xl mx-auto text-center reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <p class="text-2xl md:text-3xl leading-relaxed tracking-tight text-plum-800" style="font-family: 'DM Serif Display', serif;">
-                        15 let v&nbsp;nejsložitějších právních situacích mě naučilo jednu věc: nepotřebujete rychlé odpovědi. Potřebujete partnera, který s&nbsp;vámi vydrží v&nbsp;nejistotě. A&nbsp;ukáže cestu ven.
+            <!-- Statement — cinematic reveal -->
+            <section class="relative py-32 md:py-44 px-6 md:px-12 lg:px-24 overflow-hidden" style="background: #FDFCFB;">
+                <!-- Warm glow behind text -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div style="width: 50vw; height: 50vh; background: radial-gradient(ellipse at center, rgba(184,160,200,0.06) 0%, transparent 70%);"></div>
+                </div>
+                <!-- Thin gold line top -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 h-px" style="width: 0; background: linear-gradient(90deg, transparent, #B8A0C8, transparent); transition: width 1.4s cubic-bezier(0.16,1,0.3,1);" id="statement-line"></div>
+
+                <div class="max-w-3xl mx-auto text-center relative z-10">
+                    <p class="text-2xl md:text-4xl leading-relaxed tracking-tight text-plum-800 statement-word" style="font-family: 'DM Serif Display', serif; opacity: 0; transform: translateY(3rem); transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1);">
+                        15 let v&nbsp;nejsložitějších právních situacích mě naučilo jednu věc:
+                    </p>
+                    <p class="text-2xl md:text-4xl leading-relaxed tracking-tight mt-6 statement-word" style="font-family: 'DM Serif Display', serif; font-style: italic; color: #B8A0C8; opacity: 0; transform: translateY(3rem); transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s, transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s;">
+                        nepotřebujete rychlé odpovědi.
+                    </p>
+                    <p class="text-2xl md:text-4xl leading-relaxed tracking-tight mt-6 statement-word" style="font-family: 'DM Serif Display', serif; color: #2E1833; opacity: 0; transform: translateY(3rem); transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s, transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s;">
+                        Potřebujete partnera, který s&nbsp;vámi vydrží v&nbsp;nejistotě. A&nbsp;ukáže cestu ven.
                     </p>
                 </div>
             </section>
@@ -396,16 +409,24 @@
             <!-- Parallax Testimonial Layer (Aubergine) with Arches -->
             <section class="relative z-20 pt-48 pb-32 md:pb-48 px-6 bg-fixed overflow-hidden" style="background: linear-gradient(170deg, #0E0A12 0%, #2E1833 100%);">
 
+                <!-- Warm light glow — světlo v tunelu -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div style="width: 40vw; height: 60vh; background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,160,200,0.12) 0%, rgba(184,160,200,0.04) 40%, transparent 70%);"></div>
+                </div>
+
                 <!-- Concentrické arches — All's Fair motiv -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="opacity: 0.06;">
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="opacity: 0.08;">
                     <div class="relative" style="width: 900px; height: 900px;">
-                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(1);"></div>
-                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.82); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.64); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.46); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.28); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(1);"></div>
+                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.82); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.64); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.46); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.28); transform-origin: bottom center;"></div>
                     </div>
                 </div>
+
+                <!-- Vertical light beam — paprsek světla -->
+                <div class="absolute left-1/2 -translate-x-1/2 bottom-0 pointer-events-none" style="width: 2px; height: 70%; background: linear-gradient(180deg, rgba(184,160,200,0.3) 0%, rgba(184,160,200,0) 100%); filter: blur(1px);"></div>
 
                 <!-- Grain overlay -->
                 <div class="absolute inset-0 opacity-[0.03]" style="background: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px;"></div>
@@ -549,6 +570,25 @@
                 }
             });
         }, 100);
+
+        // Statement cinematic reveal — staggered word groups
+        const statementWords = document.querySelectorAll('.statement-word');
+        const statementLine = document.getElementById('statement-line');
+        const statementObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Trigger line
+                    if (statementLine) statementLine.style.width = '40%';
+                    // Trigger all words with their CSS delays
+                    statementWords.forEach(w => {
+                        w.style.opacity = '1';
+                        w.style.transform = 'translateY(0)';
+                    });
+                    statementObs.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        if (statementWords.length > 0) statementObs.observe(statementWords[0].parentElement);
     </script>
 
 </body></html>
