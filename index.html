@@ -36,7 +36,9 @@
         <section class="sticky top-0 h-[100svh] min-h-[45rem] w-full overflow-hidden flex flex-col justify-between z-0">
 
             <!-- Hero Background Image -->
-            <div id="hero-image" class="absolute w-full h-full bg-cover bg-no-repeat origin-center will-change-transform" style="background-image: url('alice-hejzlarova-hero-v2.png'); transform: scale(1.15); inset: -8% 0; background-position: center 8%;"></div>
+            <div class="absolute inset-0 overflow-hidden">
+                <img id="hero-image" src="alice-hejzlarova-hero-v2.png" alt="Alice Hejzlarová" class="w-full h-full object-cover object-top scale-[1.15] origin-top will-change-transform">
+            </div>
 
             <!-- No overlay — clean photo -->
 
@@ -543,6 +545,7 @@
 
                     if(heroImage) {
                         heroImage.style.transform = `scale(${1.15 + scrollProgress * 0.05})`;
+                        heroImage.style.transformOrigin = 'top center';
                     }
                     // heroContent stays static — no scroll effect
                 }
