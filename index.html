@@ -127,9 +127,6 @@
                             <p id="st-line2" class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8; opacity: 0; transform: translateY(30px); transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;">
                                 Nepotřebujete rychlé odpovědi.
                             </p>
-                            <p id="st-line3" style="font-family: 'Crimson Pro', serif; font-style: italic; font-size: clamp(17px,1.6vw,22px); color: #B8A0C8; line-height: 1.7; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s;">
-                                Klíčové momenty vyžadují klíčového člověka.
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -143,9 +140,6 @@
                             </p>
                             <p id="st-line2r" class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8; opacity: 0; transform: translateY(30px); transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;">
                                 Nepotřebujete rychlé odpovědi.
-                            </p>
-                            <p id="st-line3r" style="font-family: 'Crimson Pro', serif; font-style: italic; font-size: clamp(17px,1.6vw,22px); color: #B8A0C8; line-height: 1.7; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s;">
-                                Potřebujete partnera, který s&nbsp;vámi vydrží v&nbsp;nejistotě. A&nbsp;provede vás velkou změnou.
                             </p>
                         </div>
                     </div>
@@ -623,7 +617,7 @@
 
         // Statement text reveal — staggered fade-in when split section enters viewport
         let stRevealed = false;
-        const stLines = ['st-line1','st-line2','st-line3','st-line1r','st-line2r','st-line3r'];
+        const stLines = ['st-line1','st-line2','st-line1r','st-line2r'];
         const stObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !stRevealed) {
