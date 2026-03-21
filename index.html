@@ -42,10 +42,7 @@
 
             <!-- No overlay — clean photo -->
 
-            <!-- Header -->
-            <header class="z-20 px-6 md:px-12 flex w-full pt-8 pb-8 absolute top-0 left-0 items-center justify-between">
-                <div class="text-parchment tracking-tight" style="font-family: 'DM Serif Display', serif; font-size: 28px;">AH</div>
-            </header>
+            <!-- Header removed for cleaner hero -->
 
             <!-- Main Hero Content — name left, description far right -->
             <div class="absolute inset-0 z-10 flex items-center px-6 md:px-12 lg:px-16" id="hero-content">
@@ -54,15 +51,15 @@
                     <!-- Left: Label + Name -->
                     <div class="flex-shrink-0">
                         <div class="flex items-center gap-3 mb-6 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                            <span style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Private Counsel</span>
+                            <span style="font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Private Counsel</span>
                         </div>
                         <h1 class="text-parchment tracking-tight leading-[0.9] reveal" style="font-family: 'DM Serif Display', serif; font-size: clamp(56px, 10vw, 130px); opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
                             Alice<br>Hejzlarová
                         </h1>
                     </div>
 
-                    <!-- Right: Description — pushed to far right -->
-                    <div class="max-w-sm flex-shrink-0 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
+                    <!-- Right: Description — pushed to far right, lower on desktop -->
+                    <div class="max-w-sm flex-shrink-0 reveal md:self-end md:mb-[-2rem]" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
                         <p class="leading-relaxed" style="color: rgba(240,235,232,0.65); font-family: 'Crimson Pro', serif; font-size: clamp(20px, 2.2vw, 28px);">
                             <strong style="font-weight: 400; color: #F0EBE8;">Právní poradenství</strong> pro klíčové momenty vašeho života a&nbsp;byznysu
                         </p>
@@ -109,11 +106,11 @@
                 <div class="absolute inset-0 z-[1] flex flex-col items-center justify-center px-6" style="padding-bottom: 15vh;">
                     <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
                     <h2 class="text-4xl md:text-6xl tracking-tight text-center" style="font-family: 'DM Serif Display', serif; color: #F0EBE8; text-shadow: 0 4px 30px rgba(0,0,0,0.5);">
-                        Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě.
+                        Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě
                     </h2>
                 </div>
                 <!-- Subheadline — bottom, on dark water area, scroll-reveal -->
-                <div id="sub-reveal" class="absolute bottom-[12%] left-0 right-0 z-[1] text-center px-6" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
+                <div id="sub-reveal" class="absolute bottom-[2%] left-0 right-0 z-[1] text-center px-6" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
                     <p class="text-2xl md:text-4xl" style="font-family: 'DM Serif Display', serif; font-style: italic; color: #F0EBE8; text-shadow: 0 4px 30px rgba(0,0,0,0.6);">
                         A provede vás velkou změnou.
                     </p>
@@ -129,10 +126,10 @@
                     <div class="absolute inset-0 w-[200%] flex items-center justify-center">
                         <div class="max-w-4xl text-center px-6">
                             <p id="st-line1" style="font-family: 'Crimson Pro', serif; font-size: clamp(18px,1.8vw,24px); letter-spacing: 0.12em; color: rgba(240,235,232,0.7); opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
-                                15 let v&nbsp;právu mě naučilo jednu věc
+                                15 let v&nbsp;advokacii mě naučilo jednu věc
                             </p>
                             <p id="st-line2" class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8; opacity: 0; transform: translateY(30px); transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;">
-                                Nepotřebujete rychlé odpovědi.
+                                Nepotřebujete rychlé odpovědi
                             </p>
                         </div>
                     </div>
@@ -143,10 +140,10 @@
                     <div class="absolute inset-0 w-[200%] flex items-center justify-center" style="margin-left: -100%;">
                         <div class="max-w-4xl text-center px-6">
                             <p id="st-line1r" style="font-family: 'Crimson Pro', serif; font-size: clamp(18px,1.8vw,24px); letter-spacing: 0.12em; color: rgba(240,235,232,0.7); opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
-                                15 let v&nbsp;právu mě naučilo jednu věc
+                                15 let v&nbsp;advokacii mě naučilo jednu věc
                             </p>
                             <p id="st-line2r" class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8; opacity: 0; transform: translateY(30px); transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;">
-                                Nepotřebujete rychlé odpovědi.
+                                Nepotřebujete rychlé odpovědi
                             </p>
                         </div>
                     </div>
@@ -161,29 +158,29 @@
             <!-- Services — cinematic list -->
             <section id="sluzby" class="py-20 md:py-32 px-6 md:px-12 lg:px-16" style="background: linear-gradient(180deg, #1A1420 0%, #2E1833 100%);">
                 <div class="max-w-6xl mx-auto">
-                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease, transform 0.8s ease;">
+                    <div class="block py-6 md:py-10 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease, transform 0.8s ease;">
                         <div class="flex items-baseline justify-between">
                             <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Exit</h3>
-                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Prodej firmy, generační obměna</span>
                         </div>
+                        <p class="mt-3" style="font-family: 'Crimson Pro', serif; font-size: 21px; color: rgba(240,235,232,0.55);">Prodej nebo nákup společnosti, generační obměna, odchod zakladatele</p>
                     </div>
-                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;">
+                    <div class="block py-6 md:py-10 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;">
                         <div class="flex items-baseline justify-between">
                             <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Konflikt</h3>
-                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Spory společníků, rozpad partnerství</span>
                         </div>
+                        <p class="mt-3" style="font-family: 'Crimson Pro', serif; font-size: 21px; color: rgba(240,235,232,0.55);">Spory společníků, rozpad partnerství, strategická restrukturalizace firmy</p>
                     </div>
-                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;">
+                    <div class="block py-6 md:py-10 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;">
                         <div class="flex items-baseline justify-between">
                             <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Ochrana</h3>
-                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Osobní situace s maximální diskrétností</span>
                         </div>
+                        <p class="mt-3" style="font-family: 'Crimson Pro', serif; font-size: 21px; color: rgba(240,235,232,0.55);">Vysoce citlivé osobní situace, včetně rozvodů významných podnikatelů a&nbsp;veřejně známých osobností</p>
                     </div>
-                    <div class="block py-8 md:py-12 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); border-bottom: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;">
+                    <div class="block py-6 md:py-10 group reveal" style="border-top: 1px solid rgba(240,235,232,0.08); border-bottom: 1px solid rgba(240,235,232,0.08); opacity: 0; transform: translateY(2rem); transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;">
                         <div class="flex items-baseline justify-between">
                             <h3 class="tracking-tight text-parchment" style="font-family: 'DM Serif Display', serif; font-size: clamp(40px, 7vw, 90px);">Rozhodnutí</h3>
-                            <span class="hidden md:block" style="font-family: 'Crimson Pro', serif; font-size: 16px; color: rgba(240,235,232,0.25); font-style: italic;">Průsečík práva, byznysu a osobní situace</span>
                         </div>
+                        <p class="mt-3" style="font-family: 'Crimson Pro', serif; font-size: 21px; color: rgba(240,235,232,0.55);">Průsečík práva, byznysu a&nbsp;osobní situace</p>
                     </div>
                 </div>
             </section>
@@ -197,7 +194,7 @@
                         <!-- Photo — arch shape -->
                         <div class="w-full md:w-2/5 flex-shrink-0">
                             <div class="aspect-[3/4] overflow-hidden" style="border-radius: 999px 999px 4px 4px; box-shadow: 0 2rem 4rem rgba(46,24,51,0.12);">
-                                <img src="alice-hero-2-resize.png" alt="Alice Hejzlarová" class="w-full h-full object-cover object-top">
+                                <img src="alice-hejzlarova-pravnik.jpg" alt="Alice Hejzlarová" class="w-full h-full object-cover object-[center_25%]">
                             </div>
                         </div>
 
@@ -212,7 +209,7 @@
                             </p>
                             <p class="mb-4" style="font-family: 'DM Serif Display', serif; font-size: 18px; color: #2E1833; letter-spacing: 0.02em;">JUDr. Alice Hejzlarová, LL.M., MBA</p>
                             <a href="https://www.linkedin.com/in/alicehejzlarova/" target="_blank" class="inline-flex items-center gap-2 transition-all duration-300" style="font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 1px; color: #B8A0C8; border-bottom: 1px solid rgba(184,160,200,0.2);" onmouseover="this.style.borderColor='#B8A0C8'" onmouseout="this.style.borderColor='rgba(184,160,200,0.2)'">
-                                <iconify-icon icon="mdi:linkedin" class="text-lg"></iconify-icon>
+                                <span class="w-6 h-6 rounded-full flex items-center justify-center" style="background: #B8A0C8;"><iconify-icon icon="mdi:linkedin" class="text-sm" style="color: #2E1833;"></iconify-icon></span>
                                 LinkedIn profil
                             </a>
                         </div>
