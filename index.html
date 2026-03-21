@@ -1,15 +1,35 @@
-<html lang="cs" style="scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #a1a1aa #fafafa;"><head>
+<html lang="cs" style="scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #B8A0C8 #2E1833;"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Alice Hejzlarová — Private Counsel</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plum: {
+                            950: '#0E0A12',
+                            900: '#1A1420',
+                            800: '#2E1833',
+                            700: '#3D2045',
+                            600: '#4E2A58',
+                        },
+                        parchment: '#F0EBE8',
+                        violet: '#B8A0C8',
+                        silver: '#A0A0A0',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-zinc-200 selection:text-zinc-900 text-zinc-900 bg-zinc-950" style="font-family: 'Inter', sans-serif;">
+<body class="antialiased overflow-x-hidden selection:bg-violet/20 selection:text-parchment bg-plum-800" style="font-family: 'Crimson Pro', serif; font-weight: 300;">
 
     <!-- Sticky Background Hero Layer -->
     <div class="relative w-full">
@@ -22,8 +42,8 @@
 
             <!-- Header -->
             <header class="z-20 md:px-12 flex w-full pt-8 pr-6 pb-8 pl-6 absolute top-0 left-0 items-center justify-between">
-                <div class="text-white text-2xl tracking-tighter" style="font-family: 'Playfair Display', serif;">Alice Hejzlarová</div>
-                <a href="#kontakt" class="px-5 py-2.5 rounded-full border border-white/10 text-white text-sm hover:bg-white hover:text-zinc-950 transition-colors duration-500 backdrop-blur-md font-extralight">
+                <div class="text-parchment text-2xl tracking-tight" style="font-family: 'DM Serif Display', serif;">Alice Hejzlarová</div>
+                <a href="#kontakt" class="px-5 py-2.5 rounded-none border border-violet/25 text-parchment text-sm hover:bg-violet hover:text-plum-950 transition-colors duration-500 backdrop-blur-md" style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">
                     Domluvit schůzku
                 </a>
             </header>
@@ -32,14 +52,14 @@
             <div class="flex-1 flex flex-col md:px-12 lg:px-24 will-change-transform w-full max-w-7xl z-10 mr-auto ml-auto pr-6 pl-6 relative justify-center" id="hero-content">
                 <div class="max-w-3xl">
                     <div class="flex items-center gap-3 mb-8 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                        <span class="uppercase text-xs font-normal text-zinc-400 tracking-widest">Private Counsel</span>
+                        <span class="text-violet tracking-widest" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase;">Private Counsel</span>
                     </div>
 
-                    <h1 class="text-6xl md:text-8xl text-white tracking-tight leading-tight mb-8 reveal" style="font-family: 'Playfair Display', serif; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
+                    <h1 class="text-6xl md:text-8xl text-parchment tracking-tight leading-tight mb-8 reveal" style="font-family: 'DM Serif Display', serif; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
                         Alice<br>Hejzlarová
                     </h1>
 
-                    <p class="text-lg md:text-xl text-zinc-400 font-extralight max-w-lg leading-relaxed reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
+                    <p class="text-lg md:text-xl max-w-lg leading-relaxed reveal" style="color: rgba(240,235,232,0.5); font-family: 'Crimson Pro', serif; font-weight: 300; font-style: italic; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
                         Jeden člověk pro vaše nejdůležitější rozhodnutí.<br class="hidden md:block">
                         Právo, byznys a život — osobně.
                     </p>
@@ -50,20 +70,20 @@
             <div class="relative z-10 px-6 md:px-12 lg:px-24 pb-12 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 300ms;">
                 <div class="flex gap-12 md:gap-24">
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-500 mb-2 font-normal">Sídlo</span>
-                        <span class="text-white text-sm font-extralight">Praha</span>
+                        <span class="block mb-2" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.5);">Sídlo</span>
+                        <span class="text-parchment text-sm" style="font-family: 'Crimson Pro', serif;">Praha</span>
                     </div>
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-500 mb-2 font-normal">Praxe</span>
-                        <span class="text-white text-sm font-extralight">15+ let</span>
+                        <span class="block mb-2" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.5);">Praxe</span>
+                        <span class="text-parchment text-sm" style="font-family: 'Crimson Pro', serif;">15+ let</span>
                     </div>
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-500 mb-2 font-normal">Model</span>
-                        <span class="text-white text-sm font-extralight">Private Counsel</span>
+                        <span class="block mb-2" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.5);">Model</span>
+                        <span class="text-parchment text-sm" style="font-family: 'Crimson Pro', serif;">Private Counsel</span>
                     </div>
                 </div>
 
-                <a href="#sluzby" class="flex items-center gap-3 text-zinc-500 hover:text-white transition-colors text-sm font-extralight group">
+                <a href="#sluzby" class="flex items-center gap-3 text-violet/50 hover:text-violet transition-colors text-sm group" style="font-family: 'Inter', sans-serif; font-size: 12px;">
                     Prozkoumat více
                     <iconify-icon icon="solar:arrow-down-linear" class="text-lg group-hover:translate-y-1 transition-transform" style="stroke-width: 1.5;"></iconify-icon>
                 </a>
@@ -71,18 +91,18 @@
         </section>
 
         <!-- Main Content Wrapper -->
-        <main class="relative z-10 bg-[#fafafa] rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-1rem_3rem_rgba(0,0,0,0.6)] overflow-hidden">
+        <main class="relative z-10 bg-parchment rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-1rem_3rem_rgba(0,0,0,0.6)] overflow-hidden">
 
             <!-- Services Section -->
             <section id="sluzby" class="pt-32 pb-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-16 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-400 mb-6 font-normal">V čem pomáhám</span>
-                        <h2 class="text-4xl md:text-5xl tracking-tight text-zinc-900" style="font-family: 'Playfair Display', serif;">
+                        <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
+                        <h2 class="text-4xl md:text-5xl tracking-tight text-plum-800" style="font-family: 'DM Serif Display', serif;">
                             Klíčové momenty<br>vyžadují klíčového člověka
                         </h2>
                     </div>
-                    <p class="text-lg text-zinc-500 font-extralight max-w-sm leading-relaxed">
+                    <p class="text-lg max-w-sm leading-relaxed" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
                         Neřeším jen právo. Řeším situaci — celou, ne po kouskách.
                     </p>
                 </div>
@@ -90,126 +110,126 @@
                 <!-- Overlapping Sticky Cards -->
                 <div class="relative pb-12 mt-20">
                     <!-- Card 1: Exit & M&A -->
-                    <div class="sticky top-24 z-10 bg-white border border-zinc-200/40 rounded-3xl p-10 md:p-16 mb-16 shadow-[0_1rem_3rem_rgba(0,0,0,0.02)] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]">
+                    <div class="sticky top-24 z-10 rounded-2xl p-10 md:p-16 mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); box-shadow: 0 1rem 3rem rgba(46,24,51,0.04);">
                         <div class="flex-1">
-                            <h3 class="text-3xl tracking-tight text-zinc-900 mb-4" style="font-family: 'Playfair Display', serif;">Exit & strategické transakce</h3>
-                            <p class="text-base text-zinc-500 font-extralight leading-relaxed max-w-xl">
+                            <h3 class="text-3xl tracking-tight text-plum-800 mb-4" style="font-family: 'DM Serif Display', serif;">Exit & strategické transakce</h3>
+                            <p class="text-base leading-relaxed max-w-xl" style="color: #A0A0A0; font-family: 'Crimson Pro', serif;">
                                 Prodej firmy, generační obměna, akvizice. Provázím celým procesem — od prvního rozhodnutí po podpis. Rozumím exitům, protože jsem jedním sama prošla.
                             </p>
                         </div>
-                        <iconify-icon icon="solar:chart-2-linear" class="text-5xl text-zinc-300" style="stroke-width: 1.5;"></iconify-icon>
+                        <iconify-icon icon="solar:chart-2-linear" class="text-5xl text-violet/30" style="stroke-width: 1.5;"></iconify-icon>
                     </div>
 
                     <!-- Card 2: Rodinné situace HNW -->
-                    <div class="sticky top-32 z-20 bg-zinc-50 border border-zinc-200/40 rounded-3xl p-10 md:p-16 mb-16 shadow-[0_1rem_3rem_rgba(0,0,0,0.03)] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]">
+                    <div class="sticky top-32 z-20 rounded-2xl p-10 md:p-16 mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]" style="background: #F7F3F0; border: 1px solid rgba(46,24,51,0.06); box-shadow: 0 1rem 3rem rgba(46,24,51,0.05);">
                         <div class="flex-1">
-                            <h3 class="text-3xl tracking-tight text-zinc-900 mb-4" style="font-family: 'Playfair Display', serif;">Rodinné situace podnikatelů</h3>
-                            <p class="text-base text-zinc-500 font-extralight leading-relaxed max-w-xl">
+                            <h3 class="text-3xl tracking-tight text-plum-800 mb-4" style="font-family: 'DM Serif Display', serif;">Rodinné situace podnikatelů</h3>
+                            <p class="text-base leading-relaxed max-w-xl" style="color: #A0A0A0; font-family: 'Crimson Pro', serif;">
                                 Rozvod, majetkové vypořádání, ochrana dětí — když je v sázce nejen majetek, ale i pověst a budoucnost. Absolutní diskrétnost je základ.
                             </p>
                         </div>
-                        <iconify-icon icon="solar:shield-check-linear" class="text-5xl text-zinc-300" style="stroke-width: 1.5;"></iconify-icon>
+                        <iconify-icon icon="solar:shield-check-linear" class="text-5xl text-violet/30" style="stroke-width: 1.5;"></iconify-icon>
                     </div>
 
-                    <!-- Card 3: Private Counsel Retainer (dark) -->
-                    <div class="sticky top-40 z-30 bg-zinc-950 text-white rounded-3xl p-10 md:p-16 mb-16 shadow-[0_1rem_4rem_rgba(0,0,0,0.15)] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]">
+                    <!-- Card 3: Private Counsel Retainer (aubergine) -->
+                    <div class="sticky top-40 z-30 text-parchment rounded-2xl p-10 md:p-16 mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]" style="background: linear-gradient(170deg, #1A1420 0%, #2E1833 70%, #3D2045 100%); box-shadow: 0 1rem 4rem rgba(46,24,51,0.3);">
                         <div class="flex-1">
-                            <h3 class="text-3xl tracking-tight text-white mb-4" style="font-family: 'Playfair Display', serif;">Private Counsel</h3>
-                            <p class="text-base text-zinc-400 font-extralight leading-relaxed max-w-xl">
+                            <h3 class="text-3xl tracking-tight text-parchment mb-4" style="font-family: 'DM Serif Display', serif;">Private Counsel</h3>
+                            <p class="text-base leading-relaxed max-w-xl" style="color: rgba(240,235,232,0.5); font-family: 'Crimson Pro', serif;">
                                 Váš právník. Osobně. Dlouhodobý vztah, prioritní dostupnost, průběžné strategické poradenství. Neplatíte za hodiny — platíte za to, že znám celý váš příběh.
                             </p>
                         </div>
-                        <iconify-icon icon="solar:key-minimalistic-2-linear" class="text-5xl text-zinc-700" style="stroke-width: 1.5;"></iconify-icon>
+                        <iconify-icon icon="solar:key-minimalistic-2-linear" class="text-5xl text-violet/30" style="stroke-width: 1.5;"></iconify-icon>
                     </div>
 
                     <!-- Card 4: Konflikt společníků -->
-                    <div class="sticky top-48 z-40 bg-white border border-zinc-200/40 rounded-3xl p-10 md:p-16 shadow-[0_1rem_3rem_rgba(0,0,0,0.02)] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]">
+                    <div class="sticky top-48 z-40 rounded-2xl p-10 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); box-shadow: 0 1rem 3rem rgba(46,24,51,0.04);">
                         <div class="flex-1">
-                            <h3 class="text-3xl tracking-tight text-zinc-900 mb-4" style="font-family: 'Playfair Display', serif;">Konflikt společníků</h3>
-                            <p class="text-base text-zinc-500 font-extralight leading-relaxed max-w-xl">
+                            <h3 class="text-3xl tracking-tight text-plum-800 mb-4" style="font-family: 'DM Serif Display', serif;">Konflikt společníků</h3>
+                            <p class="text-base leading-relaxed max-w-xl" style="color: #A0A0A0; font-family: 'Crimson Pro', serif;">
                                 Deadlock, rozpad partnerství, restrukturalizace vlastnictví. Situace, kde se byznys prolíná s emocemi — a kde jeden špatný krok mění všechno.
                             </p>
                         </div>
-                        <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-5xl text-zinc-300" style="stroke-width: 1.5;"></iconify-icon>
+                        <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-5xl text-violet/30" style="stroke-width: 1.5;"></iconify-icon>
                     </div>
                 </div>
             </section>
 
             <!-- About Section -->
-            <section class="bg-white pt-32 pb-56 px-6 md:px-12 lg:px-24 relative z-10 border-t border-zinc-100">
+            <section class="pt-32 pb-56 px-6 md:px-12 lg:px-24 relative z-10" style="background: #FDFCFB; border-top: 1px solid rgba(46,24,51,0.04);">
                 <div class="max-w-4xl mx-auto text-center reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <span class="block text-xs uppercase tracking-widest text-zinc-400 mb-6 font-normal">Proč zrovna já</span>
-                    <h2 class="text-4xl md:text-5xl tracking-tight text-zinc-900 mb-10 leading-tight" style="font-family: 'Playfair Display', serif;">
+                    <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Proč zrovna já</span>
+                    <h2 class="text-4xl md:text-5xl tracking-tight text-plum-800 mb-10 leading-tight" style="font-family: 'DM Serif Display', serif;">
                         Rozumím právu, byznysu<br class="hidden md:block">i lidem — z vlastní zkušenosti
                     </h2>
-                    <p class="text-lg text-zinc-500 font-extralight leading-relaxed max-w-2xl mx-auto mb-12">
+                    <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-12" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
                         Vybudovala jsem a prodala vlastní advokátní kancelář. Prošla jsem tím, čím procházejí moji klienti — exit, restrukturalizace, nové začátky. Nejsem teoretik. Vím, jaké to je stát před rozhodnutím, které změní všechno.
                     </p>
                     <div class="flex flex-col md:flex-row gap-6 md:gap-12 justify-center text-left max-w-3xl mx-auto">
-                        <div class="flex-1 p-6 rounded-2xl bg-zinc-50 border border-zinc-100">
-                            <h4 class="text-sm font-normal text-zinc-900 mb-2">Korporát × Osobní</h4>
-                            <p class="text-sm text-zinc-500 font-extralight leading-relaxed">CEO se rozvádí a zároveň prodává firmu. Tyto dimenze nelze oddělit — a já je neodděluji.</p>
+                        <div class="flex-1 p-6 rounded-xl" style="background: rgba(184,160,200,0.06); border: 1px solid rgba(184,160,200,0.1);">
+                            <h4 class="text-sm mb-2 text-plum-800" style="font-family: 'DM Serif Display', serif;">Korporát × Osobní</h4>
+                            <p class="text-sm leading-relaxed" style="color: #A0A0A0; font-family: 'Crimson Pro', serif;">CEO se rozvádí a zároveň prodává firmu. Tyto dimenze nelze oddělit — a já je neodděluji.</p>
                         </div>
-                        <div class="flex-1 p-6 rounded-2xl bg-zinc-50 border border-zinc-100">
-                            <h4 class="text-sm font-normal text-zinc-900 mb-2">Senior × Solo</h4>
-                            <p class="text-sm text-zinc-500 font-extralight leading-relaxed">15+ let zkušeností z top kanceláří. Ale váš případ řeším já osobně — ne tým juniorů.</p>
+                        <div class="flex-1 p-6 rounded-xl" style="background: rgba(184,160,200,0.06); border: 1px solid rgba(184,160,200,0.1);">
+                            <h4 class="text-sm mb-2 text-plum-800" style="font-family: 'DM Serif Display', serif;">Senior × Solo</h4>
+                            <p class="text-sm leading-relaxed" style="color: #A0A0A0; font-family: 'Crimson Pro', serif;">15+ let zkušeností z top kanceláří. Ale váš případ řeším já osobně — ne tým juniorů.</p>
                         </div>
-                        <div class="flex-1 p-6 rounded-2xl bg-zinc-50 border border-zinc-100">
-                            <h4 class="text-sm font-normal text-zinc-900 mb-2">Diskrétnost jako struktura</h4>
-                            <p class="text-sm text-zinc-500 font-extralight leading-relaxed">Omezený počet mandátů. Žádný tým s přístupem. Diskrétnost není slib — je to způsob, jakým pracuji.</p>
+                        <div class="flex-1 p-6 rounded-xl" style="background: rgba(184,160,200,0.06); border: 1px solid rgba(184,160,200,0.1);">
+                            <h4 class="text-sm mb-2 text-plum-800" style="font-family: 'DM Serif Display', serif;">Diskrétnost jako struktura</h4>
+                            <p class="text-sm leading-relaxed" style="color: #A0A0A0; font-family: 'Crimson Pro', serif;">Omezený počet mandátů. Žádný tým s přístupem. Diskrétnost není slib — je to způsob, jakým pracuji.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Parallax Testimonial Layer -->
-            <section class="relative z-20 bg-zinc-950 pt-48 pb-32 md:pb-48 px-6 bg-fixed">
+            <!-- Parallax Testimonial Layer (Aubergine) -->
+            <section class="relative z-20 pt-48 pb-32 md:pb-48 px-6 bg-fixed" style="background: linear-gradient(170deg, #0E0A12 0%, #2E1833 100%);">
 
-                <!-- Dark Overlay -->
-                <div class="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm"></div>
+                <!-- Grain overlay -->
+                <div class="absolute inset-0 opacity-[0.03]" style="background: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px;"></div>
 
                 <!-- Overlapping Stats Box -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-6 z-30">
-                    <div class="bg-white rounded-[2rem] p-10 md:p-16 shadow-[0_2rem_4rem_rgba(0,0,0,0.08)] flex flex-col md:flex-row justify-around items-center gap-12 border border-zinc-200/40 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div class="rounded-2xl p-10 md:p-16 flex flex-col md:flex-row justify-around items-center gap-12 reveal" style="background: #FDFCFB; border: 1px solid rgba(184,160,200,0.12); box-shadow: 0 2rem 4rem rgba(46,24,51,0.12); opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
                         <div class="text-center">
-                            <div class="text-6xl md:text-7xl tracking-tight text-zinc-900 mb-2 flex items-start justify-center" style="font-family: 'Playfair Display', serif;">
-                                15<span class="text-3xl text-zinc-300 font-sans font-extralight mt-2 ml-1">+</span>
+                            <div class="text-6xl md:text-7xl tracking-tight text-plum-800 mb-2 flex items-start justify-center" style="font-family: 'DM Serif Display', serif;">
+                                15<span class="text-3xl font-extralight mt-2 ml-1" style="color: #B8A0C8; font-family: 'Inter', sans-serif;">+</span>
                             </div>
-                            <p class="text-xs text-zinc-400 font-normal uppercase tracking-widest">Let praxe</p>
+                            <p style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #A0A0A0;">Let praxe</p>
                         </div>
-                        <div class="w-full md:w-px h-px md:h-24 bg-zinc-100"></div>
+                        <div class="w-full md:w-px h-px md:h-24" style="background: rgba(184,160,200,0.15);"></div>
                         <div class="text-center">
-                            <div class="text-6xl md:text-7xl tracking-tight text-zinc-900 mb-2 flex items-start justify-center" style="font-family: 'Playfair Display', serif;">
+                            <div class="text-6xl md:text-7xl tracking-tight text-plum-800 mb-2 flex items-start justify-center" style="font-family: 'DM Serif Display', serif;">
                                 1
                             </div>
-                            <p class="text-xs text-zinc-400 font-normal uppercase tracking-widest">Člověk na vašem případu</p>
+                            <p style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #A0A0A0;">Člověk na vašem případu</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Quote Content -->
                 <div class="relative z-10 max-w-4xl mx-auto text-center reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <iconify-icon icon="solar:quote-left-linear" class="text-5xl text-zinc-700 mx-auto mb-10 opacity-60" style="stroke-width: 1.5;"></iconify-icon>
-                    <h3 class="text-2xl md:text-4xl tracking-tight text-white leading-relaxed mb-10 font-light" style="font-family: 'Playfair Display', serif;">
+                    <iconify-icon icon="solar:quote-left-linear" class="text-5xl mx-auto mb-10 opacity-40" style="color: #B8A0C8; stroke-width: 1.5;"></iconify-icon>
+                    <h3 class="text-2xl md:text-4xl tracking-tight leading-relaxed mb-10" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">
                         Právnička, která rozumí právu, byznysu i lidem — a&nbsp;všechny tři dimenze drží osobně.
                     </h3>
                     <div>
-                        <span class="block text-zinc-500 text-sm font-extralight">Positioning statement</span>
+                        <span class="block text-sm" style="color: rgba(184,160,200,0.4); font-family: 'Crimson Pro', serif; font-style: italic;">Positioning statement</span>
                     </div>
                 </div>
             </section>
 
             <!-- CTA Section -->
-            <section id="kontakt" class="relative z-30 bg-white pt-32 pb-40 px-6 md:px-12 text-center rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-[0_1rem_4rem_rgba(0,0,0,0.05)] border-b border-zinc-100">
+            <section id="kontakt" class="relative z-30 pt-32 pb-40 px-6 md:px-12 text-center rounded-b-[2.5rem] md:rounded-b-[4rem]" style="background: #FDFCFB; border-bottom: 1px solid rgba(184,160,200,0.08); box-shadow: 0 1rem 4rem rgba(46,24,51,0.06);">
                 <div class="reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <span class="block text-xs uppercase tracking-widest text-zinc-400 mb-6 font-normal">Další krok</span>
-                    <h2 class="text-5xl md:text-6xl tracking-tight text-zinc-900 mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+                    <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Další krok</span>
+                    <h2 class="text-5xl md:text-6xl tracking-tight text-plum-800 mb-8 leading-tight" style="font-family: 'DM Serif Display', serif;">
                         Pojďme si<br>promluvit
                     </h2>
-                    <p class="text-lg text-zinc-500 font-extralight mb-12 max-w-md mx-auto leading-relaxed">
+                    <p class="text-lg mb-12 max-w-md mx-auto leading-relaxed" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
                         Úvodní schůzka je nezávazná a zcela diskrétní. Řeknete mi, co řešíte — a já vám řeknu, jestli a jak mohu pomoct.
                     </p>
-                    <a href="mailto:alice@hejzlarova.cz" class="inline-flex bg-zinc-950 text-white px-8 py-4 rounded-full text-sm font-extralight hover:bg-zinc-800 transition-all duration-300 hover:scale-105 shadow-xl shadow-zinc-200/50 items-center gap-3">
+                    <a href="mailto:alice@hejzlarova.cz" class="inline-flex items-center gap-3 px-8 py-4 text-parchment transition-all duration-300 hover:scale-105" style="background: linear-gradient(135deg, #2E1833, #3D2045); font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 8px 30px rgba(46,24,51,0.2);">
                         Domluvit úvodní schůzku
                         <iconify-icon icon="solar:arrow-right-linear" class="text-lg" style="stroke-width: 1.5;"></iconify-icon>
                     </a>
@@ -217,34 +237,34 @@
             </section>
 
             <!-- Footer -->
-            <footer class="relative z-0 bg-zinc-950 pt-48 pb-12 px-6 md:px-12 lg:px-24 -mt-24">
+            <footer class="relative z-0 pt-48 pb-12 px-6 md:px-12 lg:px-24 -mt-24" style="background: #0E0A12;">
                 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-24 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
 
                     <div class="md:col-span-1">
-                        <div class="text-white text-3xl tracking-tighter mb-6" style="font-family: 'Playfair Display', serif;">Alice Hejzlarová</div>
-                        <p class="text-sm text-zinc-500 font-extralight leading-relaxed max-w-xs">
+                        <div class="text-parchment text-3xl tracking-tight mb-6" style="font-family: 'DM Serif Display', serif;">Alice Hejzlarová</div>
+                        <p class="text-sm leading-relaxed max-w-xs" style="color: rgba(240,235,232,0.35); font-family: 'Crimson Pro', serif;">
                             Private Counsel. Strategické právní poradenství pro klíčové momenty vašeho života a byznysu.
                         </p>
                     </div>
 
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-600 mb-6 font-normal">Adresa</span>
-                        <ul class="space-y-3 text-sm text-zinc-400 font-extralight">
+                        <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.4);">Adresa</span>
+                        <ul class="space-y-3 text-sm" style="color: rgba(240,235,232,0.35); font-family: 'Crimson Pro', serif;">
                             <li>Praha</li>
                             <li>Česká republika</li>
                         </ul>
                     </div>
 
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-600 mb-6 font-normal">Kontakt</span>
-                        <ul class="space-y-3 text-sm text-zinc-400 font-extralight">
-                            <li><a href="mailto:alice@hejzlarova.cz" class="hover:text-white transition-colors duration-300">alice@hejzlarova.cz</a></li>
+                        <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.4);">Kontakt</span>
+                        <ul class="space-y-3 text-sm" style="font-family: 'Crimson Pro', serif;">
+                            <li><a href="mailto:alice@hejzlarova.cz" class="transition-colors duration-300" style="color: rgba(240,235,232,0.35);" onmouseover="this.style.color='#B8A0C8'" onmouseout="this.style.color='rgba(240,235,232,0.35)'">alice@hejzlarova.cz</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <span class="block text-xs uppercase tracking-widest text-zinc-600 mb-6 font-normal">Oblasti</span>
-                        <ul class="space-y-3 text-sm text-zinc-400 font-extralight">
+                        <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.4);">Oblasti</span>
+                        <ul class="space-y-3 text-sm" style="color: rgba(240,235,232,0.35); font-family: 'Crimson Pro', serif;">
                             <li>Exit & M&A</li>
                             <li>Rodinné situace</li>
                             <li>Private Counsel</li>
@@ -253,8 +273,8 @@
 
                 </div>
 
-                <div class="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-xs text-zinc-600 font-extralight tracking-wide">
+                <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style="border-top: 1px solid rgba(184,160,200,0.06);">
+                    <p style="font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(184,160,200,0.25); letter-spacing: 1px;">
                         © 2026 Alice Hejzlarová. Všechna práva vyhrazena.
                     </p>
                 </div>
@@ -307,7 +327,7 @@
             revealElements.forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight) {
                     el.style.opacity = '1';
-                    el.target.style.transform = 'translateY(0)';
+                    el.style.transform = 'translateY(0)';
                 }
             });
         }, 100);
