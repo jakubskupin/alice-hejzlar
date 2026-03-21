@@ -101,16 +101,8 @@
         <!-- Split Section — statement splits apart to reveal services -->
         <section id="split-section" class="relative" style="height: 200vh;">
             <div class="sticky top-0 h-screen w-full overflow-hidden">
-                <!-- Content behind panels — services teaser -->
-                <div class="absolute inset-0 z-0 flex flex-col items-center justify-center px-6" style="background: #F0EBE8;">
-                    <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
-                    <h2 class="text-4xl md:text-6xl tracking-tight text-plum-800 text-center" style="font-family: 'DM Serif Display', serif;">
-                        Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě.
-                    </h2>
-                    <p class="mt-6 text-xl md:text-2xl max-w-lg text-center leading-relaxed" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
-                        A provede vás velkou změnou.
-                    </p>
-                </div>
+                <!-- Content behind panels — parchment background -->
+                <div class="absolute inset-0 z-0" style="background: #F0EBE8;"></div>
 
                 <!-- Central glow — fades in on scroll before text -->
                 <div id="central-glow" class="absolute inset-0 z-[5] pointer-events-none flex items-center justify-center" style="opacity: 0; transition: opacity 0.4s ease;">
@@ -153,8 +145,17 @@
         <!-- Main Content Wrapper -->
         <main class="relative z-10 bg-parchment overflow-hidden">
 
-            <!-- Services Section — 2×2 grid, JTBD focused -->
+            <!-- Services Section — heading + 2×2 grid -->
             <section id="sluzby" class="pt-20 pb-32 px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
+                    <h2 class="text-3xl md:text-5xl tracking-tight text-plum-800" style="font-family: 'DM Serif Display', serif;">
+                        Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě.
+                    </h2>
+                    <p class="mt-4 text-lg md:text-xl" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
+                        A provede vás velkou změnou.
+                    </p>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <!-- Card 1 -->
