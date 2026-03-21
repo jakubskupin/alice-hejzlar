@@ -102,14 +102,42 @@
         <section id="split-section" class="relative" style="height: 160vh;">
             <div class="sticky top-0 h-screen w-full overflow-hidden">
                 <!-- Content behind panels — headline visible through split -->
-                <div class="absolute inset-0 z-0 flex flex-col items-center justify-center px-6" style="background: #F0EBE8;">
-                    <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
-                    <h2 class="text-4xl md:text-6xl tracking-tight text-plum-800 text-center" style="font-family: 'DM Serif Display', serif;">
-                        Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě.
-                    </h2>
-                    <p class="mt-4 text-xl md:text-2xl" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
-                        A provede vás velkou změnou.
-                    </p>
+                <div class="absolute inset-0 z-0 flex flex-col items-start justify-center px-6 md:px-12 lg:px-16 overflow-y-auto" style="background: #F0EBE8;">
+                    <div class="w-full max-w-7xl mx-auto">
+                        <!-- Headline -->
+                        <div class="text-center mb-12">
+                            <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
+                            <h2 class="text-3xl md:text-5xl tracking-tight text-plum-800" style="font-family: 'DM Serif Display', serif;">
+                                Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě.
+                            </h2>
+                            <p class="mt-4 text-lg md:text-xl" style="color: #A0A0A0; font-family: 'Crimson Pro', serif; font-style: italic;">
+                                A provede vás velkou změnou.
+                            </p>
+                        </div>
+                        <!-- 2×2 Cards grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="p-7 md:p-10" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); border-radius: 20px 20px 10px 10px;">
+                                <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Exit & strategické transakce</span>
+                                <h3 class="text-lg md:text-xl tracking-tight text-plum-800 mb-3" style="font-family: 'DM Serif Display', serif;">„Mám nabídku na prodej firmy. Nevím, komu věřit."</h3>
+                                <p class="text-sm leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">Prodej firmy, generační obměna, akvizice. Rozumím exitům, protože jsem jedním sama prošla.</p>
+                            </div>
+                            <div class="p-7 md:p-10" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); border-radius: 20px 20px 10px 10px;">
+                                <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Rodinné situace podnikatelů</span>
+                                <h3 class="text-lg md:text-xl tracking-tight text-plum-800 mb-3" style="font-family: 'DM Serif Display', serif;">„Rozvádím se a zároveň řeším budoucnost firmy."</h3>
+                                <p class="text-sm leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">Rozvod, majetkové vypořádání, ochrana dětí — absolutní diskrétnost je základ.</p>
+                            </div>
+                            <div class="p-7 md:p-10" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); border-radius: 20px 20px 10px 10px;">
+                                <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Konflikt společníků</span>
+                                <h3 class="text-lg md:text-xl tracking-tight text-plum-800 mb-3" style="font-family: 'DM Serif Display', serif;">„Společník chce odejít. Nebo chci odejít já."</h3>
+                                <p class="text-sm leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">Deadlock, rozpad partnerství, restrukturalizace. Jeden špatný krok mění všechno.</p>
+                            </div>
+                            <div class="p-7 md:p-10 relative overflow-hidden" style="background: linear-gradient(170deg, #1A1420 0%, #2E1833 70%, #3D2045 100%); border-radius: 20px 20px 10px 10px;">
+                                <span class="block mb-3 relative z-10" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Private Counsel</span>
+                                <h3 class="text-lg md:text-xl tracking-tight text-parchment mb-3 relative z-10" style="font-family: 'DM Serif Display', serif;">„Potřebuju jednoho člověka, kterému můžu říct všechno."</h3>
+                                <p class="text-sm leading-relaxed relative z-10" style="color: rgba(240,235,232,0.6); font-family: 'Crimson Pro', serif;">Neplatíte za hodiny — platíte za to, že znám celý váš příběh.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Central glow — fades in on scroll before text -->
@@ -153,53 +181,7 @@
         <!-- Main Content Wrapper -->
         <main class="relative z-10 bg-parchment overflow-hidden">
 
-            <!-- Services Section — 2×2 grid, JTBD focused -->
-            <section id="sluzby" class="pt-8 pb-32 px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <!-- Card 1 -->
-                    <div class="p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] reveal" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); box-shadow: 0 1rem 3rem rgba(46,24,51,0.04); border-radius: 30px 30px 12px 12px; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                        <span class="block mb-4" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Exit & strategické transakce</span>
-                        <h3 class="text-xl md:text-2xl tracking-tight text-plum-800 mb-4" style="font-family: 'DM Serif Display', serif;">„Mám nabídku na prodej firmy. Nevím, komu věřit."</h3>
-                        <p class="text-base leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">
-                            Prodej firmy, generační obměna, akvizice. Provázím celým procesem — od prvního rozhodnutí po podpis.
-                        </p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] reveal" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); box-shadow: 0 1rem 3rem rgba(46,24,51,0.04); border-radius: 30px 30px 12px 12px; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
-                        <span class="block mb-4" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Rodinné situace podnikatelů</span>
-                        <h3 class="text-xl md:text-2xl tracking-tight text-plum-800 mb-4" style="font-family: 'DM Serif Display', serif;">„Rozvádím se a zároveň řeším budoucnost firmy."</h3>
-                        <p class="text-base leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">
-                            Rozvod, majetkové vypořádání, ochrana dětí — když je v sázce nejen majetek, ale i pověst a budoucnost.
-                        </p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] reveal" style="background: #FDFCFB; border: 1px solid rgba(46,24,51,0.06); box-shadow: 0 1rem 3rem rgba(46,24,51,0.04); border-radius: 30px 30px 12px 12px; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
-                        <span class="block mb-4" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Konflikt společníků</span>
-                        <h3 class="text-xl md:text-2xl tracking-tight text-plum-800 mb-4" style="font-family: 'DM Serif Display', serif;">„Společník chce odejít. Nebo chci odejít já."</h3>
-                        <p class="text-base leading-relaxed" style="color: #8A8480; font-family: 'Crimson Pro', serif;">
-                            Deadlock, rozpad partnerství, restrukturalizace vlastnictví. Jeden špatný krok mění všechno.
-                        </p>
-                    </div>
-
-                    <!-- Card 4 (aubergine — Private Counsel, last) -->
-                    <div class="p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] relative overflow-hidden reveal" style="background: linear-gradient(170deg, #1A1420 0%, #2E1833 70%, #3D2045 100%); box-shadow: 0 1rem 4rem rgba(46,24,51,0.3); border-radius: 30px 30px 12px 12px; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 300ms;">
-                        <div class="absolute inset-0 flex justify-center pointer-events-none" style="opacity: 0.04; top: -20%;">
-                            <div style="width: 300px; height: 500px; border: 1.5px solid #B8A0C8; border-radius: 150px 150px 0 0;"></div>
-                        </div>
-                        <div class="relative z-10">
-                            <span class="block mb-4" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #B8A0C8;">Private Counsel</span>
-                            <h3 class="text-xl md:text-2xl tracking-tight text-parchment mb-4" style="font-family: 'DM Serif Display', serif;">„Potřebuju jednoho člověka, kterému můžu říct všechno."</h3>
-                            <p class="text-base leading-relaxed" style="color: rgba(240,235,232,0.6); font-family: 'Crimson Pro', serif;">
-                                Dlouhodobý vztah, prioritní dostupnost. Neplatíte za hodiny — platíte za to, že znám celý váš příběh.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
+            <!-- Services cards are now inside the split reveal section -->
 
             <!-- About Section -->
             <section class="pt-32 pb-56 px-6 md:px-12 lg:px-24 relative z-10" style="background: #FDFCFB; border-top: 1px solid rgba(46,24,51,0.04);">
