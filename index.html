@@ -110,13 +110,16 @@
                     <!-- Bottom fade into services color -->
                     <div class="absolute bottom-0 left-0 right-0" style="height: 150px; background: linear-gradient(180deg, transparent 0%, #1A1420 100%);"></div>
                 </div>
-                <!-- Text over horizont -->
-                <div class="absolute inset-0 z-[1] flex flex-col items-center justify-center px-6">
+                <!-- Main headline — centered -->
+                <div class="absolute inset-0 z-[1] flex flex-col items-center justify-center px-6" style="padding-bottom: 15vh;">
                     <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">V čem pomáhám</span>
                     <h2 class="text-4xl md:text-6xl tracking-tight text-center" style="font-family: 'DM Serif Display', serif; color: #F0EBE8; text-shadow: 0 4px 30px rgba(0,0,0,0.5);">
                         Potřebujete partnera, který<br>s&nbsp;vámi vydrží v&nbsp;nejistotě.
                     </h2>
-                    <p class="mt-4 text-xl md:text-2xl" style="font-family: 'Crimson Pro', serif; font-style: italic; color: rgba(240,235,232,0.6); text-shadow: 0 2px 20px rgba(0,0,0,0.4);">
+                </div>
+                <!-- Subheadline — bottom, on dark water area, scroll-reveal -->
+                <div id="sub-reveal" class="absolute bottom-[12%] left-0 right-0 z-[1] text-center px-6" style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease;">
+                    <p class="text-xl md:text-3xl" style="font-family: 'Crimson Pro', serif; font-style: italic; color: rgba(240,235,232,0.7); text-shadow: 0 2px 20px rgba(0,0,0,0.6);">
                         A provede vás velkou změnou.
                     </p>
                 </div>
@@ -632,6 +635,18 @@
                 // Glow also scales slightly
                 const glowScale = 1 + progress * 0.3;
                 glow.firstElementChild.style.transform = `scale(${glowScale})`;
+            }
+
+            // Sub-reveal — "A provede vás velkou změnou" appears at 15-20% scroll
+            const subReveal = document.getElementById('sub-reveal');
+            if (subReveal) {
+                if (progress > 0.15 && progress < 0.8) {
+                    subReveal.style.opacity = '1';
+                    subReveal.style.transform = 'translateY(0)';
+                } else {
+                    subReveal.style.opacity = '0';
+                    subReveal.style.transform = 'translateY(20px)';
+                }
             }
 
             const splitProgress = Math.max((progress - 0.3) / 0.7, 0);
