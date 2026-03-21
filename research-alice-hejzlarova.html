@@ -422,70 +422,114 @@ a { color: var(--gold); }
     </div>
 
     <!-- VIZUALIZACE 2: Revenue × Dlouhodobost matice -->
-    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:32px 0 16px;">Kde jsou peníze — a co vydrží</h4>
-    <div style="background:white;border-radius:16px;border:1px solid var(--gold-06);padding:32px 16px;margin-bottom:40px;overflow:hidden;">
-      <svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:32px 0 16px;">Kde jsou peníze — a co vydrží X+ let s ohledem na AI</h4>
+    <div style="background:white;border-radius:16px;border:1px solid var(--gold-06);padding:32px 16px;margin-bottom:16px;overflow:hidden;">
+      <svg viewBox="0 0 760 540" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <marker id="arrowG2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4A7A5B"/></marker>
+          <!-- AI-proof halo -->
+          <filter id="aiGlow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <!-- AI-vulnerable pulse -->
+          <filter id="aiWarn"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
         <!-- Osy -->
-        <line x1="100" y1="400" x2="700" y2="400" stroke="#E0DAD1" stroke-width="1"/>
-        <line x1="100" y1="400" x2="100" y2="40" stroke="#E0DAD1" stroke-width="1"/>
-        <!-- Osa X label -->
-        <text x="400" y="440" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6B6560" letter-spacing="2">DLOUHODOBÁ UDRŽITELNOST →</text>
-        <!-- Osa Y label -->
-        <text x="40" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6B6560" letter-spacing="2" transform="rotate(-90,40,220)">REVENUE POTENCIÁL →</text>
+        <line x1="100" y1="420" x2="700" y2="420" stroke="#E0DAD1" stroke-width="1"/>
+        <line x1="100" y1="420" x2="100" y2="40" stroke="#E0DAD1" stroke-width="1"/>
+        <text x="400" y="460" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6B6560" letter-spacing="2">DLOUHODOBÁ UDRŽITELNOST →</text>
+        <text x="40" y="230" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6B6560" letter-spacing="2" transform="rotate(-90,40,230)">REVENUE POTENCIÁL →</text>
 
-        <!-- Kvandranty — pozadí -->
-        <rect x="100" y="40" width="300" height="180" fill="#8B4049" opacity="0.03"/>
-        <rect x="400" y="40" width="300" height="180" fill="#4A7A5B" opacity="0.04"/>
-        <rect x="100" y="220" width="300" height="180" fill="#6B6560" opacity="0.02"/>
-        <rect x="400" y="220" width="300" height="180" fill="#B8976A" opacity="0.04"/>
-        <!-- Kvandrant labely -->
-        <text x="250" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049" opacity="0.5" letter-spacing="1">VYSOKÝ VÝDĚLEK, ALE NEJISTÉ</text>
-        <text x="550" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" opacity="0.6" letter-spacing="1" font-weight="600">⭐ SWEET SPOT</text>
-        <text x="250" y="390" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560" opacity="0.4" letter-spacing="1">NÍZKÁ PRIORITA</text>
-        <text x="550" y="390" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" opacity="0.5" letter-spacing="1">BUDUJE SE POMALU</text>
+        <!-- Kvandranty -->
+        <rect x="100" y="40" width="300" height="190" fill="#8B4049" opacity="0.03"/>
+        <rect x="400" y="40" width="300" height="190" fill="#4A7A5B" opacity="0.04"/>
+        <rect x="100" y="230" width="300" height="190" fill="#6B6560" opacity="0.02"/>
+        <rect x="400" y="230" width="300" height="190" fill="#B8976A" opacity="0.04"/>
+        <text x="250" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049" opacity="0.5" letter-spacing="1">VYSOKÝ VÝDĚLEK, ALE NEJISTÉ</text>
+        <text x="550" y="68" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" opacity="0.6" letter-spacing="1" font-weight="600">⭐ SWEET SPOT</text>
+        <text x="250" y="410" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560" opacity="0.4" letter-spacing="1">NÍZKÁ PRIORITA</text>
+        <text x="550" y="410" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" opacity="0.5" letter-spacing="1">BUDUJE SE POMALU</text>
 
-        <!-- 1. Private Counsel Retainer — Sweet Spot -->
-        <circle cx="600" cy="100" r="44" fill="#B8976A" opacity="0.15" stroke="#B8976A" stroke-width="2"/>
-        <text x="600" y="96" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#0A0A0A">Private Counsel</text>
-        <text x="600" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600">Retainer model</text>
-        <text x="600" y="155" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" font-weight="600">150k+ Kč/měs. × klient</text>
-        <text x="600" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Premium segment — stabilní, vztahový</text>
+        <!-- AI ZÓNA — horizontální pruh "AI nahradí" -->
+        <rect x="100" y="330" width="280" height="90" fill="#8B4049" opacity="0.04" rx="8"/>
+        <text x="240" y="350" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#8B4049" opacity="0.6" letter-spacing="1.5" font-weight="600">🤖 AI NAHRADITELNÁ ZÓNA</text>
 
-        <!-- 2. M&A / Exit advisory — Vysoký, ale projektový -->
-        <circle cx="300" cy="90" r="38" fill="#B8976A" opacity="0.10" stroke="#B8976A" stroke-width="1.5"/>
-        <text x="300" y="86" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#0A0A0A">M&amp;A / Exit</text>
-        <text x="300" y="102" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600">Projektové fee</text>
-        <text x="300" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">Vysoké fee, ale jednorázové</text>
-        <text x="300" y="153" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">= příjmové výkyvy</text>
+        <!-- ══════════════════════════════════════ -->
+        <!-- 1. PRIVATE COUNSEL RETAINER — Sweet Spot, AI-proof -->
+        <!-- ══════════════════════════════════════ -->
+        <circle cx="600" cy="105" r="52" fill="#4A7A5B" opacity="0.06" filter="url(#aiGlow)"/>
+        <circle cx="600" cy="105" r="44" fill="#B8976A" opacity="0.15" stroke="#B8976A" stroke-width="2"/>
+        <text x="600" y="98" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A">Private Counsel</text>
+        <text x="600" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600">Retainer model</text>
+        <!-- AI shield badge -->
+        <rect x="562" y="126" width="76" height="16" rx="8" fill="#4A7A5B" opacity="0.15"/>
+        <text x="600" y="137" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#4A7A5B" font-weight="700" letter-spacing="0.5">🛡 AI-PROOF</text>
+        <text x="600" y="160" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" font-weight="600">150k+ Kč/měs. × klient</text>
+        <text x="600" y="174" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Vztah, důvěra, kontext — AI</text>
+        <text x="600" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">tohle neumí a nebude umět</text>
 
-        <!-- 3. Podcast / Thought Leadership — Buduje se pomalu -->
-        <circle cx="580" cy="300" r="34" fill="#B8976A" opacity="0.08" stroke="#B8976A" stroke-width="1" stroke-dasharray="4 3"/>
-        <text x="580" y="296" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#0A0A0A">Podcast</text>
-        <text x="580" y="310" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">Thought leadership</text>
-        <text x="580" y="345" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Přímo nevydělává, ale</text>
-        <text x="580" y="357" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">zkracuje sales cycle</text>
+        <!-- ══════════════════════════════════════ -->
+        <!-- 2. M&A / EXIT — vysoký, ale AI mění trh -->
+        <!-- ══════════════════════════════════════ -->
+        <circle cx="320" cy="100" r="38" fill="#B8976A" opacity="0.10" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="320" y="95" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#0A0A0A">M&amp;A / Exit</text>
+        <text x="320" y="110" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600">Projektové fee</text>
+        <!-- Partial AI badge -->
+        <rect x="282" y="120" width="76" height="16" rx="8" fill="#B8976A" opacity="0.12"/>
+        <text x="320" y="131" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#B8976A" font-weight="600" letter-spacing="0.5">⚡ ČÁSTEČNĚ</text>
+        <text x="320" y="152" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Due diligence → AI zrychlí</text>
+        <text x="320" y="164" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Strategie → zůstane lidská</text>
+        <text x="320" y="176" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Vysoké fee, ale jednorázové</text>
 
-        <!-- 4. BrainMarket — Nízká priorita pro private counsel -->
-        <circle cx="200" cy="310" r="32" fill="#8B4049" opacity="0.08" stroke="#8B4049" stroke-width="1" stroke-dasharray="4 3"/>
-        <text x="200" y="306" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#8B4049">BrainMarket</text>
-        <text x="200" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049">Suplementy</text>
-        <text x="200" y="355" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">Jiná cílovka = jiný brand</text>
-        <text x="200" y="367" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">Neškáluje PC positioning</text>
+        <!-- ══════════════════════════════════════ -->
+        <!-- 3. PODCAST — buduje se pomalu, AI-proof -->
+        <!-- ══════════════════════════════════════ -->
+        <circle cx="580" cy="310" r="34" fill="#B8976A" opacity="0.08" stroke="#B8976A" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="580" y="305" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#0A0A0A">Podcast</text>
+        <text x="580" y="319" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">Thought leadership</text>
+        <rect x="548" y="328" width="64" height="14" rx="7" fill="#4A7A5B" opacity="0.12"/>
+        <text x="580" y="338" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#4A7A5B" font-weight="600">🛡 AI-PROOF</text>
+        <text x="580" y="358" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Osobní hlas a názor =</text>
+        <text x="580" y="370" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">neduplikovatelné AI</text>
 
-        <!-- 5. Yoga / Wellness -->
-        <circle cx="170" cy="370" r="24" fill="#6B6560" opacity="0.06" stroke="#6B6560" stroke-width="1" stroke-dasharray="4 3"/>
-        <text x="170" y="367" text-anchor="middle" font-family="Playfair Display,serif" font-size="11" fill="#6B6560">Yoga</text>
-        <text x="170" y="380" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#6B6560">Osobní, ne byznys</text>
+        <!-- ══════════════════════════════════════ -->
+        <!-- 4. RUTINNÍ PRÁVNÍ PRÁCE — AI nahradí -->
+        <!-- ══════════════════════════════════════ -->
+        <circle cx="200" cy="370" r="28" fill="#8B4049" opacity="0.08" stroke="#8B4049" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="200" y="366" text-anchor="middle" font-family="Playfair Display,serif" font-size="11" fill="#8B4049">Rutinní právo</text>
+        <text x="200" y="380" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#8B4049">Smlouvy, review, compliance</text>
+        <rect x="168" y="388" width="64" height="14" rx="7" fill="#8B4049" opacity="0.12"/>
+        <text x="200" y="398" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#8B4049" font-weight="600">☠ AI NAHRADÍ</text>
 
-        <!-- Šipka: doporučená cesta -->
-        <defs><marker id="arrowG" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4A7A5B"/></marker></defs>
-        <path d="M 300 130 C 350 160, 450 140, 555 130" fill="none" stroke="#4A7A5B" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrowG)" opacity="0.6"/>
-        <text x="430" y="125" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#4A7A5B" font-weight="600" letter-spacing="1">M&amp;A KLIENTY → RETAINER</text>
+        <!-- ══════════════════════════════════════ -->
+        <!-- 5. BRAINMARKET — jiný brand, AI irelevantní -->
+        <!-- ══════════════════════════════════════ -->
+        <circle cx="160" cy="290" r="26" fill="#6B6560" opacity="0.06" stroke="#6B6560" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="160" y="287" text-anchor="middle" font-family="Playfair Display,serif" font-size="10" fill="#6B6560">BrainMarket</text>
+        <text x="160" y="300" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#6B6560">Jiný brand, jiný trh</text>
 
-        <!-- Legenda -->
-        <rect x="100" y="450" width="600" height="28" rx="14" fill="#B8976A" opacity="0.06"/>
-        <text x="400" y="468" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560">Velikost bubliny = strategická důležitost pro private counsel positioning · Plný okraj = core · Čárkovaný = podpůrný / oddělený</text>
+        <!-- Šipka: doporučená konverze -->
+        <path d="M 320 140 C 370 170, 470 155, 555 140" fill="none" stroke="#4A7A5B" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrowG2)" opacity="0.6"/>
+        <text x="445" y="138" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#4A7A5B" font-weight="600" letter-spacing="1">M&amp;A KLIENTY → RETAINER</text>
+
+        <!-- Šipka: rutinní → Alice nedělá -->
+        <path d="M 230 370 L 280 370" fill="none" stroke="#8B4049" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+        <text x="340" y="368" text-anchor="start" font-family="Inter,sans-serif" font-size="8" fill="#8B4049" opacity="0.6">← Alice toto nedělá</text>
+        <text x="340" y="380" text-anchor="start" font-family="Inter,sans-serif" font-size="8" fill="#8B4049" opacity="0.6">(a proto je AI-proof)</text>
+
+        <!-- LEGENDA -->
+        <rect x="100" y="475" width="600" height="55" rx="12" fill="#0A0A0A" opacity="0.03"/>
+        <text x="400" y="494" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560" font-weight="500">Třetí dimenze: odolnost vůči AI</text>
+        <circle cx="150" cy="516" r="6" fill="#4A7A5B" opacity="0.2"/>
+        <text x="162" y="520" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">🛡 AI-proof — vztah, důvěra, osobní úsudek</text>
+        <circle cx="400" cy="516" r="6" fill="#B8976A" opacity="0.2"/>
+        <text x="412" y="520" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">⚡ Částečně — AI zrychlí, ale nenahradí</text>
+        <circle cx="620" cy="516" r="6" fill="#8B4049" opacity="0.2"/>
+        <text x="632" y="520" font-family="Inter,sans-serif" font-size="9" fill="#8B4049">☠ AI nahradí do 3–5 let</text>
       </svg>
+    </div>
+    <div class="insight" style="margin-bottom:40px;">
+      <div class="insight-label">Proč je Alice positioning AI-proof</div>
+      <p>AI nahrazuje rutinní právní práci (revize smluv, compliance check, due diligence skenování) — ale to Alice nedělá. Její hodnota stojí na třech věcech, které AI neumí: (1) důvěra budovaná osobním vztahem, (2) strategický úsudek v komplexních situacích kde se prolíná právo, byznys a rodina, (3) diskrétnost garantovaná strukturou, ne slibem. Čím víc AI zlevní rutinní právo, tím víc vynikne hodnota strategického counsel — a tím víc bude Alice positioning sílit.</p>
     </div>
 
     <!-- LinkedIn -->
