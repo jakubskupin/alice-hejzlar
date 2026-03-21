@@ -276,12 +276,22 @@
                 <div class="max-w-3xl mx-auto relative z-10">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
                         <div>
-                            <div class="inline-flex items-center gap-2 mb-6 px-4 py-2" style="border: 1px solid rgba(184,160,200,0.15); border-radius: 999px;">
-                                <div class="w-1.5 h-1.5 rounded-full" style="background: #B8A0C8; animation: pulse 2s ease infinite;"></div>
-                                <span style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.5);">Připravujeme</span>
-                            </div>
-                            <h2 class="text-4xl md:text-5xl tracking-tight" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">
+                            <h2 class="text-4xl md:text-5xl tracking-tight relative" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">
                                 Jak přemýšlí<br>private counsel
+                                <!-- Razítko -->
+                                <span class="absolute -right-8 md:-right-16 -top-4 md:-top-8 pointer-events-none" style="transform: rotate(-12deg);">
+                                    <svg width="110" height="110" viewBox="0 0 110 110" style="opacity: 0.2;">
+                                        <circle cx="55" cy="55" r="50" fill="none" stroke="#B8A0C8" stroke-width="2"/>
+                                        <circle cx="55" cy="55" r="42" fill="none" stroke="#B8A0C8" stroke-width="0.5"/>
+                                        <text font-family="Inter, sans-serif" font-size="6" fill="#B8A0C8" letter-spacing="3" text-anchor="middle">
+                                            <textPath href="#stamp-circle" startOffset="50%">ALICE HEJZLAROVÁ · PRIVATE COUNSEL · PRAHA ·</textPath>
+                                        </text>
+                                        <text x="55" y="52" text-anchor="middle" font-family="DM Serif Display, serif" font-size="11" fill="#B8A0C8">Spis č.</text>
+                                        <text x="55" y="66" text-anchor="middle" font-family="DM Serif Display, serif" font-size="13" fill="#B8A0C8">001/2026</text>
+                                        <text x="55" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" fill="#B8A0C8" letter-spacing="2">V PŘÍPRAVĚ</text>
+                                        <defs><path id="stamp-circle" d="M 55,55 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/></defs>
+                                    </svg>
+                                </span>
                             </h2>
                         </div>
                         <p class="max-w-sm leading-relaxed" style="color: rgba(240,235,232,0.4); font-family: 'Crimson Pro', serif; font-style: italic; font-size: 17px;">
