@@ -89,23 +89,55 @@
             </div>
         </section>
 
-        <!-- Statement — sticky behind main content, revealed by scrolling -->
-        <section class="sticky top-0 h-[100svh] w-full flex items-center justify-center z-[1]" style="background: linear-gradient(180deg, #1A1420 0%, #2E1833 50%, #1A1420 100%);">
-            <div class="max-w-4xl mx-auto text-center px-6">
-                <p style="font-family: 'Crimson Pro', serif; font-size: clamp(15px,1.4vw,19px); letter-spacing: 0.15em; color: rgba(240,235,232,0.4);">
-                    15 let v&nbsp;právu mě naučilo jednu věc —
-                </p>
-                <p class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8;">
-                    Nepotřebujete rychlé odpovědi.
-                </p>
-                <p style="font-family: 'Crimson Pro', serif; font-style: italic; font-size: clamp(17px,1.6vw,22px); color: #B8A0C8; line-height: 1.7;">
-                    Potřebujete partnera, který s&nbsp;vámi vydrží v&nbsp;nejistotě. A&nbsp;provede vás velkou změnou.
-                </p>
+        <!-- Split Section — statement splits apart to reveal services -->
+        <section id="split-section" class="relative" style="height: 200vh;">
+            <div class="sticky top-0 h-screen w-full overflow-hidden">
+                <!-- Statement content (behind the panels) -->
+                <div class="absolute inset-0 flex items-center justify-center z-0" style="background: #F0EBE8;">
+                    <!-- This is what you see AFTER the split -->
+                </div>
+
+                <!-- Left panel -->
+                <div id="panel-left" class="absolute top-0 left-0 w-1/2 h-full overflow-hidden z-10" style="background: linear-gradient(180deg, #1A1420 0%, #2E1833 50%, #1A1420 100%);">
+                    <div class="absolute inset-0 w-[200%] flex items-center justify-center">
+                        <div class="max-w-4xl text-center px-6">
+                            <p style="font-family: 'Crimson Pro', serif; font-size: clamp(15px,1.4vw,19px); letter-spacing: 0.15em; color: rgba(240,235,232,0.4);">
+                                15 let v&nbsp;právu mě naučilo jednu věc —
+                            </p>
+                            <p class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8;">
+                                Nepotřebujete rychlé odpovědi.
+                            </p>
+                            <p style="font-family: 'Crimson Pro', serif; font-style: italic; font-size: clamp(17px,1.6vw,22px); color: #B8A0C8; line-height: 1.7;">
+                                Potřebujete partnera, který s&nbsp;vámi vydrží v&nbsp;nejistotě. A&nbsp;provede vás velkou změnou.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right panel (mirrors the left) -->
+                <div id="panel-right" class="absolute top-0 right-0 w-1/2 h-full overflow-hidden z-10" style="background: linear-gradient(180deg, #1A1420 0%, #2E1833 50%, #1A1420 100%);">
+                    <div class="absolute inset-0 w-[200%] flex items-center justify-center" style="margin-left: -100%;">
+                        <div class="max-w-4xl text-center px-6">
+                            <p style="font-family: 'Crimson Pro', serif; font-size: clamp(15px,1.4vw,19px); letter-spacing: 0.15em; color: rgba(240,235,232,0.4);">
+                                15 let v&nbsp;právu mě naučilo jednu věc —
+                            </p>
+                            <p class="mt-6 mb-6" style="font-family: 'DM Serif Display', serif; font-size: clamp(36px,6vw,80px); line-height: 1.1; letter-spacing: -0.02em; color: #F0EBE8;">
+                                Nepotřebujete rychlé odpovědi.
+                            </p>
+                            <p style="font-family: 'Crimson Pro', serif; font-style: italic; font-size: clamp(17px,1.6vw,22px); color: #B8A0C8; line-height: 1.7;">
+                                Potřebujete partnera, který s&nbsp;vámi vydrží v&nbsp;nejistotě. A&nbsp;provede vás velkou změnou.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical line in the middle (split seam) -->
+                <div id="split-line" class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full z-20" style="background: rgba(184,160,200,0.15); opacity: 0;"></div>
             </div>
         </section>
 
-        <!-- Main Content Wrapper — slides up over statement -->
-        <main class="relative z-10 bg-parchment overflow-hidden" style="box-shadow: 0 -2rem 4rem rgba(14,10,18,0.4);">
+        <!-- Main Content Wrapper -->
+        <main class="relative z-10 bg-parchment overflow-hidden">
 
             <!-- Services Section -->
             <section id="sluzby" class="pt-32 pb-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
@@ -569,7 +601,33 @@
             });
         }, 100);
 
-        // Statement is static — no animation needed
+        // Split panel animation — panels slide apart on scroll
+        const splitSection = document.getElementById('split-section');
+        const panelLeft = document.getElementById('panel-left');
+        const panelRight = document.getElementById('panel-right');
+        const splitLine = document.getElementById('split-line');
+
+        window.addEventListener('scroll', () => {
+            if (!splitSection || !panelLeft || !panelRight) return;
+            const rect = splitSection.getBoundingClientRect();
+            const total = splitSection.offsetHeight - window.innerHeight;
+            const scrolled = -rect.top;
+
+            if (scrolled < 0 || scrolled > total) return;
+
+            const progress = Math.min(scrolled / total, 1);
+
+            // First 30%: statement is visible, no movement
+            // 30%-100%: panels slide apart
+            const splitProgress = Math.max((progress - 0.3) / 0.7, 0);
+            const eased = splitProgress * splitProgress * (3 - 2 * splitProgress); // smoothstep
+
+            panelLeft.style.transform = `translateX(${-eased * 100}%)`;
+            panelRight.style.transform = `translateX(${eased * 100}%)`;
+
+            // Show split line briefly during split
+            splitLine.style.opacity = splitProgress > 0.01 && splitProgress < 0.5 ? '1' : '0';
+        }, { passive: true });
     </script>
 
 </body></html>
