@@ -154,8 +154,6 @@
                     </div>
                 </div>
 
-                <!-- Vertical line in the middle (split seam) -->
-                <div id="split-line" class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full z-20" style="background: rgba(184,160,200,0.15); opacity: 0;"></div>
             </div>
         </section>
 
@@ -609,7 +607,6 @@
         const splitSection = document.getElementById('split-section');
         const panelLeft = document.getElementById('panel-left');
         const panelRight = document.getElementById('panel-right');
-        const splitLine = document.getElementById('split-line');
 
         window.addEventListener('scroll', () => {
             if (!splitSection || !panelLeft || !panelRight) return;
@@ -643,8 +640,6 @@
             panelLeft.style.transform = `translateX(${-eased * 100}%)`;
             panelRight.style.transform = `translateX(${eased * 100}%)`;
 
-            // Show split line briefly during split
-            splitLine.style.opacity = splitProgress > 0.01 && splitProgress < 0.5 ? '1' : '0';
         }, { passive: true });
     </script>
 
