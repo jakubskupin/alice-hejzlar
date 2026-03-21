@@ -99,7 +99,7 @@
         </section>
 
         <!-- Split Section — statement splits apart to reveal services -->
-        <section id="split-section" class="relative" style="height: 220vh;">
+        <section id="split-section" class="relative" style="height: 280vh;">
             <div class="sticky top-0 h-screen w-full overflow-hidden">
                 <!-- Content behind panels — horizont background -->
                 <div class="absolute inset-0 z-0">
@@ -640,7 +640,7 @@
             // Sub-reveal — only AFTER panels are fully gone + extra scroll
             const subReveal = document.getElementById('sub-reveal');
             if (subReveal) {
-                if (progress > 0.85) {
+                if (progress > 0.92) {
                     subReveal.style.opacity = '1';
                     subReveal.style.transform = 'translateY(0)';
                 } else {
