@@ -33,58 +33,64 @@
 
     <!-- Sticky Background Hero Layer -->
     <div class="relative w-full">
-        <section class="relative h-[100svh] min-h-[45rem] w-full overflow-hidden flex flex-col justify-between z-0">
+        <section class="relative h-[100svh] min-h-[45rem] w-full overflow-hidden z-0">
 
-            <!-- Hero Background Image -->
+            <!-- Hero Background Image — positioned right -->
             <div class="absolute inset-0 overflow-hidden">
-                <img id="hero-image" src="alice-hejzlarova-hero-v2.png" alt="Alice Hejzlarová" class="w-full h-full object-cover object-top scale-[1.15] origin-top will-change-transform">
+                <img id="hero-image" src="alice-hejzlarova-hero-v2.png" alt="Alice Hejzlarová" class="w-full h-full object-cover object-top scale-[1.15] origin-top will-change-transform" style="object-position: 65% top;">
             </div>
 
-            <!-- No overlay — clean photo -->
+            <!-- Gradient overlay — left side darker for text readability -->
+            <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(14,10,18,0.7) 0%, rgba(14,10,18,0.3) 40%, transparent 70%);"></div>
+            <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 60%, rgba(14,10,18,0.5) 100%);"></div>
 
-            <!-- Header -->
-            <header class="z-20 md:px-12 flex w-full pt-8 pr-6 pb-8 pl-6 absolute top-0 left-0 items-center">
-                <div class="text-parchment text-2xl tracking-tight" style="font-family: 'DM Serif Display', serif;">Alice Hejzlarová</div>
+            <!-- Header — AH monogram left -->
+            <header class="z-20 px-6 md:px-12 flex w-full pt-8 pb-8 absolute top-0 left-0 items-center justify-between">
+                <div class="text-parchment text-xl tracking-tight" style="font-family: 'DM Serif Display', serif; opacity: 0.6;">AH</div>
+                <span style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.4);">Private Counsel</span>
             </header>
 
-            <!-- Main Hero Content -->
-            <div class="flex-1 flex flex-col md:px-12 lg:px-24 will-change-transform w-full max-w-7xl z-10 mr-auto ml-auto pr-6 pl-6 relative justify-center" id="hero-content">
-                <div class="max-w-3xl">
-                    <div class="flex items-center gap-3 mb-8 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                        <span class="text-violet tracking-widest" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase;">Private Counsel</span>
+            <!-- Main Hero Content — two column layout -->
+            <div class="absolute inset-0 z-10 flex items-end px-6 md:px-12 lg:px-16 pb-20 md:pb-24" id="hero-content">
+                <div class="w-full flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
+
+                    <!-- Left: Name -->
+                    <div class="flex-shrink-0">
+                        <p class="mb-4 reveal" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">Personal Counsel</p>
+                        <h1 class="text-parchment tracking-tight leading-[0.9] reveal" style="font-family: 'DM Serif Display', serif; font-size: clamp(56px, 10vw, 130px); opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
+                            Alice<br>Hejzlarová
+                        </h1>
                     </div>
 
-                    <h1 class="text-6xl md:text-8xl text-parchment tracking-tight leading-tight mb-8 reveal" style="font-family: 'DM Serif Display', serif; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
-                        Alice<br>Hejzlarová
-                    </h1>
+                    <!-- Right: Description + stats -->
+                    <div class="max-w-xs md:max-w-sm flex-shrink-0 md:text-right reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
+                        <p class="text-base md:text-lg leading-relaxed mb-8" style="color: rgba(240,235,232,0.6); font-family: 'Crimson Pro', serif;">
+                            Právní pomoc s&nbsp;lidským přístupem pro vaše nejdůležitější rozhodnutí
+                        </p>
+                        <div class="flex gap-10 md:justify-end">
+                            <div>
+                                <span class="block mb-1" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.45);">Sídlo</span>
+                                <span class="text-parchment" style="font-family: 'DM Serif Display', serif; font-size: 15px;">Praha</span>
+                            </div>
+                            <div>
+                                <span class="block mb-1" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.45);">Praxe</span>
+                                <span class="text-parchment" style="font-family: 'DM Serif Display', serif; font-size: 15px;">15+ let</span>
+                            </div>
+                            <div>
+                                <span class="block mb-1" style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.45);">Případů</span>
+                                <span class="text-parchment" style="font-family: 'DM Serif Display', serif; font-size: 15px;">500+</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p class="text-lg md:text-xl max-w-lg leading-relaxed reveal" style="color: rgba(240,235,232,0.5); font-family: 'Crimson Pro', serif; font-weight: 300; font-style: italic; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
-                        Jeden člověk pro vaše nejdůležitější rozhodnutí.<br class="hidden md:block">
-                        Právo, byznys a život — osobně.
-                    </p>
                 </div>
             </div>
 
-            <!-- Hero Footer -->
-            <div class="relative z-10 px-6 pb-16 w-full flex flex-col items-center gap-10 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 300ms;">
-                <div class="flex gap-16 md:gap-28 justify-center">
-                    <div class="text-center">
-                        <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: rgba(184,160,200,0.6);">Sídlo</span>
-                        <span class="text-parchment text-lg" style="font-family: 'DM Serif Display', serif;">Praha</span>
-                    </div>
-                    <div class="text-center">
-                        <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: rgba(184,160,200,0.6);">Praxe</span>
-                        <span class="text-parchment text-lg" style="font-family: 'DM Serif Display', serif;">15+ let</span>
-                    </div>
-                    <div class="text-center">
-                        <span class="block mb-3" style="font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: rgba(184,160,200,0.6);">Model</span>
-                        <span class="text-parchment text-lg" style="font-family: 'DM Serif Display', serif;">Private Counsel</span>
-                    </div>
-                </div>
-
-                <a href="#sluzby" class="flex items-center gap-3 text-violet/50 hover:text-violet transition-colors group" style="font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2px;">
-                    Prozkoumat více
-                    <iconify-icon icon="solar:arrow-down-linear" class="text-lg group-hover:translate-y-1 transition-transform" style="stroke-width: 1.5;"></iconify-icon>
+            <!-- Scroll indicator — bottom center -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 400ms;">
+                <a href="#split-section" class="flex flex-col items-center gap-2 text-violet/40 hover:text-violet transition-colors group">
+                    <span style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase;">Scroll</span>
+                    <iconify-icon icon="solar:arrow-down-linear" class="text-base group-hover:translate-y-1 transition-transform"></iconify-icon>
                 </a>
             </div>
         </section>
