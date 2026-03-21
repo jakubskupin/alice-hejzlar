@@ -254,15 +254,15 @@
                             </p>
                             <!-- Mobile: vertical centered list, sorted longest→shortest -->
                             <div class="flex md:hidden flex-col items-center gap-2">
-                                <span class="relative cursor-pointer" id="ai-trigger" style="font-family: 'Crimson Pro', serif; font-size: 17px; color: #B8A0C8; border-bottom: 1px solid rgba(184,160,200,0.3);" onclick="var t=document.getElementById('ai-tooltip');t.style.opacity=t.style.opacity==='1'?'0':'1';t.style.visibility=t.style.opacity==='1'?'visible':'hidden';">AI specialisté</span>
-                                <div id="ai-tooltip" class="w-72 p-4 rounded-lg transition-all duration-300" style="opacity: 0; visibility: hidden; background: #2E1833; border: 1px solid rgba(184,160,200,0.15); box-shadow: 0 8px 30px rgba(14,10,18,0.4); margin-top: -4px;">
-                                    <span class="block text-sm leading-relaxed" style="font-family: 'Crimson Pro', serif; font-style: italic; color: rgba(240,235,232,0.7);">Vaše strategická výhoda. Skrze AI a specialisty jsme rychlejší, přesnější a vidíme scénáře, které protistraně unikají.</span>
-                                </div>
                                 <span style="font-family: 'Crimson Pro', serif; font-size: 17px; color: rgba(240,235,232,0.5);">Ekonomové</span>
                                 <span style="font-family: 'Crimson Pro', serif; font-size: 17px; color: rgba(240,235,232,0.5);">Stratégové</span>
                                 <span style="font-family: 'Crimson Pro', serif; font-size: 17px; color: rgba(240,235,232,0.5);">Manažeři</span>
                                 <span style="font-family: 'Crimson Pro', serif; font-size: 17px; color: rgba(240,235,232,0.5);">Právníci</span>
                                 <span style="font-family: 'Crimson Pro', serif; font-size: 17px; color: rgba(240,235,232,0.5);">IT experti</span>
+                                <span class="cursor-pointer" style="font-family: 'Crimson Pro', serif; font-size: 17px; color: #B8A0C8; border-bottom: 1px solid rgba(184,160,200,0.3);" onclick="var t=this.nextElementSibling;if(t.style.maxHeight==='0px'){t.style.maxHeight='100px';t.style.opacity='1';t.style.marginTop='8px'}else{t.style.maxHeight='0px';t.style.opacity='0';t.style.marginTop='0'}">AI specialisté</span>
+                                <div class="w-full overflow-hidden transition-all duration-500" style="max-height: 0px; opacity: 0; margin-top: 0;">
+                                    <p class="text-center text-sm leading-relaxed px-4" style="font-family: 'Crimson Pro', serif; font-style: italic; color: rgba(240,235,232,0.6);">Vaše strategická výhoda. Skrze AI a specialisty jsme rychlejší, přesnější a vidíme scénáře, které protistraně unikají.</p>
+                                </div>
                             </div>
                             <!-- Desktop: horizontal with dots -->
                             <div class="hidden md:flex flex-wrap gap-x-8 gap-y-3">
