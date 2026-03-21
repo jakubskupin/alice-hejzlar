@@ -599,42 +599,90 @@ a { color: var(--gold); }
     <div class="section-title">Customer Journey</div>
     <div class="section-desc">Cesta HNW klienta od prvního impulzu po dlouhodobý vztah s private counsel</div>
 
-    <div class="journey">
-      <div class="journey-step">
-        <div class="journey-icon">⚡</div>
-        <h5>Trigger</h5>
-        <p>Konflikt se společníkem, nabídka na koupi firmy, rozvodová situace, odchod klíčového manažera. Moment, kdy je v sázce hodně.</p>
-      </div>
-      <div class="journey-step">
-        <div class="journey-icon">👂</div>
-        <h5>Awareness</h5>
-        <p>Ptá se v síti: „Znáš někoho dobrého?" LinkedIn article, podcast epizoda, zmínka ve Forbes. Nikdy Google Ads.</p>
-      </div>
-      <div class="journey-step">
-        <div class="journey-icon">🔍</div>
-        <h5>Consideration</h5>
-        <p>Prochází web, čte články, poslouchá podcast. Hodnotí: diskrétnost, track record, osobní chemie. Zajímá ho, JAK Alice myslí.</p>
-      </div>
-      <div class="journey-step">
-        <div class="journey-icon">🤝</div>
-        <h5>Decision</h5>
-        <p>První schůzka. Rozhoduje: naslouchá mi? Rozumí kontextu? Řekne pravdu? Fee model? 78 % rozhodnutí padne na základě „pocitu důvěry".</p>
-      </div>
-      <div class="journey-step">
-        <div class="journey-icon">🔑</div>
-        <h5>Onboarding</h5>
-        <p>NDA, scope, fee model. Alice mapuje celou situaci — nejen právní, i byznysovou a osobní. Klient pocítí: „konečně mě někdo chápe celého".</p>
-      </div>
-      <div class="journey-step">
-        <div class="journey-icon">♾️</div>
-        <h5>Retainer</h5>
-        <p>Dlouhodobý vztah. Alice = první telefonát, když se něco stane. Měsíční retainer, prioritní dostupnost. „Můj právník" — ne „moje AK".</p>
-      </div>
-      <div class="journey-step">
-        <div class="journey-icon">📣</div>
-        <h5>Advocacy</h5>
-        <p>Spokojený klient doporučí dalšímu podnikateli. „Musíš zavolat Alice." Nejsilnější acquisition kanál — a stojí $0.</p>
-      </div>
+    <div class="journey-map" style="background:white;border-radius:16px;border:1px solid var(--gold-06);padding:32px 24px;margin:0 auto;max-width:800px;overflow:hidden;">
+      <svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <linearGradient id="pathGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#B8976A" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#B8976A" stop-opacity="0.8"/>
+          </linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- Klikatící cesta -->
+        <path d="M 120 55 C 250 55, 350 55, 480 55 C 580 55, 660 55, 660 130 C 660 200, 580 200, 480 200 C 350 200, 250 200, 120 200 C 40 200, 40 200, 40 280 C 40 360, 120 360, 240 360 C 370 360, 480 360, 600 360 C 680 360, 720 360, 720 440 C 720 520, 640 520, 520 520 C 400 520, 300 520, 200 520"
+              fill="none" stroke="url(#pathGrad)" stroke-width="3" stroke-dasharray="8 6" opacity="0.6"/>
+
+        <!-- 1. TRIGGER -->
+        <circle cx="120" cy="55" r="24" fill="#B8976A" opacity="0.12" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="120" y="60" text-anchor="middle" font-size="22">⚡</text>
+        <text x="120" y="100" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Trigger</text>
+        <text x="120" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Konflikt se společníkem,</text>
+        <text x="120" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">nabídka na koupi firmy,</text>
+        <text x="120" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">rozvod. V sázce je hodně.</text>
+
+        <!-- 2. AWARENESS -->
+        <circle cx="480" cy="55" r="24" fill="#B8976A" opacity="0.12" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="480" y="60" text-anchor="middle" font-size="22">👂</text>
+        <text x="480" y="100" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Awareness</text>
+        <text x="480" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">„Znáš někoho dobrého?"</text>
+        <text x="480" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">LinkedIn, podcast, Forbes.</text>
+        <text x="480" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Nikdy Google Ads.</text>
+
+        <!-- 3. CONSIDERATION -->
+        <circle cx="480" cy="200" r="24" fill="#B8976A" opacity="0.12" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="480" y="205" text-anchor="middle" font-size="22">🔍</text>
+        <text x="480" y="245" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Consideration</text>
+        <text x="480" y="261" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Web, články, podcast.</text>
+        <text x="480" y="273" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Hodnotí diskrétnost, track</text>
+        <text x="480" y="285" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">record, JAK Alice myslí.</text>
+        <!-- Nejdelší fáze label -->
+        <rect x="380" y="293" width="200" height="18" rx="9" fill="#B8976A" opacity="0.1"/>
+        <text x="480" y="305" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#B8976A" letter-spacing="1.5" font-weight="600">NEJDELŠÍ FÁZE — PODCAST JI ZKRACUJE</text>
+
+        <!-- 4. DECISION -->
+        <circle cx="120" cy="360" r="24" fill="#B8976A" opacity="0.12" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="120" y="365" text-anchor="middle" font-size="22">🤝</text>
+        <text x="120" y="405" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Decision</text>
+        <text x="120" y="421" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">První schůzka. Naslouchá</text>
+        <text x="120" y="433" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">mi? Řekne pravdu? 78 %</text>
+        <text x="120" y="445" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">padne na „pocitu důvěry".</text>
+
+        <!-- 5. ONBOARDING -->
+        <circle cx="400" cy="360" r="24" fill="#B8976A" opacity="0.12" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="400" y="365" text-anchor="middle" font-size="22">🔑</text>
+        <text x="400" y="405" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Onboarding</text>
+        <text x="400" y="421" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">NDA, scope, fee model.</text>
+        <text x="400" y="433" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Alice mapuje celou situaci.</text>
+        <text x="400" y="445" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">„Konečně mě někdo chápe."</text>
+
+        <!-- 6. RETAINER -->
+        <circle cx="640" cy="520" r="24" fill="#B8976A" opacity="0.15" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="640" y="525" text-anchor="middle" font-size="22">♾️</text>
+        <text x="640" y="560" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Retainer</text>
+        <text x="640" y="576" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Dlouhodobý vztah. Alice =</text>
+        <text x="640" y="588" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">první telefonát. „Můj</text>
+        <text x="640" y="600" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">právník" — ne „moje AK".</text>
+
+        <!-- 7. ADVOCACY -->
+        <circle cx="200" cy="520" r="24" fill="#B8976A" opacity="0.15" stroke="#B8976A" stroke-width="1.5" filter="url(#glow)"/>
+        <text x="200" y="525" text-anchor="middle" font-size="22">📣</text>
+        <text x="200" y="560" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#0A0A0A" font-weight="400">Advocacy</text>
+        <text x="200" y="576" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">„Musíš zavolat Alice."</text>
+        <text x="200" y="588" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B6560">Nejsilnější kanál — $0.</text>
+        <!-- Loop arrow zpět k Trigger -->
+        <path d="M 175 520 C 60 520, 20 480, 20 400 C 20 300, 20 200, 40 120 C 50 80, 80 55, 95 55" fill="none" stroke="#B8976A" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.35"/>
+        <text x="15" y="300" font-family="Inter,sans-serif" font-size="8" fill="#B8976A" letter-spacing="1" transform="rotate(-90,15,300)" text-anchor="middle" font-weight="500">REFERRAL LOOP</text>
+
+        <!-- Čísla fází -->
+        <text x="96" y="42" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">01</text>
+        <text x="456" y="42" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">02</text>
+        <text x="456" y="187" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">03</text>
+        <text x="96" y="347" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">04</text>
+        <text x="376" y="347" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">05</text>
+        <text x="616" y="507" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">06</text>
+        <text x="176" y="507" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600" letter-spacing="1">07</text>
+      </svg>
     </div>
 
     <div class="insight mt-32">
