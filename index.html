@@ -449,10 +449,7 @@
                     if(heroImage) {
                         heroImage.style.transform = `scale(${1.05 + scrollProgress * 0.05})`;
                     }
-                    if(heroContent) {
-                        heroContent.style.opacity = `${1 - scrollProgress * 1.5}`;
-                        heroContent.style.transform = `translateY(${scrolled * 0.02}rem)`;
-                    }
+                    // heroContent stays static — no scroll effect
                 }
             });
         }, { passive: true });
