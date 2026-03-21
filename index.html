@@ -103,6 +103,11 @@
                     </p>
                 </div>
 
+                <!-- Central glow — fades in on scroll before text -->
+                <div id="central-glow" class="absolute inset-0 z-[5] pointer-events-none flex items-center justify-center" style="opacity: 0; transition: opacity 0.4s ease;">
+                    <div style="width: 60vw; height: 60vh; background: radial-gradient(ellipse at center, rgba(184,160,200,0.12) 0%, rgba(61,32,69,0.06) 40%, transparent 70%);"></div>
+                </div>
+
                 <!-- Left panel -->
                 <div id="panel-left" class="absolute top-0 left-0 w-1/2 h-full overflow-hidden z-10" style="background: linear-gradient(180deg, #1A1420 0%, #2E1833 50%, #1A1420 100%);">
                     <div class="absolute inset-0 w-[200%] flex items-center justify-center">
@@ -642,6 +647,20 @@
 
             // First 30%: statement is visible, no movement
             // 30%-100%: panels slide apart
+            // Central glow — fades in early, peaks, then fades as panels split
+            const glow = document.getElementById('central-glow');
+            if (glow) {
+                const glowIntensity = progress < 0.15
+                    ? progress / 0.15 // fade in 0→1
+                    : progress < 0.4
+                        ? 1 // hold
+                        : Math.max(1 - (progress - 0.4) / 0.3, 0); // fade out
+                glow.style.opacity = glowIntensity;
+                // Glow also scales slightly
+                const glowScale = 1 + progress * 0.3;
+                glow.firstElementChild.style.transform = `scale(${glowScale})`;
+            }
+
             const splitProgress = Math.max((progress - 0.3) / 0.7, 0);
             const eased = splitProgress * splitProgress * (3 - 2 * splitProgress); // smoothstep
 
