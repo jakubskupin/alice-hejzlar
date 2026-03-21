@@ -128,15 +128,19 @@
                         <span class="text-6xl md:text-7xl leading-none text-violet/15 hidden md:block" style="font-family: 'DM Serif Display', serif;">02</span>
                     </div>
 
-                    <!-- Card 3: Private Counsel Retainer (aubergine) -->
-                    <div class="sticky top-40 z-30 text-parchment rounded-2xl p-10 md:p-16 mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01]" style="background: linear-gradient(170deg, #1A1420 0%, #2E1833 70%, #3D2045 100%); box-shadow: 0 1rem 4rem rgba(46,24,51,0.3);">
-                        <div class="flex-1">
+                    <!-- Card 3: Private Counsel Retainer (aubergine + arch) -->
+                    <div class="sticky top-40 z-30 text-parchment p-10 md:p-16 mb-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-transform duration-700 hover:scale-[1.01] relative overflow-hidden" style="background: linear-gradient(170deg, #1A1420 0%, #2E1833 70%, #3D2045 100%); box-shadow: 0 1rem 4rem rgba(46,24,51,0.3); border-radius: 60px 60px 16px 16px;">
+                        <!-- Subtle arch glow behind -->
+                        <div class="absolute inset-0 flex justify-center pointer-events-none" style="opacity: 0.04; top: -20%;">
+                            <div style="width: 600px; height: 600px; border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0;"></div>
+                        </div>
+                        <div class="flex-1 relative z-10">
                             <h3 class="text-3xl tracking-tight text-parchment mb-4" style="font-family: 'DM Serif Display', serif;">Private Counsel</h3>
                             <p class="text-lg leading-relaxed max-w-xl" style="color: rgba(240,235,232,0.6); font-family: 'Crimson Pro', serif;">
                                 Váš právník. Osobně. Dlouhodobý vztah, prioritní dostupnost, průběžné strategické poradenství. Neplatíte za hodiny — platíte za to, že znám celý váš příběh.
                             </p>
                         </div>
-                        <span class="text-6xl md:text-7xl leading-none hidden md:block" style="font-family: 'DM Serif Display', serif; color: rgba(240,235,232,0.1);">03</span>
+                        <span class="text-6xl md:text-7xl leading-none hidden md:block relative z-10" style="font-family: 'DM Serif Display', serif; color: rgba(240,235,232,0.1);">03</span>
                     </div>
 
                     <!-- Card 4: Konflikt společníků -->
@@ -158,9 +162,9 @@
 
                     <!-- Photo + Text — asymmetric layout -->
                     <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-start mb-20">
-                        <!-- Photo -->
+                        <!-- Photo — arch shape -->
                         <div class="w-full md:w-2/5 flex-shrink-0">
-                            <div class="aspect-[3/4] rounded-xl overflow-hidden" style="box-shadow: 0 2rem 4rem rgba(46,24,51,0.1);">
+                            <div class="aspect-[3/4] overflow-hidden" style="border-radius: 50% 50% 4px 4px; box-shadow: 0 2rem 4rem rgba(46,24,51,0.12);">
                                 <img src="alice-hero-2-resize.png" alt="Alice Hejzlarová" class="w-full h-full object-cover object-top">
                             </div>
                         </div>
@@ -380,8 +384,19 @@
                 </style>
             </section>
 
-            <!-- Parallax Testimonial Layer (Aubergine) -->
-            <section class="relative z-20 pt-48 pb-32 md:pb-48 px-6 bg-fixed" style="background: linear-gradient(170deg, #0E0A12 0%, #2E1833 100%);">
+            <!-- Parallax Testimonial Layer (Aubergine) with Arches -->
+            <section class="relative z-20 pt-48 pb-32 md:pb-48 px-6 bg-fixed overflow-hidden" style="background: linear-gradient(170deg, #0E0A12 0%, #2E1833 100%);">
+
+                <!-- Concentrické arches — All's Fair motiv -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="opacity: 0.06;">
+                    <div class="relative" style="width: 900px; height: 900px;">
+                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(1);"></div>
+                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.82); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.64); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.46); transform-origin: bottom center;"></div>
+                        <div class="absolute inset-0 rounded-full" style="border: 1.5px solid #B8A0C8; border-radius: 50% 50% 0 0; height: 100%; transform: scale(0.28); transform-origin: bottom center;"></div>
+                    </div>
+                </div>
 
                 <!-- Grain overlay -->
                 <div class="absolute inset-0 opacity-[0.03]" style="background: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px;"></div>
