@@ -269,21 +269,22 @@
                 <!-- Grain -->
                 <div class="absolute inset-0 opacity-[0.03]" style="background: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px;"></div>
 
-                <div class="max-w-5xl mx-auto relative z-10">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                        <div>
-                            <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Podcast · 5 epizod</span>
-                            <h2 class="text-4xl md:text-5xl tracking-tight mb-4" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">
-                                Jak přemýšlí<br>private counsel
-                            </h2>
+                <div class="max-w-3xl mx-auto relative z-10">
+                    <div class="text-center mb-16 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
+                        <div class="inline-flex items-center gap-2 mb-6 px-4 py-2" style="border: 1px solid rgba(184,160,200,0.15); border-radius: 999px;">
+                            <div class="w-1.5 h-1.5 rounded-full" style="background: #B8A0C8; animation: pulse 2s ease infinite;"></div>
+                            <span style="font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(184,160,200,0.5);">Připravujeme</span>
                         </div>
-                        <p class="max-w-sm leading-relaxed" style="color: rgba(240,235,232,0.4); font-family: 'Crimson Pro', serif; font-style: italic; font-size: 16px;">
+                        <h2 class="text-4xl md:text-5xl tracking-tight mb-4" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">
+                            Jak přemýšlí<br>private counsel
+                        </h2>
+                        <p class="max-w-md mx-auto leading-relaxed" style="color: rgba(240,235,232,0.4); font-family: 'Crimson Pro', serif; font-style: italic; font-size: 17px;">
                             Než zavoláte, poslechněte si, jak přistupuji k situacím, které řešíte. Pět epizod. Bez právničtiny.
                         </p>
                     </div>
 
-                    <!-- Podcast Episodes -->
-                    <div class="flex flex-col gap-3 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
+                    <!-- Podcast Episodes — centered -->
+                    <div class="flex flex-col gap-3 max-w-2xl mx-auto reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 100ms;">
 
                         <!-- Episode 1 -->
                         <div class="flex items-center gap-5 p-5 rounded-xl transition-all duration-300 group cursor-pointer" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(184,160,200,0.06);" onmouseover="this.style.background='rgba(184,160,200,0.06)';this.style.borderColor='rgba(184,160,200,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.03)';this.style.borderColor='rgba(184,160,200,0.06)'">
@@ -396,91 +397,21 @@
                         </div>
                     </div>
 
-                    <!-- Spotify note -->
-                    <div class="flex items-center gap-3 mt-10 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
-                        <iconify-icon icon="mdi:spotify" class="text-2xl" style="color: rgba(184,160,200,0.4);"></iconify-icon>
+                    <!-- Spotify note — centered -->
+                    <div class="flex flex-col items-center gap-3 mt-10 reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms;">
+                        <iconify-icon icon="mdi:spotify" class="text-3xl" style="color: rgba(184,160,200,0.4);"></iconify-icon>
                         <span style="font-family: 'Inter', sans-serif; font-size: 12px; color: rgba(240,235,232,0.3); letter-spacing: 1px;">Dostupné na Spotify</span>
                     </div>
                 </div>
 
                 <style>
+                    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
                     @keyframes bar1 { from { height: 12px; } to { height: 4px; } }
                     @keyframes bar2 { from { height: 20px; } to { height: 8px; } }
                     @keyframes bar3 { from { height: 16px; } to { height: 6px; } }
                 </style>
             </section>
 
-            <!-- Parallax Testimonial Layer (Aubergine) with Arches -->
-            <section class="relative z-20 pt-48 pb-32 md:pb-48 px-6 bg-fixed overflow-hidden" style="background: linear-gradient(170deg, #0E0A12 0%, #2E1833 100%);">
-
-                <!-- Warm light glow — světlo v tunelu -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div style="width: 40vw; height: 60vh; background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,160,200,0.12) 0%, rgba(184,160,200,0.04) 40%, transparent 70%);"></div>
-                </div>
-
-                <!-- Concentrické arches — All's Fair doorway motiv (straight sides + semicircle top) -->
-                <div class="absolute inset-0 flex items-end justify-center pointer-events-none overflow-hidden" style="opacity: 0.12;">
-                    <div class="relative" style="width: 420px; height: 120vh;">
-                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 210px 210px 0 0; transform: scale(1); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 168px 168px 0 0; transform: scale(0.8); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 126px 126px 0 0; transform: scale(0.6); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 84px 84px 0 0; transform: scale(0.4); transform-origin: bottom center;"></div>
-                        <div class="absolute inset-0" style="border: 1.5px solid #B8A0C8; border-radius: 42px 42px 0 0; transform: scale(0.2); transform-origin: bottom center;"></div>
-                    </div>
-                </div>
-
-                <!-- Vertical light beam — paprsek světla -->
-                <div class="absolute left-1/2 -translate-x-1/2 bottom-0 pointer-events-none" style="width: 2px; height: 70%; background: linear-gradient(180deg, rgba(184,160,200,0.3) 0%, rgba(184,160,200,0) 100%); filter: blur(1px);"></div>
-
-                <!-- Grain overlay -->
-                <div class="absolute inset-0 opacity-[0.03]" style="background: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px;"></div>
-
-                <!-- Overlapping Stats Box -->
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-6 z-30">
-                    <div class="p-10 md:p-16 flex flex-col md:flex-row justify-around items-center gap-12 reveal" style="background: #FDFCFB; border: 1px solid rgba(184,160,200,0.12); box-shadow: 0 2rem 4rem rgba(46,24,51,0.12); border-radius: 999px 999px 16px 16px; opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                        <div class="text-center">
-                            <div class="text-6xl md:text-7xl tracking-tight text-plum-800 mb-2 flex items-start justify-center" style="font-family: 'DM Serif Display', serif;">
-                                15<span class="text-3xl font-extralight mt-2 ml-1" style="color: #B8A0C8; font-family: 'Inter', sans-serif;">+</span>
-                            </div>
-                            <p style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8A8480;">Let praxe</p>
-                        </div>
-                        <div class="w-full md:w-px h-px md:h-24" style="background: rgba(184,160,200,0.15);"></div>
-                        <div class="text-center">
-                            <div class="text-6xl md:text-7xl tracking-tight text-plum-800 mb-2 flex items-start justify-center" style="font-family: 'DM Serif Display', serif;">
-                                1
-                            </div>
-                            <p style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #8A8480;">Člověk na vašem případu</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quote Content -->
-                <div class="relative z-10 max-w-4xl mx-auto text-center reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <iconify-icon icon="solar:quote-left-linear" class="text-5xl mx-auto mb-10 opacity-40" style="color: #B8A0C8; stroke-width: 1.5;"></iconify-icon>
-                    <h3 class="text-2xl md:text-4xl tracking-tight leading-relaxed mb-10" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">
-                        Právnička, která rozumí právu, byznysu i lidem — a&nbsp;všechny tři dimenze drží osobně.
-                    </h3>
-                    <div>
-                        <span class="block text-sm" style="color: rgba(184,160,200,0.4); font-family: 'Crimson Pro', serif; font-style: italic;">Positioning statement</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CTA Section -->
-            <section id="kontakt" class="relative z-30 pt-32 pb-40 px-6 md:px-12 text-center" style="background: #FDFCFB; border-bottom: 1px solid rgba(184,160,200,0.08); box-shadow: 0 1rem 4rem rgba(46,24,51,0.06); border-radius: 60px 60px 0 0;">
-                <div class="reveal" style="opacity: 0; transform: translateY(2rem); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <h2 class="text-5xl md:text-6xl tracking-tight text-plum-800 mb-8 leading-tight" style="font-family: 'DM Serif Display', serif;">
-                        Jsem tady, když<br>budete připraveni
-                    </h2>
-                    <p class="text-xl mb-12 max-w-lg mx-auto leading-relaxed" style="color: #6B6560; font-family: 'Crimson Pro', serif; font-style: italic;">
-                        Řeknete mi, co řešíte — a já vám řeknu, jestli a jak mohu pomoct. Nezávazně a zcela diskrétně.
-                    </p>
-                    <a href="mailto:alice@hejzlarova.cz" class="inline-flex items-center gap-3 px-10 py-5 text-parchment transition-all duration-300 hover:scale-105" style="background: linear-gradient(135deg, #2E1833, #3D2045); font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 8px 30px rgba(46,24,51,0.2);">
-                        Napište mi
-                        <iconify-icon icon="solar:arrow-right-linear" class="text-lg" style="stroke-width: 1.5;"></iconify-icon>
-                    </a>
-                </div>
-            </section>
 
             <!-- Footer -->
             <footer class="relative z-0 pt-48 pb-12 px-6 md:px-12 lg:px-24 -mt-24" style="background: #0E0A12;">
