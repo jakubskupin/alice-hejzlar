@@ -589,7 +589,7 @@
             });
         }, 100);
 
-        // Sub-reveal — appears when services section enters viewport (horizont starts scrolling up)
+        // Sub-reveal — appears when services visible, hides when scrolled back
         const subReveal = document.getElementById('sub-reveal');
         const sluzbySection = document.getElementById('sluzby');
         if (subReveal && sluzbySection) {
@@ -598,6 +598,9 @@
                     if (entry.isIntersecting) {
                         subReveal.style.opacity = '1';
                         subReveal.style.transform = 'translateY(0)';
+                    } else {
+                        subReveal.style.opacity = '0';
+                        subReveal.style.transform = 'translateY(20px)';
                     }
                 });
             }, { threshold: 0.01 });
