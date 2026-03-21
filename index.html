@@ -232,7 +232,8 @@
             </section>
 
             <!-- Network Section — parallax marble background -->
-            <section class="py-32 px-6 md:px-12 lg:px-24 relative bg-fixed bg-cover bg-center" style="background-color: #0E0A12; background-image: url('marble-bg.png'); background-attachment: fixed; background-size: cover; background-position: center;">
+            <section class="py-32 px-6 md:px-12 lg:px-24 relative bg-cover bg-center parallax-bg" style="background-color: #0E0A12; background-image: url('marble-bg.png'); background-size: cover; background-position: center;">
+                <style>@media (min-width: 768px) { .parallax-bg { background-attachment: fixed !important; } }</style>
                 <!-- Dark overlay for readability -->
                 <div class="absolute inset-0" style="background: rgba(14,10,18,0.75);"></div>
                 <div class="max-w-5xl mx-auto relative z-10">
