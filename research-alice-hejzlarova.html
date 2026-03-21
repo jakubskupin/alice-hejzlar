@@ -706,6 +706,133 @@ a { color: var(--gold); }
 
     <p style="font-size:14px;color:var(--warmgray);margin-bottom:32px;">Alicina digitální stopa je aktuálně rozštěpená mezi dvě identity: BrainMarket biohacker/wellness a právnička. Tato sekce mapuje gap mezi současným stavem a cílovým private counsel positioningem. <strong>BrainMarket a wellness aktivity nejsou scope této rešerše</strong> — ale fakt, že existují vedle právnického brandu, je problém, který je nutné adresovat.</p>
 
+    <!-- VIZUALIZACE 1: Tři identity — Vennův diagram tenze -->
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:32px 0 16px;">Tři identity Alice — kde vzniká tenze</h4>
+    <div style="background:white;border-radius:16px;border:1px solid var(--gold-06);padding:32px 16px;margin-bottom:32px;overflow:hidden;">
+      <svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <filter id="blur1"><feGaussianBlur stdDeviation="2"/></filter>
+        </defs>
+
+        <!-- Tři kruhy Vennova diagramu -->
+        <!-- Private Counsel — hlavní, dominantní -->
+        <circle cx="380" cy="190" r="140" fill="#B8976A" opacity="0.08" stroke="#B8976A" stroke-width="2"/>
+        <text x="380" y="120" text-anchor="middle" font-family="Playfair Display,serif" font-size="18" fill="#0A0A0A">Private Counsel</text>
+        <text x="380" y="142" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560">M&amp;A · Exit · HNW klientela</text>
+        <text x="380" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560">Diskrétnost · Autorita · Důvěra</text>
+        <!-- Revenue potenciál -->
+        <rect x="320" y="164" width="120" height="22" rx="11" fill="#4A7A5B" opacity="0.12"/>
+        <text x="380" y="179" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" font-weight="600" letter-spacing="1">💰 NEJVYŠŠÍ REVENUE</text>
+
+        <!-- BrainMarket / Biohacking — vlevo dole -->
+        <circle cx="250" cy="340" r="120" fill="#8B4049" opacity="0.06" stroke="#8B4049" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="190" y="370" text-anchor="middle" font-family="Playfair Display,serif" font-size="16" fill="#8B4049">BrainMarket</text>
+        <text x="190" y="390" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8B4049" opacity="0.7">Biohacking · Suplementy</text>
+        <text x="190" y="404" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8B4049" opacity="0.7">Preventivní zdraví</text>
+        <text x="190" y="424" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049" opacity="0.5">Jiná cílovka, jiný jazyk</text>
+
+        <!-- Jóga / Wellness — vpravo dole -->
+        <circle cx="510" cy="340" r="120" fill="#6B6560" opacity="0.06" stroke="#6B6560" stroke-width="1.5" stroke-dasharray="6 4"/>
+        <text x="570" y="370" text-anchor="middle" font-family="Playfair Display,serif" font-size="16" fill="#6B6560">Yoga &amp; Wellness</text>
+        <text x="570" y="390" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560" opacity="0.7">Soft power · Feminine</text>
+        <text x="570" y="404" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560" opacity="0.7">business strategy</text>
+        <text x="570" y="424" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560" opacity="0.5">Osobní, ale veřejně viditelná</text>
+
+        <!-- Tenzní zóny — průniky -->
+        <!-- PC × BrainMarket -->
+        <text x="290" y="260" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049" font-weight="600">⚡ TENZE</text>
+        <text x="290" y="274" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">HNW klient googlí</text>
+        <text x="290" y="286" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">„Alice Hejzlarová"</text>
+        <text x="290" y="298" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">→ najde biohacking</text>
+        <text x="290" y="310" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049" font-weight="600">→ odejde ❌</text>
+
+        <!-- PC × Yoga -->
+        <text x="470" y="260" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560" font-weight="600">⚡ TENZE</text>
+        <text x="470" y="274" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">IG bio: „Soft power"</text>
+        <text x="470" y="286" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">× LinkedIn: advokátka</text>
+        <text x="470" y="298" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Rozhodnutí: jeden</text>
+        <text x="470" y="310" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560" font-weight="600">kanál = jeden hlas</text>
+
+        <!-- BrainMarket × Yoga — overlap bez tenze -->
+        <text x="380" y="370" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B">✓ Synergický</text>
+        <text x="380" y="384" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#4A7A5B">Wellness + biohacking</text>
+        <text x="380" y="396" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#4A7A5B">si neodporují</text>
+
+        <!-- Šipka doporučení -->
+        <line x1="380" y1="430" x2="380" y2="470" stroke="#B8976A" stroke-width="1.5" marker-end="url(#arrowGold)"/>
+        <defs><marker id="arrowGold" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#B8976A"/></marker></defs>
+        <rect x="250" y="472" width="260" height="36" rx="18" fill="#B8976A" opacity="0.1" stroke="#B8976A" stroke-width="1"/>
+        <text x="380" y="494" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#B8976A" font-weight="600" letter-spacing="0.5">ŘEŠENÍ: STRIKTNÍ ODDĚLENÍ KANÁLŮ</text>
+      </svg>
+    </div>
+
+    <!-- VIZUALIZACE 2: Revenue × Dlouhodobost matice -->
+    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:32px 0 16px;">Kde jsou peníze — a co vydrží</h4>
+    <div style="background:white;border-radius:16px;border:1px solid var(--gold-06);padding:32px 16px;margin-bottom:40px;overflow:hidden;">
+      <svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <!-- Osy -->
+        <line x1="100" y1="400" x2="700" y2="400" stroke="#E0DAD1" stroke-width="1"/>
+        <line x1="100" y1="400" x2="100" y2="40" stroke="#E0DAD1" stroke-width="1"/>
+        <!-- Osa X label -->
+        <text x="400" y="440" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6B6560" letter-spacing="2">DLOUHODOBÁ UDRŽITELNOST →</text>
+        <!-- Osa Y label -->
+        <text x="40" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6B6560" letter-spacing="2" transform="rotate(-90,40,220)">REVENUE POTENCIÁL →</text>
+
+        <!-- Kvandranty — pozadí -->
+        <rect x="100" y="40" width="300" height="180" fill="#8B4049" opacity="0.03"/>
+        <rect x="400" y="40" width="300" height="180" fill="#4A7A5B" opacity="0.04"/>
+        <rect x="100" y="220" width="300" height="180" fill="#6B6560" opacity="0.02"/>
+        <rect x="400" y="220" width="300" height="180" fill="#B8976A" opacity="0.04"/>
+        <!-- Kvandrant labely -->
+        <text x="250" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049" opacity="0.5" letter-spacing="1">VYSOKÝ VÝDĚLEK, ALE NEJISTÉ</text>
+        <text x="550" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" opacity="0.6" letter-spacing="1" font-weight="600">⭐ SWEET SPOT</text>
+        <text x="250" y="390" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560" opacity="0.4" letter-spacing="1">NÍZKÁ PRIORITA</text>
+        <text x="550" y="390" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" opacity="0.5" letter-spacing="1">BUDUJE SE POMALU</text>
+
+        <!-- 1. Private Counsel Retainer — Sweet Spot -->
+        <circle cx="600" cy="100" r="44" fill="#B8976A" opacity="0.15" stroke="#B8976A" stroke-width="2"/>
+        <text x="600" y="96" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#0A0A0A">Private Counsel</text>
+        <text x="600" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600">Retainer model</text>
+        <text x="600" y="155" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4A7A5B" font-weight="600">50–150k Kč/měs. × klient</text>
+        <text x="600" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Stabilní, škálovatelný, vztahový</text>
+
+        <!-- 2. M&A / Exit advisory — Vysoký, ale projektový -->
+        <circle cx="300" cy="90" r="38" fill="#B8976A" opacity="0.10" stroke="#B8976A" stroke-width="1.5"/>
+        <text x="300" y="86" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#0A0A0A">M&amp;A / Exit</text>
+        <text x="300" y="102" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#B8976A" font-weight="600">Projektové fee</text>
+        <text x="300" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">Vysoké fee, ale jednorázové</text>
+        <text x="300" y="153" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">= příjmové výkyvy</text>
+
+        <!-- 3. Podcast / Thought Leadership — Buduje se pomalu -->
+        <circle cx="580" cy="300" r="34" fill="#B8976A" opacity="0.08" stroke="#B8976A" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="580" y="296" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#0A0A0A">Podcast</text>
+        <text x="580" y="310" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#6B6560">Thought leadership</text>
+        <text x="580" y="345" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">Přímo nevydělává, ale</text>
+        <text x="580" y="357" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6B6560">zkracuje sales cycle</text>
+
+        <!-- 4. BrainMarket — Nízká priorita pro private counsel -->
+        <circle cx="200" cy="310" r="32" fill="#8B4049" opacity="0.08" stroke="#8B4049" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="200" y="306" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#8B4049">BrainMarket</text>
+        <text x="200" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B4049">Suplementy</text>
+        <text x="200" y="355" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">Jiná cílovka = jiný brand</text>
+        <text x="200" y="367" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#8B4049">Neškáluje PC positioning</text>
+
+        <!-- 5. Yoga / Wellness -->
+        <circle cx="170" cy="370" r="24" fill="#6B6560" opacity="0.06" stroke="#6B6560" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="170" y="367" text-anchor="middle" font-family="Playfair Display,serif" font-size="11" fill="#6B6560">Yoga</text>
+        <text x="170" y="380" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#6B6560">Osobní, ne byznys</text>
+
+        <!-- Šipka: doporučená cesta -->
+        <defs><marker id="arrowG" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4A7A5B"/></marker></defs>
+        <path d="M 300 130 C 350 160, 450 140, 555 130" fill="none" stroke="#4A7A5B" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrowG)" opacity="0.6"/>
+        <text x="430" y="125" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#4A7A5B" font-weight="600" letter-spacing="1">M&amp;A KLIENTY → RETAINER</text>
+
+        <!-- Legenda -->
+        <rect x="100" y="450" width="600" height="28" rx="14" fill="#B8976A" opacity="0.06"/>
+        <text x="400" y="468" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6B6560">Velikost bubliny = strategická důležitost pro private counsel positioning · Plný okraj = core · Čárkovaný = podpůrný / oddělený</text>
+      </svg>
+    </div>
+
     <!-- LinkedIn -->
     <div class="bar-row">
       <div class="bar-label"><span><strong>LinkedIn profil</strong></span><span style="color:var(--red);font-size:12px;font-weight:600;">KRITICKÝ GAP</span></div>
