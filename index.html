@@ -99,7 +99,7 @@
         </section>
 
         <!-- Split Section — statement splits apart to reveal services -->
-        <section id="split-section" class="relative" style="height: 280vh;">
+        <section id="split-section" class="relative" style="height: 200vh;">
             <div class="sticky top-0 h-screen w-full overflow-hidden">
                 <!-- Content behind panels — horizont background -->
                 <div class="absolute inset-0 z-0">
@@ -589,6 +589,21 @@
             });
         }, 100);
 
+        // Sub-reveal — appears when services section enters viewport (horizont starts scrolling up)
+        const subReveal = document.getElementById('sub-reveal');
+        const sluzbySection = document.getElementById('sluzby');
+        if (subReveal && sluzbySection) {
+            const subObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        subReveal.style.opacity = '1';
+                        subReveal.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.01 });
+            subObs.observe(sluzbySection);
+        }
+
         // Statement text reveal — staggered fade-in when split section enters viewport
         let stRevealed = false;
         const stLines = ['st-line1','st-line2','st-line1r','st-line2r'];
@@ -637,17 +652,7 @@
                 glow.firstElementChild.style.transform = `scale(${glowScale})`;
             }
 
-            // Sub-reveal — only AFTER panels are fully gone + extra scroll
-            const subReveal = document.getElementById('sub-reveal');
-            if (subReveal) {
-                if (progress > 0.92) {
-                    subReveal.style.opacity = '1';
-                    subReveal.style.transform = 'translateY(0)';
-                } else {
-                    subReveal.style.opacity = '0';
-                    subReveal.style.transform = 'translateY(20px)';
-                }
-            }
+            // Sub-reveal handled outside split logic
 
             const splitProgress = Math.max((progress - 0.3) / 0.7, 0);
             const eased = splitProgress * splitProgress * (3 - 2 * splitProgress); // smoothstep
