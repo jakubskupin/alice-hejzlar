@@ -4,582 +4,262 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Alice Hejzlarová — 3 návrhy Landing Page</title>
+<title>Alice Hejzlarová — Vizuální směry 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Libre+Bodoni:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #0A0A0A;
-  --offwhite: #F8F6F3;
-  --beige: #E8E0D4;
-  --gold: #B8976A;
-  --gold-25: rgba(184,151,106,0.25);
-  --gold-10: rgba(184,151,106,0.1);
-  --gold-06: rgba(184,151,106,0.06);
-  --warmgray: #6B6560;
-  --warmgray-40: rgba(107,101,96,0.4);
-  --text: #0A0A0A;
-}
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-body { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--offwhite); }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+body { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; color: #1a1a1a; background: #F8F6F3; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 @media (max-width: 600px) { .container { padding: 0 20px; } }
 
 /* NAV */
-.sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(248,246,243,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--gold-06); }
-.nav-inner { display: flex; align-items: center; gap: 0; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-.nav-link { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--warmgray); text-decoration: none; padding: 16px 14px; transition: all 0.2s; border-bottom: 2px solid transparent; }
-.nav-link:hover, .nav-link.active { color: var(--gold); border-bottom-color: var(--gold); }
+.sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-inner { display: flex; align-items: center; gap: 0; max-width: 1100px; margin: 0 auto; padding: 0 40px; overflow-x: auto; }
+.nav-link { font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; padding: 18px 14px; transition: all 0.3s; border-bottom: 2px solid transparent; white-space: nowrap; }
+.nav-link:hover, .nav-link.active { color: #C4909A; border-bottom-color: #C4909A; }
 
 /* HERO */
-.doc-hero { background: var(--black); color: var(--offwhite); padding: 100px 0 80px; position: relative; overflow: hidden; }
-.doc-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.035; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 256px; }
-.doc-hero .container { position: relative; }
-.hero-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-.doc-hero h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 12px; }
-.doc-hero p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: rgba(232,224,212,0.6); max-width: 560px; }
-.doc-hero .meta { font-size: 12px; color: var(--warmgray); margin-top: 32px; letter-spacing: 1px; }
+.doc-hero { background: #0A0A0A; color: #F5F0E8; padding: 120px 0 80px; position: relative; overflow: hidden; }
+.doc-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.03; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 256px; }
+.doc-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to top, #0A0A0A, transparent); }
+.doc-hero .container { position: relative; z-index: 1; }
+.hero-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #C4909A; margin-bottom: 24px; }
+.doc-hero h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 16px; line-height: 1.15; }
+.doc-hero p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: rgba(245,240,232,0.5); max-width: 560px; line-height: 1.6; }
+.doc-hero .meta { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 40px; letter-spacing: 1.5px; }
 
-/* SECTIONS */
-section { padding: 80px 0; border-bottom: 1px solid var(--gold-06); opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
-section.visible { opacity: 1; transform: translateY(0); }
-.section-number { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 500; }
-.section-title { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 12px; }
-.section-desc { color: var(--warmgray); font-size: 15px; max-width: 600px; margin-bottom: 48px; }
+/* CONTEXT SECTION */
+.context-section { background: #0E0E0E; color: #F5F0E8; padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.context-section h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 28px; margin-bottom: 32px; }
+.context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 700px) { .context-grid { grid-template-columns: 1fr; } }
+.context-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; }
+.context-card h4 { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #C4909A; margin-bottom: 12px; font-weight: 500; }
+.context-card p { font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.7; }
+.context-card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.context-card .tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); color: rgba(245,240,232,0.4); }
+.context-card .tag.bad { border-color: rgba(196,144,154,0.3); color: #C4909A; text-decoration: line-through; }
 
-/* PROPOSAL CARD */
-.proposal { background: white; border-radius: 20px; border: 1px solid var(--gold-06); overflow: hidden; margin-bottom: 48px; }
-.proposal-hero { padding: 48px 40px; position: relative; overflow: hidden; }
-.proposal-hero h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 28px; margin-bottom: 4px; }
-.proposal-hero .subtitle { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; opacity: 0.7; }
-.proposal-hero .claim { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.5; max-width: 480px; }
-.proposal-body { padding: 40px; }
+/* DIRECTION SECTIONS */
+.direction-section { padding: 100px 0 80px; border-bottom: 1px solid rgba(0,0,0,0.04); }
+.direction-section:nth-child(even) { background: #F2EFEB; }
+.dir-header { margin-bottom: 48px; }
+.dir-number { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #B8976A; margin-bottom: 8px; font-weight: 500; }
+.dir-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 8px; color: #1a1a1a; }
+.dir-subtitle { font-size: 14px; color: #8A8480; max-width: 600px; line-height: 1.7; }
+.dir-desc { font-size: 14px; color: #6B6560; max-width: 700px; line-height: 1.8; margin-top: 16px; }
 
-/* COLOR SWATCHES */
-.swatches { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
-.swatch { width: 48px; height: 48px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.06); position: relative; cursor: default; }
-.swatch-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--warmgray); text-align: center; margin-top: 4px; }
-.swatch-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
-.swatch-row .swatch { width: 32px; height: 32px; flex-shrink: 0; }
-.swatch-row span { font-size: 13px; color: var(--warmgray); }
-.swatch-row code { font-size: 12px; color: var(--gold); background: var(--gold-06); padding: 2px 8px; border-radius: 4px; }
+/* PALETTE */
+.palette-row { display: flex; gap: 16px; margin: 32px 0; flex-wrap: wrap; }
+.palette-swatch { flex: 1; min-width: 140px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.06); }
+.palette-color { height: 100px; display: flex; align-items: flex-end; padding: 12px 16px; }
+.palette-color span { font-size: 11px; font-weight: 500; letter-spacing: 1px; }
+.palette-info { padding: 12px 16px; background: white; }
+.palette-info .name { font-size: 12px; font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
+.palette-info .hex { font-size: 11px; color: #8A8480; font-family: 'SF Mono', 'Fira Code', monospace; }
+.palette-info .use { font-size: 11px; color: #B8976A; margin-top: 4px; }
 
 /* FONT PREVIEW */
-.font-preview { margin: 16px 0; padding: 20px; background: var(--gold-06); border-radius: 12px; }
-.font-preview .headline { margin-bottom: 8px; }
-.font-preview .body-text { font-size: 14px; color: var(--warmgray); }
+.font-card { background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; padding: 40px; margin: 32px 0; }
+.font-card .font-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #B8976A; margin-bottom: 20px; font-weight: 500; }
+.font-card .font-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 700px) { .font-card .font-pair { grid-template-columns: 1fr; } }
+.font-card .font-name { font-size: 11px; color: #8A8480; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
 
-/* SECTION STRUCTURE */
-.site-sections { list-style: none; padding: 0; counter-reset: site-section; }
-.site-sections li { padding: 16px 0; border-bottom: 1px solid var(--gold-06); display: flex; align-items: flex-start; gap: 16px; font-size: 14px; }
-.site-sections li::before { counter-increment: site-section; content: counter(site-section, decimal-leading-zero); font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 500; flex-shrink: 0; padding-top: 2px; }
-.site-sections li strong { font-weight: 600; color: var(--text); }
-.site-sections li span { color: var(--warmgray); }
+/* MOCKUP HERO */
+.mockup-hero { border-radius: 16px; overflow: hidden; margin: 40px 0; position: relative; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; padding: 48px; }
+.mockup-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.025; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 256px; z-index: 1; pointer-events: none; }
+.mockup-hero .mockup-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; position: relative; z-index: 2; }
+.mockup-hero .mockup-headline { font-weight: 300; line-height: 1.1; margin-bottom: 12px; position: relative; z-index: 2; }
+.mockup-hero .mockup-sub { font-style: italic; line-height: 1.5; max-width: 500px; position: relative; z-index: 2; }
+.mockup-hero .mockup-cta { display: inline-block; margin-top: 28px; padding: 14px 36px; border-radius: 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; position: relative; z-index: 2; transition: all 0.3s; }
 
-/* ANIMATION SPEC */
-.anim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 16px 0; }
-.anim-card { padding: 16px; background: var(--gold-06); border-radius: 10px; border: 1px solid var(--gold-06); }
-.anim-card h5 { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; font-weight: 600; }
-.anim-card p { font-size: 12px; color: var(--warmgray); line-height: 1.5; }
-.anim-card code { font-size: 11px; background: rgba(184,151,106,0.1); color: var(--gold); padding: 1px 5px; border-radius: 3px; }
-
-/* SUBSECTION */
-.subsection { margin-top: 32px; }
-.subsection h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
-
-/* PENCIL PROMPT */
-.pencil-prompt { background: var(--black); color: var(--offwhite); border-radius: 12px; padding: 24px; margin: 16px 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
-.pencil-prompt .comment { color: var(--warmgray); }
-.pencil-prompt .key { color: var(--gold); }
-.pencil-prompt .val { color: #8BC5A3; }
+/* RATIONALE */
+.rationale { background: rgba(0,0,0,0.02); border-radius: 12px; padding: 28px 32px; margin: 32px 0; border-left: 3px solid; }
+.rationale h5 { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+.rationale p { font-size: 13px; color: #6B6560; line-height: 1.7; }
+.rationale .allfair { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: #5C1A2A; margin-top: 12px; }
 
 /* COMPARISON TABLE */
-.comparison { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
-.comparison th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 12px 16px; border-bottom: 2px solid var(--gold-25); font-weight: 600; }
-.comparison td { padding: 12px 16px; border-bottom: 1px solid var(--gold-06); color: var(--warmgray); vertical-align: top; }
-.comparison td:first-child { color: var(--text); font-weight: 500; }
-.comparison tr:hover td { background: var(--gold-06); }
+.compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 13px; }
+.compare-table th { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #B8976A; text-align: left; padding: 12px 16px; border-bottom: 2px solid rgba(0,0,0,0.08); font-weight: 500; }
+.compare-table td { padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,0.04); color: #6B6560; vertical-align: top; }
+.compare-table td:first-child { font-weight: 500; color: #1a1a1a; }
 
-/* DARK PROPOSAL */
-.proposal.dark .proposal-hero { background: #0A0A0A; color: #F8F6F3; }
-.proposal.warm .proposal-hero { background: #F5EDE3; color: #2C2420; }
-.proposal.editorial .proposal-hero { background: #1A1A2E; color: #E8E0D4; }
+/* ANIMATION */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* PILLS */
-.pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
-.pill { font-size: 11px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--gold-25); color: var(--gold); }
+/* SUBVARIANT GRID */
+.subvariant-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin: 40px 0; }
+@media (max-width: 800px) { .subvariant-grid { grid-template-columns: 1fr; } }
+.subvariant-card { border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.06); }
+.subvariant-card .sv-preview { min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; position: relative; }
+.subvariant-card .sv-preview::before { content: ''; position: absolute; inset: 0; opacity: 0.03; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 256px; pointer-events: none; }
+.subvariant-card .sv-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; position: relative; z-index: 1; }
+.subvariant-card .sv-headline { font-weight: 300; line-height: 1.15; position: relative; z-index: 1; }
+.subvariant-card .sv-body { padding: 20px 24px; background: white; }
+.subvariant-card .sv-body .sv-name { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+.subvariant-card .sv-body .sv-desc { font-size: 12px; color: #8A8480; line-height: 1.5; }
+.subvariant-card .sv-swatches { display: flex; gap: 6px; margin-top: 12px; }
+.subvariant-card .sv-sw { width: 24px; height: 24px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.08); }
 
-/* UTILITY */
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.mt-32 { margin-top: 32px; }
-.mb-16 { margin-bottom: 16px; }
-.text-sm { font-size: 13px; color: var(--warmgray); }
-a { color: var(--gold); }
+/* DARK VARIANT SECTIONS */
+.direction-dark { background: #0A0A0A; color: #F5F0E8; }
+.direction-dark .dir-number { color: #C4909A; }
+.direction-dark .dir-title { color: #F5F0E8; }
+.direction-dark .dir-subtitle { color: rgba(245,240,232,0.5); }
+.direction-dark .dir-desc { color: rgba(245,240,232,0.5); }
+.direction-dark .palette-info { background: #151515; }
+.direction-dark .palette-info .name { color: #F5F0E8; }
+.direction-dark .palette-info .hex { color: rgba(245,240,232,0.4); }
+.direction-dark .palette-info .use { color: #C4909A; }
+.direction-dark .palette-swatch { border-color: rgba(255,255,255,0.06); }
+.direction-dark .font-card { background: #151515; border-color: rgba(255,255,255,0.06); }
+.direction-dark .font-card .font-label { color: #C4909A; }
+.direction-dark .font-card .font-name { color: rgba(245,240,232,0.4); }
+.direction-dark .rationale { background: rgba(255,255,255,0.02); }
+.direction-dark .rationale p { color: rgba(245,240,232,0.5); }
+.direction-dark .subvariant-card { border-color: rgba(255,255,255,0.06); }
+.direction-dark .subvariant-card .sv-body { background: #151515; }
+.direction-dark .subvariant-card .sv-body .sv-name { color: #F5F0E8; }
+.direction-dark .subvariant-card .sv-body .sv-desc { color: rgba(245,240,232,0.4); }
+.direction-dark .subvariant-card .sv-sw { border-color: rgba(255,255,255,0.1); }
+
+/* CTA SECTION */
+.cta-banner { padding: 80px 0; text-align: center; }
+.cta-banner h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 28px; margin-bottom: 12px; }
+.cta-banner p { font-size: 14px; color: #8A8480; max-width: 500px; margin: 0 auto; }
 </style>
 </head>
 <body>
 
-<!-- DOC HERO -->
-<div class="doc-hero">
-  <div class="container">
-    <div class="hero-label">Landing Page Proposals · V1.0</div>
-    <h1>Alice Hejzlarová — 3 směry</h1>
-    <p>Tři distinktivní návrhy osobního webu pro private counsel positioning — od vizuální identity po strukturu sekcí a animace</p>
-    <div class="meta">Březen 2026 · Jakub Skupin · Na základě strategické rešerše V1.0</div>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav class="sticky-nav">
   <div class="nav-inner">
-    <a href="#a" class="nav-link">A · Quiet Power</a>
-    <a href="#b" class="nav-link">B · Editorial Noir</a>
-    <a href="#c" class="nav-link">C · Warm Authority</a>
-    <a href="#porovnani" class="nav-link">Porovnání</a>
-    <a href="#pencil" class="nav-link">Pencil Prompts</a>
-    <a href="#animace" class="nav-link">Animace</a>
+    <a href="#context" class="nav-link">Kontext</a>
+    <a href="#editorial-noir" class="nav-link">Editorial Noir</a>
+    <a href="#noir-bordeaux" class="nav-link">Bordeaux</a>
+    <a href="#noir-rose" class="nav-link">Rosé</a>
+    <a href="#noir-plum" class="nav-link">Plum</a>
+    <a href="#warm-marble" class="nav-link">Warm Marble</a>
+    <a href="#chalk-wine" class="nav-link">Chalk & Wine</a>
   </div>
 </nav>
 
-
-<!-- ============================================================ -->
-<!-- NÁVRH A — QUIET POWER -->
-<!-- ============================================================ -->
-<section id="a">
+<!-- HERO -->
+<header class="doc-hero">
   <div class="container">
-    <div class="section-number">Návrh A</div>
-    <div class="section-title">Quiet Power</div>
-    <div class="section-desc">Ultra-minimalistický, Céline/Bottega Veneta estetika. Maximum ticha, minimum slov. Luxus komunikovaný tím, co NENÍ na stránce. Pro klienta, který rozumí understatementu.</div>
+    <div class="hero-label">Vizuální směry — v2.0</div>
+    <h1>Barvy, které mluví<br>tichem</h1>
+    <p>5 barevných směrů pro personal brand Alice Hejzlarové. Rodina Editorial Noir + 2 alternativy. Každý s paletou, fontem a živým mockupem</p>
+    <div class="meta">ALICE HEJZLAROVÁ · BRAND SPRINT 2026 · JAKUB SKUPIN</div>
+  </div>
+</header>
 
-    <!-- HERO PREVIEW -->
-    <div class="proposal dark">
-      <div class="proposal-hero" style="background:#0A0A0A;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;">
-        <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#B8976A;margin-bottom:24px;">Private Counsel</div>
-        <h3 style="color:#F8F6F3;font-size:clamp(1.8rem,4vw,2.8rem);">Alice Hejzlarová</h3>
-        <div class="claim" style="color:rgba(232,224,212,0.5);font-size:17px;margin-top:12px;">Klid, struktura a rozhodnutí<br>v momentech, kdy je v sázce všechno</div>
-        <div style="margin-top:40px;display:flex;gap:24px;">
-          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#B8976A;border-bottom:1px solid rgba(184,151,106,0.3);padding-bottom:2px;cursor:pointer;">Domluvit schůzku</span>
-          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(248,246,243,0.4);cursor:pointer;">Jak pracuji</span>
+<!-- CONTEXT: PROČ NE ZLATÁ + ČERNÁ -->
+<section class="context-section" id="context">
+  <div class="container">
+    <h2>Proč opouštíme zlatou + černou</h2>
+    <div class="context-grid">
+      <div class="context-card">
+        <h4>Co dělá konkurence</h4>
+        <p>80 % českých právnických webů v premium segmentu používá kombinaci černá/tmavě modrá + zlatá/béžová. RESOLV, Talers, Pavelka — všichni hrají ve stejném spektru. Zlatá = „luxus" se stalo klišé, které už nekomunikuje exkluzivitu, ale generičnost.</p>
+        <div class="tags">
+          <span class="tag bad">#B8976A zlatá</span>
+          <span class="tag bad">#0A0A0A černá</span>
+          <span class="tag bad">#F5F0E8 cream</span>
+          <span class="tag">= každý druhý právník</span>
         </div>
       </div>
-      <div class="proposal-body">
-
-        <div class="subsection">
-          <h4>Barevná paleta</h4>
-          <div class="swatches">
-            <div>
-              <div class="swatch" style="background:#0A0A0A;"></div>
-              <div class="swatch-label">Ink</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#F8F6F3;"></div>
-              <div class="swatch-label">Ivory</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#B8976A;"></div>
-              <div class="swatch-label">Gold</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#E8E0D4;"></div>
-              <div class="swatch-label">Sand</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#6B6560;"></div>
-              <div class="swatch-label">Stone</div>
-            </div>
-          </div>
-          <p class="text-sm mt-16"><strong>Logika:</strong> Černé hero = autorita, vstupujete do důvěrného prostoru. Světlé sekce = klid, přehlednost. Zlatá jen jako signál — nikdy ne dominantní. Žádné gradienty, žádné stíny. Plochý luxus.</p>
-          <div class="swatch-row mt-16">
-            <div class="swatch" style="background:#0A0A0A;"></div>
-            <span>Hero, footer, dark sections</span>
-            <code>#0A0A0A</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#F8F6F3;"></div>
-            <span>Pozadí, content sections</span>
-            <code>#F8F6F3</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#B8976A;"></div>
-            <span>Akcenty, labels, hover, CTA border</span>
-            <code>#B8976A</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#E8E0D4;"></div>
-            <span>Karty, sekční pozadí, oddělovače</span>
-            <code>#E8E0D4</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#6B6560;"></div>
-            <span>Body text, meta info, secondary</span>
-            <code>#6B6560</code>
-          </div>
+      <div class="context-card">
+        <h4>Co říká All's Fair</h4>
+        <p>Kim Kardashian v roli advokátky = vizuální revoluce v tom, jak vypadá „žena v právu". Paleta seriálu nepoužívá zlatou — používá burgundy, plum, dusty rose, blush. Jsou to barvy, které komunikují sílu bez křiku. Moc bez pozlátka.</p>
+        <div class="tags">
+          <span class="tag">burgundy</span>
+          <span class="tag">plum</span>
+          <span class="tag">dusty rose</span>
+          <span class="tag">blush cream</span>
         </div>
-
-        <div class="subsection">
-          <h4>Typografie</h4>
-          <div class="font-preview" style="background:#0A0A0A;color:#F8F6F3;padding:32px;">
-            <div class="headline" style="font-family:'Playfair Display',serif;font-size:32px;">Vaše rozhodnutí. Moje odpovědnost.</div>
-            <div class="body-text" style="font-family:'Inter',sans-serif;font-weight:300;color:rgba(248,246,243,0.5);margin-top:12px;">Provázím majitele firem a lídry v nejcitlivějších momentech jejich profesního i osobního života.</div>
-          </div>
-          <p class="text-sm mt-16">
-            <strong>Headlines:</strong> Playfair Display 400 — serif elegance, velké velikosti (clamp 2rem–4rem), tight line-height 1.1<br>
-            <strong>Body:</strong> Inter 300 — clean, čitelný, hodně letter-spacing na labels (3px), line-height 1.7<br>
-            <strong>Labels/meta:</strong> Inter 500, 10-11px, uppercase, letter-spacing 3px, barva gold<br>
-            <strong>Citáty:</strong> Playfair Display italic, 18-21px, barva stone/muted<br>
-            <strong>CTA:</strong> Inter 500, 11px, uppercase, letter-spacing 2px, gold s underline hover
-          </p>
-        </div>
-
-        <div class="subsection">
-          <h4>Hero sdělení</h4>
-          <p class="text-sm mb-16">Hero je tmavý, plná výška viewportu. Žádná fotka v hero — jen text a prostor. Fotka Alice je až v sekci „O mně" (parallax, černobílá s gold tint). Sdělení se odkrývá postupně (RevealText animace).</p>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Label</div>
-            <p style="font-size:14px;"><strong>PRIVATE COUNSEL</strong></p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">H1</div>
-            <p style="font-family:'Playfair Display',serif;font-size:24px;">Alice Hejzlarová</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Claim</div>
-            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--warmgray);">Klid, struktura a rozhodnutí v momentech, kdy je v sázce všechno</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">CTA</div>
-            <p style="font-size:13px;"><span style="color:var(--gold);border-bottom:1px solid var(--gold);">Domluvit schůzku</span> &nbsp;&nbsp; <span style="color:var(--warmgray);">Jak pracuji ↓</span></p>
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h4>Struktura sekcí</h4>
-          <ol class="site-sections">
-            <li><strong>Hero</strong> — <span>Full viewport, tmavý, RevealText H1, grain overlay, 2 CTA (schůzka + scroll). Žádná fotka.</span></li>
-            <li><strong>Positioning statement</strong> — <span>Jedna věta: „Provázím majitele firem..." Playfair italic, 28px, centrovaná. Fade-in. Pod tím 3 stat karty (15+ let, 31 publikací, exit LP Legal).</span></li>
-            <li><strong>Jak pracuji</strong> — <span>3 pilíře vertikálně: Diskrétnost / Strategický nadhled / Osobní odpovědnost. Každý: ikona + headline + 2 věty. StaggerChildren animace.</span></li>
-            <li><strong>Pro koho</strong> — <span>4 situace jako minimalistické karty: M&amp;A exit, Spor společníků, Restrukturalizace, Citlivé osobní situace. HoverCard efekt.</span></li>
-            <li><strong>O mně</strong> — <span>Asymetrický layout: fotka vlevo (parallax, černobílá s gold tint, ParallaxImage), text vpravo. Bio 3 odstavce. Pod tím pills: JUDr., LL.M., MBA, 15+ let.</span></li>
-            <li><strong>Přístup</strong> — <span>Dark section. „Neprovozuji velkou kancelář..." — kontrast s velkými AK. Citát klienta (nebo navrhovaný). Horizontální linka oddělující „Co NEDĚLÁM" vs „Co DĚLÁM".</span></li>
-            <li><strong>Podcast</strong> — <span>Teaser na podcastovou sérii. Název + 3 epizody jako karty + odkaz na platformu. „Poslechněte si, jak přemýšlím, než mi zavoláte."</span></li>
-            <li><strong>FAQ</strong> — <span>Akordeon, 10-12 otázek. SEO/AI optimalizované. Default collapsed.</span></li>
-            <li><strong>Kontakt</strong> — <span>Minimalistický. „Spolupráce začíná rozhovorem." Email + telefon + LinkedIn. Žádný formulář — HNW klient neplní formuláře.</span></li>
-          </ol>
-        </div>
-
-        <div class="subsection">
-          <h4>Klíčové designové principy</h4>
-          <div class="anim-grid">
-            <div class="anim-card">
-              <h5>Negative space = luxus</h5>
-              <p>Sekce mají 120px+ padding. Texty max-width 560px i když je prostor. Prázdno říká: „Nepotřebuju křičet."</p>
-            </div>
-            <div class="anim-card">
-              <h5>Žádné stock fotky</h5>
-              <p>Pouze 1-2 reálné fotky Alice (profesionální shoot). Zbytek = typografie, prostor, barvy. Méně vizuálů = víc důvěry.</p>
-            </div>
-            <div class="anim-card">
-              <h5>CTA = understatement</h5>
-              <p>Žádné „KONTAKTUJTE MĚ!" buttony. Místo toho: gold text s thin underline. Kdo to potřebuje, klikne. Kdo ne, neruší ho.</p>
-            </div>
-            <div class="anim-card">
-              <h5>Mono-accent</h5>
-              <p>Jediná barva mimo černou/bílou = gold (#B8976A). Nikdy 2 akcenty současně. Gold = signál, ne dekorace.</p>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="context-card">
+        <h4>All's Fair pro český kontext</h4>
+        <p>„V lásce a válce je vše dovoleno" — ale Alice nevede válku veřejně. All's Fair vizuálně říká: za elegantní fasádou je někdo, kdo bojuje nesmírně tvrdě. Burgundy = krev bitvy, která nikdy neprosákne na povrch. Cream = klid, který vidí svět. Tato dualita JE Alice: quiet outside, fierce inside.</p>
+      </div>
+      <div class="context-card">
+        <h4>Strategický závěr</h4>
+        <p>Alice nepotřebuje zlatou, aby komunikovala luxus. Potřebuje barvy, které komunikují <strong>diskrétní sílu</strong> — barvy, které žádný český právník nepoužívá. Burgundy/wine/rosé spektrum je v českém právnickém prostoru panenské území.</p>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- ============================================ -->
+<!-- DIRECTION 1: EDITORIAL NOIR — HLAVNÍ RODINA  -->
+<!-- ============================================ -->
 
-    <!-- ============================================================ -->
-    <!-- NÁVRH B — EDITORIAL NOIR -->
-    <!-- ============================================================ -->
-    <div class="section-number" id="b">Návrh B</div>
-    <div class="section-title">Editorial Noir</div>
-    <div class="section-desc">Fashion editorial meets legal authority. Inspirace All's Fair vizuálem, ale pro český kontext. Tmavší, odvážnější, s fotografií jako hlavním nástrojem. Pro klienta, který hledá sílu.</div>
-
-    <div class="proposal editorial">
-      <div class="proposal-hero" style="background:linear-gradient(135deg,#1A1A2E 0%,#0F0F1A 100%);min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;">
-        <div style="position:absolute;top:0;right:0;bottom:0;width:45%;background:linear-gradient(to right,#1A1A2E,transparent 30%);z-index:1;"></div>
-        <div style="position:absolute;top:0;right:0;bottom:0;width:45%;background:rgba(26,26,46,0.3);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,180,155,0.3);">[ Fotografie Alice — editorial style ]</span>
-        </div>
-        <div style="position:relative;z-index:2;">
-          <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#C8B49B;margin-bottom:20px;">JUDr. Alice Hejzlarová, LL.M., MBA</div>
-          <h3 style="color:#F0EBE3;font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.2;">Vaše nejcitlivější rozhodnutí<br>si zaslouží někoho, kdo je unese</h3>
-          <div style="margin-top:32px;">
-            <span style="display:inline-block;padding:12px 28px;border:1px solid #C8B49B;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C8B49B;cursor:pointer;">Domluvit konzultaci</span>
-          </div>
-        </div>
-      </div>
-      <div class="proposal-body">
-
-        <div class="subsection">
-          <h4>Barevná paleta</h4>
-          <div class="swatches">
-            <div>
-              <div class="swatch" style="background:#1A1A2E;"></div>
-              <div class="swatch-label">Midnight</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#0F0F1A;"></div>
-              <div class="swatch-label">Deep</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#C8B49B;"></div>
-              <div class="swatch-label">Champagne</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#F0EBE3;"></div>
-              <div class="swatch-label">Cream</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#8B7E74;"></div>
-              <div class="swatch-label">Taupe</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#2A2540;"></div>
-              <div class="swatch-label">Plum</div>
-            </div>
-          </div>
-          <p class="text-sm mt-16"><strong>Logika:</strong> Midnight blue místo čisté černé = sofistikovanější, méně tvrdé. Champagne gold = teplejší než klasická zlatá. Plum = sekundární akcent pro depth (stíny, hover). Inspirace: All's Fair set design × Tom Ford × noční Praha.</p>
-          <div class="swatch-row mt-16">
-            <div class="swatch" style="background:#1A1A2E;"></div>
-            <span>Primární pozadí, hero, dark sections</span>
-            <code>#1A1A2E</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#C8B49B;"></div>
-            <span>Headlines, CTA border, akcenty</span>
-            <code>#C8B49B</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#F0EBE3;"></div>
-            <span>Body text na dark, light sections bg</span>
-            <code>#F0EBE3</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#2A2540;"></div>
-            <span>Karty bg, hover states, depth layers</span>
-            <code>#2A2540</code>
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h4>Typografie</h4>
-          <div class="font-preview" style="background:#1A1A2E;color:#F0EBE3;padding:32px;">
-            <div class="headline" style="font-family:'Playfair Display',serif;font-size:30px;color:#C8B49B;">Vaše nejcitlivější rozhodnutí si zaslouží někoho, kdo je unese</div>
-            <div class="body-text" style="font-family:'Inter',sans-serif;font-weight:300;color:rgba(240,235,227,0.5);margin-top:12px;">15 let v advokacii. Exit vlastní kanceláře. Teď pracuji jen pro ty, kteří potřebují víc než právníka.</div>
-          </div>
-          <p class="text-sm mt-16">
-            <strong>Headlines:</strong> Playfair Display 400, champagne barva na dark bg, 28-48px<br>
-            <strong>Alternativa:</strong> Cormorant Garamond (ostřejší serif, více editorial) nebo Libre Caslon Display<br>
-            <strong>Body:</strong> Inter 300, cream na dark, 15px, line-height 1.8 (více vzdušnosti)<br>
-            <strong>Labels:</strong> Inter 500, 9-10px, letter-spacing 3px, uppercase, champagne<br>
-            <strong>CTA:</strong> Ghost button — border champagne, text champagne, fill on hover
-          </p>
-        </div>
-
-        <div class="subsection">
-          <h4>Hero sdělení</h4>
-          <p class="text-sm mb-16">Split layout: text vlevo (60 %), editorial fotka Alice vpravo (40 %). Fotka: černobílá nebo desaturovaná, strukturovaný blazer, sebejistý pohled. Gradient overlay zprava spojuje fotku s tmavým pozadím. Parallax na fotce.</p>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Titulky (full name)</div>
-            <p style="font-size:13px;">JUDr. Alice Hejzlarová, LL.M., MBA — credentials viditelné, ne skryté</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">H1 (claim)</div>
-            <p style="font-family:'Playfair Display',serif;font-size:20px;">Vaše nejcitlivější rozhodnutí si zaslouží někoho, kdo je unese</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">CTA</div>
-            <p style="font-size:13px;">Ghost button: <span style="border:1px solid var(--gold);padding:6px 16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Domluvit konzultaci</span></p>
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h4>Struktura sekcí</h4>
-          <ol class="site-sections">
-            <li><strong>Hero (split)</strong> — <span>Text vlevo, editorial foto vpravo. Celý viewport, tmavý. Parallax na fotce, RevealText na H1.</span></li>
-            <li><strong>Credentials bar</strong> — <span>Horizontální pás: „15+ let | 31 publikací | Exit LP Legal | M&amp;A × Korporát × Private". Scrolling marquee nebo static. Champagne text na plum bg.</span></li>
-            <li><strong>Situace</strong> — <span>„Kdy mě potřebujete" — 4 full-width karty, každá s emočním headline + popisem. Hover = reveal. Dark cards na midnight bg.</span></li>
-            <li><strong>Přístup (manifesto)</strong> — <span>Celostránková typografická sekce. Velký Playfair text: „Neprovozuji kancelář s řadou juniorů..." Kontrast malý/velký text. Filmový feel.</span></li>
-            <li><strong>O Alice</strong> — <span>Full-bleed fotka (editorial, barva) s text overlay. Bio. Pod tím: timeline kariéry (horizontální, minimalistická).</span></li>
-            <li><strong>Síť expertů</strong> — <span>„Když situace vyžaduje tým" — abstract vizualizace sítě (SVG nodes), ne fotky lidí. Diskrétnost.</span></li>
-            <li><strong>Podcast</strong> — <span>Dark section, cover art + 3 epizody. Waveform vizualizace jako designový prvek.</span></li>
-            <li><strong>Média &amp; publikace</strong> — <span>Logo wall (Ekonom, Forbes placeholder) + Featured articles. Authority building.</span></li>
-            <li><strong>FAQ</strong> — <span>Light section pro kontrast. Akordeon, 12 otázek.</span></li>
-            <li><strong>Kontakt</strong> — <span>Dark, minimální. „Spolupráce začíná diskrétním rozhovorem." Encrypted email mention. Žádný formulář.</span></li>
-          </ol>
-        </div>
-
-        <div class="subsection">
-          <h4>Klíčové designové principy</h4>
-          <div class="anim-grid">
-            <div class="anim-card">
-              <h5>Fotografie = hlavní nástroj</h5>
-              <p>3-4 editorial fotky Alice (shoot nutný). Černobílé + 1 barevná. Strukturované outfity, čisté pozadí, sebejistý pohled. All's Fair estetika minus provokace.</p>
-            </div>
-            <div class="anim-card">
-              <h5>Cinematic proportions</h5>
-              <p>Sekce s 16:9 nebo 21:9 aspect ratio. Horizontální linie. Typografie jako ve filmových titulcích. Pomalé, důstojné animace (duration 0.8-1.2s).</p>
-            </div>
-            <div class="anim-card">
-              <h5>Depth layers</h5>
-              <p>Plum (#2A2540) karty na midnight (#1A1A2E) bg vytváří depth bez stínů. Overlap elementy. Z-axis design.</p>
-            </div>
-            <div class="anim-card">
-              <h5>Ghost CTA</h5>
-              <p>Tlačítka = border only, champagne. Hover = fill champagne, text midnight. Žádné solid buttons — understatement.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="direction-section direction-dark" id="editorial-noir" style="padding-bottom: 40px;">
+  <div class="container">
+    <div class="dir-header fade-up">
+      <div class="dir-number">Hlavní směr</div>
+      <div class="dir-title">Editorial Noir</div>
+      <div class="dir-subtitle">Rodina 3 sub-variant postavených na All's Fair vizuální DNA</div>
+      <div class="dir-desc">Název „Editorial" odkazuje na fashion-magazine estetiku: velké plochy barvy, dramatické kontrasty, typografie jako hlavní výrazový prvek. „Noir" = tmavý základ, který evokuje diskrétnost, prostor za zavřenými dveřmi, místo kde se dějí ta zásadní rozhodnutí. Každá varianta posouvá náladu jiným směrem — od dramatické po sofistikovanou.</div>
     </div>
 
-
-    <!-- ============================================================ -->
-    <!-- NÁVRH C — WARM AUTHORITY -->
-    <!-- ============================================================ -->
-    <div class="section-number" id="c" style="margin-top:48px;">Návrh C</div>
-    <div class="section-title">Warm Authority</div>
-    <div class="section-desc">Přístupnější, lidštější. Amal Clooney meets český kontext. Teplé tóny, důraz na důvěru a vztah. Pro klientku Karolínu — žena v krizi, která potřebuje cítit bezpečí, ne moc.</div>
-
-    <div class="proposal warm">
-      <div class="proposal-hero" style="background:#F5EDE3;min-height:320px;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center;">
-        <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#8B7355;margin-bottom:24px;">Private Counsel · Praha</div>
-        <h3 style="color:#2C2420;font-size:clamp(1.8rem,4vw,2.6rem);max-width:520px;line-height:1.3;">V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí</h3>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#8B7355;margin-top:16px;">— Alice Hejzlarová</div>
-        <div style="margin-top:36px;">
-          <span style="display:inline-block;padding:14px 32px;background:#2C2420;color:#F5EDE3;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-radius:999px;cursor:pointer;">Domluvit rozhovor</span>
+    <!-- 3 sub-varianty preview -->
+    <div class="subvariant-grid fade-up">
+      <!-- 1A -->
+      <div class="subvariant-card">
+        <div class="sv-preview" style="background: linear-gradient(165deg, #1C1C1C 0%, #3D1520 60%, #5C1A2A 100%);">
+          <div class="sv-label" style="color: #C4A07C;">Alice Hejzlarová</div>
+          <div class="sv-headline" style="font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #F5F0E8;">Ticho je<br>strategie</div>
+        </div>
+        <div class="sv-body">
+          <div class="sv-name">1A — Noir Bordeaux</div>
+          <div class="sv-desc">Dramatická, silná. Wine red = krev bitvy pod povrchem</div>
+          <div class="sv-swatches">
+            <div class="sv-sw" style="background: #5C1A2A;"></div>
+            <div class="sv-sw" style="background: #F5F0E8;"></div>
+            <div class="sv-sw" style="background: #C4A07C;"></div>
+            <div class="sv-sw" style="background: #1C1C1C;"></div>
+          </div>
         </div>
       </div>
-      <div class="proposal-body">
-
-        <div class="subsection">
-          <h4>Barevná paleta</h4>
-          <div class="swatches">
-            <div>
-              <div class="swatch" style="background:#2C2420;"></div>
-              <div class="swatch-label">Espresso</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#F5EDE3;"></div>
-              <div class="swatch-label">Linen</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#8B7355;"></div>
-              <div class="swatch-label">Camel</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#D4C4AF;"></div>
-              <div class="swatch-label">Oat</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#A68B6B;"></div>
-              <div class="swatch-label">Walnut</div>
-            </div>
-            <div>
-              <div class="swatch" style="background:#E8DDD0;"></div>
-              <div class="swatch-label">Bisque</div>
-            </div>
-          </div>
-          <p class="text-sm mt-16"><strong>Logika:</strong> Teplá, zemitá paleta. Žádná čistá černá — Espresso (#2C2420) je jemnější. Inspirace: Brunello Cucinelli showroom, Aesop store, teplé dřevo + kašmír. Light-mode dominantní — web je převážně světlý. Evokuje bezpečí, ne moc.</p>
-          <div class="swatch-row mt-16">
-            <div class="swatch" style="background:#F5EDE3;"></div>
-            <span>Hlavní pozadí, hero</span>
-            <code>#F5EDE3</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#2C2420;"></div>
-            <span>Headlines, CTA buttons, footer</span>
-            <code>#2C2420</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#8B7355;"></div>
-            <span>Akcenty, labels, ikony</span>
-            <code>#8B7355</code>
-          </div>
-          <div class="swatch-row">
-            <div class="swatch" style="background:#D4C4AF;"></div>
-            <span>Karty, sekční bg, dividers</span>
-            <code>#D4C4AF</code>
+      <!-- 1B -->
+      <div class="subvariant-card">
+        <div class="sv-preview" style="background: linear-gradient(165deg, #2A2428 0%, #3A2830 60%, #2A2428 100%);">
+          <div class="sv-label" style="color: #C4909A;">Alice Hejzlarová</div>
+          <div class="sv-headline" style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #F8F4F0;">Ticho je<br>strategie</div>
+        </div>
+        <div class="sv-body">
+          <div class="sv-name">1B — Noir Rosé</div>
+          <div class="sv-desc">Softnější, femininní. Dusty rose = elegance bez tvrdosti</div>
+          <div class="sv-swatches">
+            <div class="sv-sw" style="background: #C4909A;"></div>
+            <div class="sv-sw" style="background: #F8F4F0;"></div>
+            <div class="sv-sw" style="background: #9E8B76;"></div>
+            <div class="sv-sw" style="background: #2A2428;"></div>
           </div>
         </div>
-
-        <div class="subsection">
-          <h4>Typografie</h4>
-          <div class="font-preview" style="background:#F5EDE3;padding:32px;">
-            <div class="headline" style="font-family:'Playfair Display',serif;font-size:28px;color:#2C2420;">V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí</div>
-            <div class="body-text" style="font-family:'Inter',sans-serif;font-weight:300;color:#8B7355;margin-top:12px;">15 let zkušeností v advokacii. Individuální přístup. Diskrétnost na prvním místě.</div>
-          </div>
-          <p class="text-sm mt-16">
-            <strong>Headlines:</strong> Playfair Display 400, espresso barva, 28-40px. Jemnější sizing než A/B — méně „křičí".<br>
-            <strong>Alternativa:</strong> Libre Baskerville (měkčí serif) nebo DM Serif Display<br>
-            <strong>Body:</strong> Inter 300-400, camel/espresso, 15px, line-height 1.8<br>
-            <strong>Labels:</strong> Inter 500, 10px, uppercase, letter-spacing 3px, camel<br>
-            <strong>CTA:</strong> Pill button — solid espresso bg, linen text, border-radius 999px (pill shape = jemnější, méně agresivní)
-          </p>
+      </div>
+      <!-- 1C -->
+      <div class="subvariant-card">
+        <div class="sv-preview" style="background: linear-gradient(165deg, #1A1420 0%, #2E1833 60%, #3D2045 100%);">
+          <div class="sv-label" style="color: #B8A0C8;">Alice Hejzlarová</div>
+          <div class="sv-headline" style="font-family: 'DM Serif Display', serif; font-size: 26px; color: #F0EBE8;">Ticho je<br>strategie</div>
         </div>
-
-        <div class="subsection">
-          <h4>Hero sdělení</h4>
-          <p class="text-sm mb-16">Světlý hero, centrovaný text. Pod H1 je fotka Alice — barevná, teplé tóny, usmívá se (ne striktně formální). Layout: text → foto → CTA. Celkový dojem: přístupná profesionálka, ne nedosažitelná autorita.</p>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Label</div>
-            <p style="font-size:13px;">PRIVATE COUNSEL · PRAHA</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">H1</div>
-            <p style="font-family:'Playfair Display',serif;font-size:20px;">V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;margin-bottom:12px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Attribution</div>
-            <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--warmgray);">— Alice Hejzlarová</p>
-          </div>
-          <div style="background:var(--gold-06);padding:20px;border-radius:10px;">
-            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">CTA</div>
-            <p style="font-size:13px;"><span style="background:#2C2420;color:#F5EDE3;padding:8px 20px;border-radius:999px;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Domluvit rozhovor</span></p>
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h4>Struktura sekcí</h4>
-          <ol class="site-sections">
-            <li><strong>Hero (centered)</strong> — <span>Světlý, centrovaný text, pill CTA. Pod hero: full-width barevná fotka Alice (teplé tóny, parallax).</span></li>
-            <li><strong>„Proč Alice"</strong> — <span>3 karty v řadě s ikonami: Diskrétnost, Zkušenost, Osobní přístup. Oat bg, rounded corners, subtle shadow.</span></li>
-            <li><strong>Situace</strong> — <span>„Pomáhám v momentech, kdy..." — storytelling přístup. Každá situace = krátký příběh (fiktivní, ale realistický). Akordeon nebo tab switch.</span></li>
-            <li><strong>O mně</strong> — <span>Side-by-side: fotka (lifestyle, ne corporate) + bio. Teplý tón. Zmínka o cestě (LP Legal exit, 15 let, publikace). Pill tagy pod bio.</span></li>
-            <li><strong>Jak to funguje</strong> — <span>3-step vizuální proces: Rozhovor → Strategie → Provedení. Timeline s ikonami. Demystifikace „jak to chodí".</span></li>
-            <li><strong>Testimonial</strong> — <span>Velký citát klienta (anonymní). Playfair italic, centrovaný, camel barva. Pod tím: „Jméno na vyžádání — diskrétnost je základ."</span></li>
-            <li><strong>Podcast</strong> — <span>Teplý section. „Nejdřív mě poznejte" — odkaz na podcast. Cover + 3 epizody. Přátelský tón.</span></li>
-            <li><strong>FAQ</strong> — <span>Akordeon, 10 otázek. Přímé, jednoduché odpovědi. Žádný legal jargon.</span></li>
-            <li><strong>Kontakt</strong> — <span>„Zavolejte mi." Telefonní číslo velké (Playfair, 32px). Pod tím email a LinkedIn. Osobní, ne korporátní.</span></li>
-          </ol>
-        </div>
-
-        <div class="subsection">
-          <h4>Klíčové designové principy</h4>
-          <div class="anim-grid">
-            <div class="anim-card">
-              <h5>Teplo = důvěra</h5>
-              <p>Celá stránka je teplá — žádná studená černá/šedá. Espresso místo černé, linen místo bílé. Evokuje bezpečný prostor, ne soudní síň.</p>
-            </div>
-            <div class="anim-card">
-              <h5>Storytelling &gt; features</h5>
-              <p>Místo „nabízím M&A poradenství" → „Martin budoval firmu 25 let. Když dostal nabídku na prodej, potřeboval někoho..." Příběhy, ne bullet points.</p>
-            </div>
-            <div class="anim-card">
-              <h5>Pill shapes</h5>
-              <p>Všechny CTA, tagy, badges = pill shape (border-radius: 999px). Jemnější, přátelštější než ostré rohy. Evokuje přístupnost.</p>
-            </div>
-            <div class="anim-card">
-              <h5>Fotky = lifestyle</h5>
-              <p>Ne corporate headshot. Alice v kavárně, u stolu, v přirozeném prostředí. Teplé světlo, bokeh. Přístupná profesionálka, ne nedosažitelná figura.</p>
-            </div>
+        <div class="sv-body">
+          <div class="sv-name">1C — Noir Plum</div>
+          <div class="sv-desc">Nekonvenční, odvážná. Aubergine = nikdo jiný to nemá</div>
+          <div class="sv-swatches">
+            <div class="sv-sw" style="background: #2E1833;"></div>
+            <div class="sv-sw" style="background: #F0EBE8;"></div>
+            <div class="sv-sw" style="background: #B8A0C8;"></div>
+            <div class="sv-sw" style="background: #A0A0A0;"></div>
           </div>
         </div>
       </div>
@@ -587,441 +267,529 @@ a { color: var(--gold); }
   </div>
 </section>
 
-
-<!-- ============================================================ -->
-<!-- POROVNÁNÍ -->
-<!-- ============================================================ -->
-<section id="porovnani">
+<!-- 1A: NOIR BORDEAUX — DETAIL -->
+<section class="direction-section direction-dark" id="noir-bordeaux">
   <div class="container">
-    <div class="section-number">Porovnání</div>
-    <div class="section-title">3 směry vedle sebe</div>
-    <div class="section-desc">Rychlý přehled klíčových rozdílů mezi návrhy</div>
+    <div class="dir-header fade-up">
+      <div class="dir-number">Směr 1A</div>
+      <div class="dir-title" style="font-family: 'Cormorant Garamond', serif;">Noir Bordeaux</div>
+      <div class="dir-subtitle">Tmavé víno. Krev pod hedvábím. Nejdramatičtější varianta</div>
+    </div>
 
-    <div style="overflow-x:auto;">
-    <table class="comparison">
+    <!-- PALETTE -->
+    <div class="palette-row fade-up">
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #5C1A2A;"><span style="color: rgba(245,240,232,0.5);">PRIMARY</span></div>
+        <div class="palette-info">
+          <div class="name">Bordeaux</div>
+          <div class="hex">#5C1A2A</div>
+          <div class="use">Hlavní akcent, CTA, linky, hover</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #F5F0E8;"><span style="color: rgba(92,26,42,0.4);">LIGHT</span></div>
+        <div class="palette-info">
+          <div class="name">Warm Cream</div>
+          <div class="hex">#F5F0E8</div>
+          <div class="use">Texty na tmavém pozadí, light sekce</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #C4A07C;"><span style="color: rgba(28,28,28,0.5);">ACCENT</span></div>
+        <div class="palette-info">
+          <div class="name">Muted Rose Gold</div>
+          <div class="hex">#C4A07C</div>
+          <div class="use">Labely, metadata, jemné detaily</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #1C1C1C;"><span style="color: rgba(245,240,232,0.3);">BASE</span></div>
+        <div class="palette-info">
+          <div class="name">Charcoal</div>
+          <div class="hex">#1C1C1C</div>
+          <div class="use">Pozadí, základ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT -->
+    <div class="font-card fade-up">
+      <div class="font-label">Typografický pár</div>
+      <div class="font-pair">
+        <div>
+          <div class="font-name">Display — Cormorant Garamond Light</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 42px; line-height: 1.1; color: #F5F0E8; margin-bottom: 8px;">Diskrétnost<br>není slabost</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 24px; color: rgba(245,240,232,0.5); font-style: italic;">V nejzranitelnějším momentu</div>
+        </div>
+        <div>
+          <div class="font-name">Body — Inter Light</div>
+          <div style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.8;">Provázím majitele firem, investory a lídry v situacích, kdy právní rozhodnutí zásadně ovlivňují jejich budoucnost. Pracuji selektivně. Každý mandát je můj jediný mandát.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP HERO -->
+    <div class="mockup-hero fade-up" style="background: linear-gradient(170deg, #1C1C1C 0%, #2D1018 40%, #5C1A2A 85%, #7A2438 100%); min-height: 480px;">
+      <div class="mockup-label" style="color: #C4A07C; font-family: 'Inter', sans-serif;">PRIVATE COUNSEL</div>
+      <div class="mockup-headline" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #F5F0E8;">Jsou momenty, kdy<br>potřebujete jednoho<br>člověka — ne firmu</div>
+      <div class="mockup-sub" style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(245,240,232,0.45);">Provázím lídry v rozhodnutích, která formují jejich budoucnost</div>
+      <a href="#" class="mockup-cta" style="color: #F5F0E8; border: 1px solid rgba(245,240,232,0.2); font-family: 'Inter', sans-serif;" onmouseover="this.style.background='#5C1A2A';this.style.borderColor='#5C1A2A'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(245,240,232,0.2)'">Začněme rozhovorem</a>
+    </div>
+
+    <!-- RATIONALE -->
+    <div class="rationale fade-up" style="border-color: #5C1A2A;">
+      <h5 style="color: #C4A07C;">Proč Bordeaux</h5>
+      <p>Burgundy/wine je barva, kterou žádný český právník nepoužívá. V módním světě = haute couture, ne ready-to-wear. V psychologii barev = sebedůvěra, hloubka, vášeň kontrolovaná rozumem. Cormorant Garamond v Light řezu je nejelegannější editorial serif na Google Fonts — tenké tahy, vysoký kontrast, říká „tady se čte Vogue, ne Blesk".</p>
+      <div class="allfair">All's Fair kontext: Kim na premiéře v gunmetal šatech proti burgundy backdrop — kontrast cool × warm, hard × soft. Přesně toto dělá Alice: tvrdé právo, měkký přístup.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 1B: NOIR ROSÉ — DETAIL -->
+<section class="direction-section" id="noir-rose" style="background: #FAF7F5;">
+  <div class="container">
+    <div class="dir-header fade-up">
+      <div class="dir-number" style="color: #C4909A;">Směr 1B</div>
+      <div class="dir-title" style="font-family: 'Instrument Serif', serif;">Noir Rosé</div>
+      <div class="dir-subtitle">Jemnější. Femininní bez křehkosti. Elegance bez tvrdosti</div>
+    </div>
+
+    <!-- PALETTE -->
+    <div class="palette-row fade-up">
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #C4909A;"><span style="color: white;">PRIMARY</span></div>
+        <div class="palette-info">
+          <div class="name">Dusty Rose</div>
+          <div class="hex">#C4909A</div>
+          <div class="use">Hlavní akcent, CTA, hover</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #F8F4F0;"><span style="color: rgba(42,36,40,0.3);">LIGHT</span></div>
+        <div class="palette-info">
+          <div class="name">Silk White</div>
+          <div class="hex">#F8F4F0</div>
+          <div class="use">Light sekce, pozadí</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #9E8B76;"><span style="color: white;">WARM</span></div>
+        <div class="palette-info">
+          <div class="name">Antique Bronze</div>
+          <div class="hex">#9E8B76</div>
+          <div class="use">Labely, meta, jemné detaily</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #2A2428;"><span style="color: rgba(245,240,232,0.3);">BASE</span></div>
+        <div class="palette-info">
+          <div class="name">Warm Charcoal</div>
+          <div class="hex">#2A2428</div>
+          <div class="use">Pozadí, base, texty</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT -->
+    <div class="font-card fade-up" style="background: #2A2428; border-color: rgba(196,144,154,0.1);">
+      <div class="font-label" style="color: #C4909A;">Typografický pár</div>
+      <div class="font-pair">
+        <div>
+          <div class="font-name" style="color: rgba(248,244,240,0.4);">Display — Instrument Serif</div>
+          <div style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 42px; line-height: 1.1; color: #F8F4F0; margin-bottom: 8px;">Diskrétnost<br>není slabost</div>
+          <div style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 24px; color: rgba(248,244,240,0.45); font-style: italic;">V nejzranitelnějším momentu</div>
+        </div>
+        <div>
+          <div class="font-name" style="color: rgba(248,244,240,0.4);">Body — Inter Light</div>
+          <div style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 14px; color: rgba(248,244,240,0.55); line-height: 1.8;">Provázím majitele firem, investory a lídry v situacích, kdy právní rozhodnutí zásadně ovlivňují jejich budoucnost. Pracuji selektivně. Každý mandát je můj jediný mandát.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP HERO -->
+    <div class="mockup-hero fade-up" style="background: linear-gradient(170deg, #2A2428 0%, #352830 50%, #2A2428 100%); min-height: 480px;">
+      <div class="mockup-label" style="color: #C4909A; font-family: 'Inter', sans-serif;">PRIVATE COUNSEL</div>
+      <div class="mockup-headline" style="font-family: 'Instrument Serif', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #F8F4F0;">Jsou momenty, kdy<br>potřebujete jednoho<br>člověka — ne firmu</div>
+      <div class="mockup-sub" style="font-family: 'Instrument Serif', serif; font-size: 18px; color: rgba(248,244,240,0.4); font-style: italic;">Provázím lídry v rozhodnutích, která formují jejich budoucnost</div>
+      <a href="#" class="mockup-cta" style="color: #F8F4F0; border: 1px solid rgba(248,244,240,0.15); font-family: 'Inter', sans-serif;" onmouseover="this.style.background='#C4909A';this.style.borderColor='#C4909A';this.style.color='#2A2428'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(248,244,240,0.15)';this.style.color='#F8F4F0'">Začněme rozhovorem</a>
+    </div>
+
+    <!-- RATIONALE -->
+    <div class="rationale fade-up" style="border-color: #C4909A;">
+      <h5 style="color: #C4909A;">Proč Rosé</h5>
+      <p>Dusty rose není růžová — je to zralá, zkušená varianta, která říká „nebojím se femininity, ale nedefinuje mě". Instrument Serif je nejmodernější editorial serif na trhu — Google ho vydal 2023, zatím ho nepoužívá skoro nikdo v CZ. Warm Charcoal #2A2428 místo čisté černé = měkčí, lidštější tmavé pozadí.</p>
+      <div class="allfair" style="color: #8A5A62;">All's Fair kontext: interiérová scéna — marble deska, blush stěny, warm světlo. Není to válčiště, je to kancelář kde se vedou ty nejdůležitější rozhovory. Karolína (persona) by sem přišla a cítila se bezpečně.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 1C: NOIR PLUM — DETAIL -->
+<section class="direction-section direction-dark" id="noir-plum" style="background: #0E0A12;">
+  <div class="container">
+    <div class="dir-header fade-up">
+      <div class="dir-number" style="color: #B8A0C8;">Směr 1C</div>
+      <div class="dir-title" style="font-family: 'DM Serif Display', serif; color: #F0EBE8;">Noir Plum</div>
+      <div class="dir-subtitle" style="color: rgba(240,235,232,0.45);">Nekonvenční. Odvážná. Nikdo jiný v CZ to nemá</div>
+    </div>
+
+    <!-- PALETTE -->
+    <div class="palette-row fade-up">
+      <div class="palette-swatch" style="border-color: rgba(255,255,255,0.06);">
+        <div class="palette-color" style="background: #2E1833;"><span style="color: rgba(240,235,232,0.4);">PRIMARY</span></div>
+        <div class="palette-info" style="background: #151218;">
+          <div class="name" style="color: #F0EBE8;">Deep Aubergine</div>
+          <div class="hex" style="color: rgba(240,235,232,0.35);">#2E1833</div>
+          <div class="use" style="color: #B8A0C8;">Hlavní pozadí, hloubka</div>
+        </div>
+      </div>
+      <div class="palette-swatch" style="border-color: rgba(255,255,255,0.06);">
+        <div class="palette-color" style="background: #F0EBE8;"><span style="color: rgba(46,24,51,0.3);">LIGHT</span></div>
+        <div class="palette-info" style="background: #151218;">
+          <div class="name" style="color: #F0EBE8;">Parchment</div>
+          <div class="hex" style="color: rgba(240,235,232,0.35);">#F0EBE8</div>
+          <div class="use" style="color: #B8A0C8;">Texty, light sekce</div>
+        </div>
+      </div>
+      <div class="palette-swatch" style="border-color: rgba(255,255,255,0.06);">
+        <div class="palette-color" style="background: #B8A0C8;"><span style="color: rgba(14,10,18,0.5);">ACCENT</span></div>
+        <div class="palette-info" style="background: #151218;">
+          <div class="name" style="color: #F0EBE8;">Soft Violet</div>
+          <div class="hex" style="color: rgba(240,235,232,0.35);">#B8A0C8</div>
+          <div class="use" style="color: #B8A0C8;">Akcent, labely, CTA</div>
+        </div>
+      </div>
+      <div class="palette-swatch" style="border-color: rgba(255,255,255,0.06);">
+        <div class="palette-color" style="background: #A0A0A0;"><span style="color: rgba(14,10,18,0.5);">NEUTRAL</span></div>
+        <div class="palette-info" style="background: #151218;">
+          <div class="name" style="color: #F0EBE8;">Silver</div>
+          <div class="hex" style="color: rgba(240,235,232,0.35);">#A0A0A0</div>
+          <div class="use" style="color: #B8A0C8;">Meta, jemné detaily</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT -->
+    <div class="font-card fade-up" style="background: #151218; border-color: rgba(184,160,200,0.08);">
+      <div class="font-label" style="color: #B8A0C8;">Typografický pár</div>
+      <div class="font-pair">
+        <div>
+          <div class="font-name" style="color: rgba(240,235,232,0.35);">Display — DM Serif Display</div>
+          <div style="font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 42px; line-height: 1.1; color: #F0EBE8; margin-bottom: 8px;">Diskrétnost<br>není slabost</div>
+          <div style="font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 24px; color: rgba(240,235,232,0.4); font-style: italic;">V nejzranitelnějším momentu</div>
+        </div>
+        <div>
+          <div class="font-name" style="color: rgba(240,235,232,0.35);">Body — Crimson Pro Light</div>
+          <div style="font-family: 'Crimson Pro', serif; font-weight: 300; font-size: 15px; color: rgba(240,235,232,0.5); line-height: 1.8;">Provázím majitele firem, investory a lídry v situacích, kdy právní rozhodnutí zásadně ovlivňují jejich budoucnost. Pracuji selektivně. Každý mandát je můj jediný mandát.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP HERO -->
+    <div class="mockup-hero fade-up" style="background: linear-gradient(170deg, #0E0A12 0%, #1E1228 30%, #2E1833 70%, #3D2045 100%); min-height: 480px;">
+      <div class="mockup-label" style="color: #B8A0C8; font-family: 'Inter', sans-serif;">PRIVATE COUNSEL</div>
+      <div class="mockup-headline" style="font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #F0EBE8;">Jsou momenty, kdy<br>potřebujete jednoho<br>člověka — ne firmu</div>
+      <div class="mockup-sub" style="font-family: 'Crimson Pro', serif; font-weight: 300; font-size: 18px; color: rgba(240,235,232,0.4); font-style: italic;">Provázím lídry v rozhodnutích, která formují jejich budoucnost</div>
+      <a href="#" class="mockup-cta" style="color: #F0EBE8; border: 1px solid rgba(184,160,200,0.25); font-family: 'Inter', sans-serif;" onmouseover="this.style.background='#B8A0C8';this.style.borderColor='#B8A0C8';this.style.color='#0E0A12'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(184,160,200,0.25)';this.style.color='#F0EBE8'">Začněme rozhovorem</a>
+    </div>
+
+    <!-- RATIONALE -->
+    <div class="rationale fade-up" style="border-color: #B8A0C8; background: rgba(184,160,200,0.04);">
+      <h5 style="color: #B8A0C8;">Proč Plum</h5>
+      <p style="color: rgba(240,235,232,0.5);">Aubergine/plum je v módě 2025–26 barva roku — viz Pantone Mocha Mousse a fashion trendy směřující k teplým tmavým tónům. V právnickém prostoru je to absolutně neviděná barva. DM Serif Display je dramatický, sebevědomý — silnější než Cormorant, ale stále elegantní. Crimson Pro jako body font = celý web je serif-on-serif, editorial magazín na 100 %. Silver místo zlaté = chladnější, modernější luxus.</p>
+      <div class="allfair" style="color: #B8A0C8;">All's Fair kontext: plakát seriálu — gradient od magenty do deep purple, šest žen kráčejících vpřed. Síla v jednotě, ale každá jiná. Alice je ta uprostřed — ne nejhlasitější, ale ta, na kterou se díváte.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DIRECTION 2: WARM MARBLE                      -->
+<!-- ============================================ -->
+
+<section class="direction-section" id="warm-marble" style="background: #FAF8F5;">
+  <div class="container">
+    <div class="dir-header fade-up">
+      <div class="dir-number" style="color: #8A6B5A;">Alternativa A</div>
+      <div class="dir-title" style="font-family: 'Bodoni Moda', serif; font-optical-sizing: auto;">Warm Marble</div>
+      <div class="dir-subtitle">Haute couture kancelář. Marble + blush + espresso. Jako vstoupit do atelier Bottega Veneta</div>
+    </div>
+
+    <!-- PALETTE -->
+    <div class="palette-row fade-up">
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #3A2A20;"><span style="color: rgba(245,232,220,0.4);">BASE</span></div>
+        <div class="palette-info">
+          <div class="name">Espresso</div>
+          <div class="hex">#3A2A20</div>
+          <div class="use">Texty, tmavé sekce</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #F5E8DC;"><span style="color: rgba(58,42,32,0.3);">LIGHT</span></div>
+        <div class="palette-info">
+          <div class="name">Warm Cream</div>
+          <div class="hex">#F5E8DC</div>
+          <div class="use">Hlavní pozadí</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #D4B8A8;"><span style="color: rgba(58,42,32,0.4);">MARBLE</span></div>
+        <div class="palette-info">
+          <div class="name">Blush Marble</div>
+          <div class="hex">#D4B8A8</div>
+          <div class="use">Sekundární plochy, karty</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #8A6B5A;"><span style="color: rgba(245,232,220,0.5);">ACCENT</span></div>
+        <div class="palette-info">
+          <div class="name">Warm Bronze</div>
+          <div class="hex">#8A6B5A</div>
+          <div class="use">Akcent, CTA, hover</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT -->
+    <div class="font-card fade-up" style="background: #3A2A20; border-color: rgba(212,184,168,0.1);">
+      <div class="font-label" style="color: #D4B8A8;">Typografický pár</div>
+      <div class="font-pair">
+        <div>
+          <div class="font-name" style="color: rgba(245,232,220,0.4);">Display — Bodoni Moda</div>
+          <div style="font-family: 'Bodoni Moda', serif; font-optical-sizing: auto; font-weight: 400; font-size: 42px; line-height: 1.1; color: #F5E8DC; margin-bottom: 8px;">Diskrétnost<br>není slabost</div>
+          <div style="font-family: 'Bodoni Moda', serif; font-optical-sizing: auto; font-weight: 400; font-size: 24px; color: rgba(245,232,220,0.45); font-style: italic;">V nejzranitelnějším momentu</div>
+        </div>
+        <div>
+          <div class="font-name" style="color: rgba(245,232,220,0.4);">Body — Inter Light</div>
+          <div style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 14px; color: rgba(245,232,220,0.55); line-height: 1.8;">Provázím majitele firem, investory a lídry v situacích, kdy právní rozhodnutí zásadně ovlivňují jejich budoucnost. Pracuji selektivně. Každý mandát je můj jediný mandát.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP HERO — LIGHT VARIANT -->
+    <div class="mockup-hero fade-up" style="background: linear-gradient(170deg, #F5E8DC 0%, #EDD8C8 50%, #D4B8A8 100%); min-height: 480px;">
+      <div class="mockup-label" style="color: #8A6B5A; font-family: 'Inter', sans-serif;">PRIVATE COUNSEL</div>
+      <div class="mockup-headline" style="font-family: 'Bodoni Moda', serif; font-optical-sizing: auto; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #3A2A20;">Jsou momenty, kdy<br>potřebujete jednoho<br>člověka — ne firmu</div>
+      <div class="mockup-sub" style="font-family: 'Bodoni Moda', serif; font-optical-sizing: auto; font-size: 18px; color: rgba(58,42,32,0.45); font-style: italic;">Provázím lídry v rozhodnutích, která formují jejich budoucnost</div>
+      <a href="#" class="mockup-cta" style="color: #3A2A20; border: 1px solid rgba(58,42,32,0.2); font-family: 'Inter', sans-serif;" onmouseover="this.style.background='#3A2A20';this.style.borderColor='#3A2A20';this.style.color='#F5E8DC'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(58,42,32,0.2)';this.style.color='#3A2A20'">Začněme rozhovorem</a>
+    </div>
+
+    <!-- DARK VARIANT -->
+    <div class="mockup-hero fade-up" style="background: linear-gradient(170deg, #3A2A20 0%, #2A1E16 60%, #1E1410 100%); min-height: 380px;">
+      <div class="mockup-label" style="color: #D4B8A8; font-family: 'Inter', sans-serif;">DARK VARIANT</div>
+      <div class="mockup-headline" style="font-family: 'Bodoni Moda', serif; font-optical-sizing: auto; font-size: clamp(2rem, 4vw, 3rem); color: #F5E8DC;">Ticho je strategie</div>
+      <div class="mockup-sub" style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; color: rgba(245,232,220,0.4);">31 let praxe · M&A · Konflikty společníků · Exit zakladatelů</div>
+      <a href="#" class="mockup-cta" style="color: #F5E8DC; border: 1px solid rgba(212,184,168,0.2); font-family: 'Inter', sans-serif;" onmouseover="this.style.background='#D4B8A8';this.style.borderColor='#D4B8A8';this.style.color='#3A2A20'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(212,184,168,0.2)';this.style.color='#F5E8DC'">Napište mi</a>
+    </div>
+
+    <!-- RATIONALE -->
+    <div class="rationale fade-up" style="border-color: #8A6B5A;">
+      <h5 style="color: #8A6B5A;">Proč Warm Marble</h5>
+      <p>Inspirace interiérovou scénou z All's Fair — marble deska, teplé tóny, afternoon light. Tento směr říká „potkáváme se v kanceláři, kde voní kůže a káva". Bodoni Moda je high-fashion font par excellence — Vogue, Harper's Bazaar, Bottega Veneta. Espresso místo černé = teplejší, přístupnější, ale stále autoritativní. Funguje skvěle pro Karolínu (persona) — bezpečný, teplý, ne zastrašující.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DIRECTION 3: CHALK & WINE                     -->
+<!-- ============================================ -->
+
+<section class="direction-section" id="chalk-wine" style="background: #FAFAF8;">
+  <div class="container">
+    <div class="dir-header fade-up">
+      <div class="dir-number" style="color: #6B2D3E;">Alternativa B</div>
+      <div class="dir-title" style="font-family: 'Newsreader', serif; font-optical-sizing: auto;">Chalk & Wine</div>
+      <div class="dir-subtitle">Minimalistická. Téměř bílá s jedním silným akcentem. Jako podpis perem na prázdném listu</div>
+    </div>
+
+    <!-- PALETTE -->
+    <div class="palette-row fade-up">
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #FAFAF8;border-color: rgba(0,0,0,0.08);"><span style="color: rgba(0,0,0,0.15);">BASE</span></div>
+        <div class="palette-info">
+          <div class="name">Chalk White</div>
+          <div class="hex">#FAFAF8</div>
+          <div class="use">Hlavní pozadí — ticho</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #6B2D3E;"><span style="color: rgba(255,255,255,0.4);">ACCENT</span></div>
+        <div class="palette-info">
+          <div class="name">Wine</div>
+          <div class="hex">#6B2D3E</div>
+          <div class="use">Jediný akcent — vše důležité</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #8A8480;"><span style="color: rgba(255,255,255,0.4);">NEUTRAL</span></div>
+        <div class="palette-info">
+          <div class="name">Warm Grey</div>
+          <div class="hex">#8A8480</div>
+          <div class="use">Body text, meta</div>
+        </div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-color" style="background: #D4C4A8;"><span style="color: rgba(0,0,0,0.2);">WHISPER</span></div>
+        <div class="palette-info">
+          <div class="name">Whisper Gold</div>
+          <div class="hex">#D4C4A8</div>
+          <div class="use">Linky, bordery, jemné detaily</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT -->
+    <div class="font-card fade-up" style="background: #FAFAF8; border-color: rgba(107,45,62,0.08);">
+      <div class="font-label" style="color: #6B2D3E;">Typografický pár</div>
+      <div class="font-pair">
+        <div>
+          <div class="font-name" style="color: #8A8480;">Display — Newsreader</div>
+          <div style="font-family: 'Newsreader', serif; font-optical-sizing: auto; font-weight: 300; font-size: 42px; line-height: 1.1; color: #1a1a1a; margin-bottom: 8px;">Diskrétnost<br>není slabost</div>
+          <div style="font-family: 'Newsreader', serif; font-optical-sizing: auto; font-weight: 300; font-size: 24px; color: #8A8480; font-style: italic;">V nejzranitelnějším momentu</div>
+        </div>
+        <div>
+          <div class="font-name" style="color: #8A8480;">Body — Inter Light</div>
+          <div style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 14px; color: #8A8480; line-height: 1.8;">Provázím majitele firem, investory a lídry v situacích, kdy právní rozhodnutí zásadně ovlivňují jejich budoucnost. Pracuji selektivně. Každý mandát je můj jediný mandát.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCKUP HERO — LIGHT -->
+    <div class="mockup-hero fade-up" style="background: #FAFAF8; min-height: 480px; border: 1px solid rgba(0,0,0,0.04); border-radius: 16px; justify-content: center; align-items: flex-start;">
+      <div class="mockup-label" style="color: #6B2D3E; font-family: 'Inter', sans-serif;">PRIVATE COUNSEL</div>
+      <div class="mockup-headline" style="font-family: 'Newsreader', serif; font-optical-sizing: auto; font-weight: 300; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #1a1a1a;">Jsou momenty, kdy<br>potřebujete jednoho<br>člověka — ne firmu</div>
+      <div class="mockup-sub" style="font-family: 'Newsreader', serif; font-optical-sizing: auto; font-weight: 300; font-size: 18px; color: #8A8480; font-style: italic;">Provázím lídry v rozhodnutích, která formují jejich budoucnost</div>
+      <a href="#" class="mockup-cta" style="color: #FAFAF8; background: #6B2D3E; border: none; font-family: 'Inter', sans-serif;" onmouseover="this.style.background='#8A3A50'" onmouseout="this.style.background='#6B2D3E'">Začněme rozhovorem</a>
+    </div>
+
+    <!-- MOCKUP HERO — DARK -->
+    <div class="mockup-hero fade-up" style="background: #1A1A1A; min-height: 380px; border-radius: 16px;">
+      <div class="mockup-label" style="color: #6B2D3E; font-family: 'Inter', sans-serif;">DARK VARIANT</div>
+      <div class="mockup-headline" style="font-family: 'Newsreader', serif; font-optical-sizing: auto; font-weight: 300; font-size: clamp(2rem, 4vw, 3rem); color: #FAFAF8;">Ticho je strategie</div>
+      <div style="width: 60px; height: 1px; background: #6B2D3E; margin: 16px 0; position: relative; z-index: 2;"></div>
+      <div class="mockup-sub" style="font-family: 'Inter', sans-serif; font-weight: 300; font-size: 14px; color: rgba(250,250,248,0.35);">31 let praxe · M&A · Konflikty společníků · Exit zakladatelů</div>
+    </div>
+
+    <!-- RATIONALE -->
+    <div class="rationale fade-up" style="border-color: #6B2D3E;">
+      <h5 style="color: #6B2D3E;">Proč Chalk & Wine</h5>
+      <p>Nejminimalističtější varianta. Říká: „nepotřebuji barevnou paletu, aby sis mě zapamatoval". Newsreader je font navržený pro čitelnost + eleganci v digitálním prostředí — vyvinul ho Google speciálně pro editorial obsah. Jeden jediný accent color (wine) na bílém pozadí = maximum kontrastu s minimem prostředků. Whisper Gold #D4C4A8 je tak jemná, že ji skoro nevidíte — ale je tam. Přesně jako Alice: kdo ví, ten ví.</p>
+      <p style="margin-top: 8px;">Funguje extrémně dobře pro Martina (persona) — čisté, žádné dekorace, rovnou k věci. Jako právní dokument, který říká přesně to, co má.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="direction-section" style="background: #F2EFEB; padding: 80px 0;">
+  <div class="container">
+    <div class="dir-header fade-up">
+      <div class="dir-number" style="color: #8A8480;">Srovnání</div>
+      <div class="dir-title">Všech 5 směrů vedle sebe</div>
+    </div>
+
+    <div class="fade-up" style="overflow-x: auto;">
+    <table class="compare-table">
       <thead>
         <tr>
-          <th style="width:20%;">Aspekt</th>
-          <th style="width:27%;">A · Quiet Power</th>
-          <th style="width:27%;">B · Editorial Noir</th>
-          <th style="width:27%;">C · Warm Authority</th>
+          <th>Vlastnost</th>
+          <th>1A Bordeaux</th>
+          <th>1B Rosé</th>
+          <th>1C Plum</th>
+          <th>Warm Marble</th>
+          <th>Chalk & Wine</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Dominantní barva</td>
-          <td>Černá + ivory</td>
-          <td>Midnight blue + champagne</td>
-          <td>Linen + espresso</td>
+          <td>Nálada</td>
+          <td>Dramatická, silná</td>
+          <td>Jemná, femininní</td>
+          <td>Nekonvenční, módní</td>
+          <td>Teplá, přístupná</td>
+          <td>Minimalistická, čistá</td>
         </tr>
         <tr>
-          <td>Hero styl</td>
-          <td>Tmavý, text only, žádná fotka</td>
-          <td>Split: text + editorial foto</td>
-          <td>Světlý, centrovaný, fotka pod</td>
+          <td>Headline font</td>
+          <td>Cormorant Garamond</td>
+          <td>Instrument Serif</td>
+          <td>DM Serif Display</td>
+          <td>Bodoni Moda</td>
+          <td>Newsreader</td>
         </tr>
         <tr>
-          <td>Fotografie</td>
-          <td>Minimální (1-2), černobílé</td>
-          <td>Klíčové (3-4), editorial, desaturované</td>
-          <td>Hodně (4-5), barevné, lifestyle</td>
+          <td>All's Fair reference</td>
+          <td>Premiéra — burgundy backdrop</td>
+          <td>Interiér — blush + marble</td>
+          <td>Plakát — purple gradient</td>
+          <td>Interiér — warm tóny</td>
+          <td>Odvozená — wine accent</td>
         </tr>
         <tr>
-          <td>CTA styl</td>
-          <td>Text link + underline</td>
-          <td>Ghost button (border only)</td>
-          <td>Pill button (solid fill)</td>
+          <td>Persona fit: Martin</td>
+          <td style="color:#B8976A;">★★★★☆</td>
+          <td style="color:#B8976A;">★★★☆☆</td>
+          <td style="color:#B8976A;">★★★☆☆</td>
+          <td style="color:#B8976A;">★★★★☆</td>
+          <td style="color:#B8976A;">★★★★★</td>
         </tr>
         <tr>
-          <td>Emoce</td>
-          <td>Klid, ticho, respekt</td>
-          <td>Síla, autorita, odvaha</td>
-          <td>Důvěra, bezpečí, empatie</td>
+          <td>Persona fit: Karolína</td>
+          <td style="color:#B8976A;">★★★★☆</td>
+          <td style="color:#B8976A;">★★★★★</td>
+          <td style="color:#B8976A;">★★★☆☆</td>
+          <td style="color:#B8976A;">★★★★★</td>
+          <td style="color:#B8976A;">★★★☆☆</td>
         </tr>
         <tr>
-          <td>Inspirace</td>
-          <td>Céline, Bottega Veneta</td>
-          <td>All's Fair, Tom Ford, Vogue</td>
-          <td>Aesop, Brunello Cucinelli, Amal</td>
+          <td>Odlišení od CZ konkurence</td>
+          <td style="color:#B8976A;">★★★★★</td>
+          <td style="color:#B8976A;">★★★★☆</td>
+          <td style="color:#B8976A;">★★★★★</td>
+          <td style="color:#B8976A;">★★★☆☆</td>
+          <td style="color:#B8976A;">★★★★☆</td>
         </tr>
         <tr>
-          <td>Primární persona</td>
-          <td>Martin (CEO, exit)</td>
-          <td>Oba — ale hlavně Martin</td>
-          <td>Karolína (rozvod, krize)</td>
-        </tr>
-        <tr>
-          <td>Border-radius</td>
-          <td>16px (soft), 0 na hero</td>
-          <td>8px (sharper), 0 na fotky</td>
-          <td>20px (softer), 999px na CTA</td>
-        </tr>
-        <tr>
-          <td>Animace tempo</td>
-          <td>Pomalé (0.8s), subtilní</td>
-          <td>Pomalé (1.0s), dramatické</td>
-          <td>Střední (0.6s), přirozené</td>
-        </tr>
-        <tr>
-          <td>Risk</td>
-          <td>Až příliš minimální — „kde je obsah?"</td>
-          <td>Může působit „příliš módně" pro AK</td>
-          <td>Může působit „příliš měkce" pro M&A</td>
+          <td>Moje doporučení</td>
+          <td style="color: #5C1A2A; font-weight: 600;">Favorit</td>
+          <td>Bezpečná volba</td>
+          <td>Odvážná volba</td>
+          <td>Pokud light verze</td>
+          <td>Pokud ultra-minimal</td>
         </tr>
       </tbody>
     </table>
     </div>
-
-    <div style="background:var(--gold-10);border:1px solid var(--gold-25);border-radius:12px;padding:24px;margin-top:32px;">
-      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;">Doporučení</div>
-      <p style="font-size:14px;line-height:1.7;">Můj návrh: <strong>hybrid A + B</strong>. Základ z A (Quiet Power — understatement, negative space, mono-accent gold). Hero a klíčové sekce z B (Editorial Noir — split layout s editorial fotkou, credentials bar, cinematic typografie). Tím vznikne web, který je <strong>diskrétně luxusní</strong> (A) ale má <strong>vizuální sílu</strong> (B). Varianta C je záloha, pokud Alice preferuje teplejší, přístupnější tón — ale pro private counsel positioning je A+B silnější signál. Finální rozhodnutí by mělo padnout po konzultaci s Alice.</p>
-    </div>
   </div>
 </section>
 
-
-<!-- ============================================================ -->
-<!-- PENCIL.DEV PROMPTS -->
-<!-- ============================================================ -->
-<section id="pencil">
+<!-- FOOTER CTA -->
+<section class="cta-banner" style="background: #0A0A0A; color: #F5F0E8;">
   <div class="container">
-    <div class="section-number">Pencil.dev</div>
-    <div class="section-title">Design prompts pro Pencil</div>
-    <div class="section-desc">Zadání pro Pencil MCP server — 3 varianty hero + klíčových sekcí k prototypování</div>
-
-    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin-bottom:20px;">Prompt A — Quiet Power</h4>
-    <div class="pencil-prompt"><span class="comment">// PENCIL DESIGN PROMPT — Alice Hejzlarová Landing Page: "Quiet Power"</span>
-<span class="comment">// Style: Ultra-minimal luxury. Céline / Bottega Veneta aesthetic.</span>
-
-<span class="key">FRAME:</span> <span class="val">Desktop landing page, 1440×3200px</span>
-
-<span class="key">HERO SECTION</span> (0-900px):
-- Background: solid <span class="val">#0A0A0A</span>, full viewport height
-- SVG grain texture overlay, opacity 0.035
-- Top-left: label "PRIVATE COUNSEL" — Inter 500, 10px, letter-spacing 4px, uppercase, <span class="val">#B8976A</span>
-- Center-left: H1 "Alice Hejzlarová" — Playfair Display 400, 64px, <span class="val">#F8F6F3</span>
-- Below H1: "Klid, struktura a rozhodnutí v momentech, kdy je v sázce všechno" — Playfair Display italic, 21px, <span class="val">rgba(232,224,212,0.5)</span>
-- Bottom-left: Two CTAs inline — "Domluvit schůzku" (gold text, thin underline) + "Jak pracuji ↓" (muted text)
-- NO image in hero. Just typography and space.
-- Padding: 80px left, content max-width 560px, aligned bottom-left
-
-<span class="key">STICKY NAV</span> (pinned):
-- Background: <span class="val">rgba(248,246,243,0.85)</span>, backdrop-blur 16px
-- Height: 56px, border-bottom 1px solid <span class="val">rgba(184,151,106,0.06)</span>
-- Links: Inter 500, 11px, uppercase, letter-spacing 1.5px, <span class="val">#6B6560</span>
-- Active link: <span class="val">#B8976A</span> text + gold-10 bg + 2px bottom border gold
-
-<span class="key">POSITIONING STATEMENT</span> (900-1300px):
-- Background: <span class="val">#F8F6F3</span>
-- Centered text: "Provázím majitele firem a lídry v nejcitlivějších momentech jejich profesního i osobního života" — Playfair Display italic, 28px, <span class="val">#0A0A0A</span>, max-width 640px, text-align center
-- Below: 3 stat cards in row — "15+ let" / "31 publikací" / "Exit LP Legal" — each card: 200px wide, gold-06 bg, 16px border-radius, gold label + black number
-
-<span class="key">HOW I WORK</span> (1300-1900px):
-- 3 vertical pillars: Diskrétnost / Strategický nadhled / Osobní odpovědnost
-- Each: minimal icon (line-art, gold stroke), Playfair headline 20px, Inter body 14px muted
-- Cards: transparent bg, gold-06 border, 16px radius, 32px padding
-- Stagger animation implied (offset positioning)
-
-<span class="key">FOR WHOM</span> (1900-2500px):
-- 4 cards grid (2×2): M&A exit / Spor společníků / Restrukturalizace / Citlivé osobní situace
-- Cards: gold-06 bg, gold-25 border on hover, Playfair headline, Inter description
-- Hover state: scale 1.02, shadow 0 8px 30px rgba(184,151,106,0.1)
-
-<span class="key">ABOUT</span> (2500-3200px):
-- Asymmetric layout: photo left 45%, text right 55%
-- Photo placeholder: grayscale portrait, gold tint overlay, 0px border-radius (sharp)
-- Text: 3 paragraphs bio, Inter 300, 15px
-- Below text: pill tags — "JUDr." "LL.M." "MBA" "15+ let" — gold-06 bg, gold-25 border, pill shape
-
-<span class="key">COLOR TOKENS:</span>
---bg-primary: <span class="val">#0A0A0A</span>
---bg-secondary: <span class="val">#F8F6F3</span>
---accent: <span class="val">#B8976A</span>
---text-primary: <span class="val">#0A0A0A</span> (on light) / <span class="val">#F8F6F3</span> (on dark)
---text-muted: <span class="val">#6B6560</span>
---card-bg: <span class="val">rgba(184,151,106,0.06)</span>
---card-border: <span class="val">rgba(184,151,106,0.06)</span>
---card-border-hover: <span class="val">rgba(184,151,106,0.25)</span>
-
-<span class="key">TYPOGRAPHY:</span>
-Headlines: Playfair Display 400, sizes 64/28/20px
-Body: Inter 300, 15px, line-height 1.7
-Labels: Inter 500, 10-11px, uppercase, letter-spacing 3px
-Quotes: Playfair Display italic, 21px</div>
-
-    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:40px 0 20px;">Prompt B — Editorial Noir</h4>
-    <div class="pencil-prompt"><span class="comment">// PENCIL DESIGN PROMPT — Alice Hejzlarová Landing Page: "Editorial Noir"</span>
-<span class="comment">// Style: Fashion editorial meets legal authority. All's Fair aesthetic for Czech context.</span>
-
-<span class="key">FRAME:</span> <span class="val">Desktop landing page, 1440×4000px</span>
-
-<span class="key">HERO SECTION</span> (0-900px):
-- Background: linear-gradient 135deg from <span class="val">#1A1A2E</span> to <span class="val">#0F0F1A</span>
-- SPLIT LAYOUT: Left 55% = text content, Right 45% = editorial photo placeholder
-- Photo area: desaturated portrait placeholder, gradient overlay from left (midnight→transparent)
-- Top-left: "JUDr. Alice Hejzlarová, LL.M., MBA" — Inter 500, 9px, letter-spacing 3px, <span class="val">#C8B49B</span>
-- Main headline: "Vaše nejcitlivější rozhodnutí si zaslouží někoho, kdo je unese" — Playfair 400, 42px, <span class="val">#F0EBE3</span>, line-height 1.2
-- CTA: Ghost button — border 1px <span class="val">#C8B49B</span>, text <span class="val">#C8B49B</span>, 12px padding 28px, letter-spacing 2px, uppercase "DOMLUVIT KONZULTACI"
-
-<span class="key">CREDENTIALS BAR</span> (900-960px):
-- Full-width bar, background: <span class="val">#2A2540</span>
-- Horizontal items: "15+ let advokátní praxe" | "31 odborných publikací" | "Exit LP Legal" | "M&A × Korporát × Private"
-- Inter 500, 10px, uppercase, letter-spacing 2px, <span class="val">#C8B49B</span>
-- Separator: vertical line 1px <span class="val">rgba(200,180,155,0.2)</span>
-
-<span class="key">SITUATIONS</span> (960-1800px):
-- Background: <span class="val">#1A1A2E</span>
-- Section label: "KDY MĚ POTŘEBUJETE" — gold label style
-- 4 full-width cards stacked vertically, each 200px height
-- Card bg: <span class="val">#2A2540</span>, border-radius 8px
-- Each: champagne headline left, muted description right, hover = reveal detail panel
-- Cards: "Prodáváte firmu" / "Konflikt se společníkem" / "Restrukturalizace" / "Rozvod nebo osobní krize"
-
-<span class="key">MANIFESTO</span> (1800-2400px):
-- Background: <span class="val">#0F0F1A</span>, full-bleed
-- Large typographic section — alternating sizes:
-  "Neprovozuji velkou kancelář" — Playfair 400, 48px, <span class="val">#C8B49B</span>
-  "s řadou juniorních právníků." — Playfair 400, 48px, <span class="val">rgba(240,235,227,0.3)</span>
-  "Pracuji přímo s vámi." — Playfair 400, 48px, <span class="val">#F0EBE3</span>
-- Staggered reveal animation implied
-
-<span class="key">ABOUT</span> (2400-3200px):
-- Full-bleed editorial photo (color, warm), text overlay bottom
-- Gradient from bottom: midnight → transparent
-- Bio text over gradient: Inter 300, 16px, <span class="val">#F0EBE3</span>
-- Below photo: horizontal career timeline — minimal line + dots + year labels
-
-<span class="key">EXPERT NETWORK</span> (3200-3600px):
-- "Když situace vyžaduje tým" — section headline
-- Abstract SVG node visualization (circles + lines, champagne strokes on midnight)
-- 4 expertise labels around the network: Právní strategie / Byznys / Technologie / Ekonomika
-- NO photos of people — discretion
-
-<span class="key">COLOR TOKENS:</span>
---bg-primary: <span class="val">#1A1A2E</span>
---bg-deep: <span class="val">#0F0F1A</span>
---bg-card: <span class="val">#2A2540</span>
---accent: <span class="val">#C8B49B</span>
---text-primary: <span class="val">#F0EBE3</span>
---text-muted: <span class="val">#8B7E74</span>
-
-<span class="key">TYPOGRAPHY:</span>
-Headlines: Playfair Display 400, sizes 48/42/28/20px
-Body: Inter 300, 15-16px, line-height 1.8
-Labels: Inter 500, 9-10px, uppercase, letter-spacing 3px
-CTA: Inter 500, 11-12px, uppercase, ghost button style</div>
-
-    <h4 style="font-family:'Playfair Display',serif;font-weight:400;font-size:20px;margin:40px 0 20px;">Prompt C — Warm Authority</h4>
-    <div class="pencil-prompt"><span class="comment">// PENCIL DESIGN PROMPT — Alice Hejzlarová Landing Page: "Warm Authority"</span>
-<span class="comment">// Style: Approachable luxury. Aesop / Brunello Cucinelli / Amal Clooney warmth.</span>
-
-<span class="key">FRAME:</span> <span class="val">Desktop landing page, 1440×3600px</span>
-
-<span class="key">HERO SECTION</span> (0-900px):
-- Background: solid <span class="val">#F5EDE3</span>
-- CENTERED LAYOUT, text-align center
-- Label: "PRIVATE COUNSEL · PRAHA" — Inter 500, 10px, letter-spacing 4px, <span class="val">#8B7355</span>
-- H1: "V nejdůležitějších momentech potřebujete někoho, kdo vám rozumí" — Playfair 400, 40px, <span class="val">#2C2420</span>, max-width 520px, centered
-- Attribution: "— Alice Hejzlarová" — Playfair italic, 16px, <span class="val">#8B7355</span>
-- CTA: Pill button — bg <span class="val">#2C2420</span>, text <span class="val">#F5EDE3</span>, border-radius 999px, padding 14px 32px
-- Below hero: full-width warm-toned photo of Alice (lifestyle, natural light), parallax
-
-<span class="key">WHY ALICE</span> (900-1400px):
-- Background: <span class="val">#F8F6F3</span> (slightly lighter than hero)
-- 3 cards in row: Diskrétnost / Zkušenost / Osobní přístup
-- Cards: <span class="val">#E8DDD0</span> bg, border-radius 20px, 32px padding
-- Each: line-art icon (camel stroke), Playfair headline 18px, Inter body 13px
-- Subtle shadow: 0 4px 20px rgba(44,36,32,0.06) — tinted, not gray
-
-<span class="key">SITUATIONS (storytelling)</span> (1400-2200px):
-- Tab switch or accordion: 4 stories
-- Each story: "Martin budoval firmu 25 let..." — narrative format
-- Active tab: espresso bg, linen text. Inactive: oat bg, camel text
-- Transition between tabs: crossfade 0.4s
-
-<span class="key">ABOUT</span> (2200-2800px):
-- Side-by-side: photo left (lifestyle, warm light, natural, colored), text right
-- Photo: border-radius 20px, warm tones
-- Bio: 3 paragraphs, conversational tone
-- Pill tags below: "JUDr." "LL.M." "MBA" "15+ let" — oat bg, camel border
-
-<span class="key">PROCESS</span> (2800-3200px):
-- 3-step horizontal timeline: Rozhovor → Strategie → Provedení
-- Each step: circle icon (numbered), headline, description
-- Connecting line: 2px solid <span class="val">#D4C4AF</span>
-- Demystifies "how it works" for first-time clients
-
-<span class="key">CONTACT</span> (3200-3600px):
-- Background: <span class="val">#2C2420</span> (espresso), text <span class="val">#F5EDE3</span>
-- "Zavolejte mi." — Playfair 400, 32px
-- Phone number large: Playfair 400, 28px, <span class="val">#A68B6B</span>
-- Email + LinkedIn below, Inter 14px
-- NO form. Personal, direct.
-
-<span class="key">COLOR TOKENS:</span>
---bg-primary: <span class="val">#F5EDE3</span>
---bg-card: <span class="val">#E8DDD0</span>
---bg-dark: <span class="val">#2C2420</span>
---accent: <span class="val">#8B7355</span>
---accent-light: <span class="val">#A68B6B</span>
---text-primary: <span class="val">#2C2420</span>
---text-muted: <span class="val">#8B7355</span>
-
-<span class="key">TYPOGRAPHY:</span>
-Headlines: Playfair Display 400, sizes 40/28/20/18px
-Body: Inter 300-400, 15px, line-height 1.8
-Labels: Inter 500, 10px, uppercase, letter-spacing 3px
-CTA: Inter 500, 11px, uppercase, pill button (border-radius 999px)</div>
+    <h2 style="font-family: 'Cormorant Garamond', serif; color: #F5F0E8;">Který směr rezonuje?</h2>
+    <p style="color: rgba(245,240,232,0.4);">Vyber jeden nebo dva směry k rozpracování. Můžeme mixovat — např. font z jednoho směru + paleta z jiného</p>
+    <div style="margin-top: 32px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,0.2);">ALICE HEJZLAROVÁ × JAKUB SKUPIN · 2026</div>
   </div>
 </section>
-
-
-<!-- ============================================================ -->
-<!-- ANIMACE -->
-<!-- ============================================================ -->
-<section id="animace">
-  <div class="container">
-    <div class="section-number">Framer Motion</div>
-    <div class="section-title">Animační systém</div>
-    <div class="section-desc">Společný pro všechny 3 varianty — komponenty z knowledgebase, adaptované na luxury tempo</div>
-
-    <div class="anim-grid">
-      <div class="anim-card">
-        <h5>AnimatedSection</h5>
-        <p>Fade-up při scrollu. Wrapper pro každou sekci. <code>whileInView</code>, <code>translateY: 30→0</code>, <code>opacity: 0→1</code>. Duration: <strong>0.8s</strong> (A/B) nebo <strong>0.6s</strong> (C). Threshold: 0.1.</p>
-      </div>
-      <div class="anim-card">
-        <h5>RevealText</h5>
-        <p>H1 v hero se odkrývá po slovech. Každé slovo <code>clipPath</code> reveal s <strong>0.05s stagger</strong>. Luxury feel — pomalé, důstojné. Jen na hero H1, ne na každý headline.</p>
-      </div>
-      <div class="anim-card">
-        <h5>ParallaxImage</h5>
-        <p>Fotky Alice s parallax efektem. <code>useScroll</code> + <code>useTransform</code>. Range: <strong>translateY -5% → 5%</strong> (subtle). <code>object-cover object-top scale-[1.15] origin-top</code> — hlavy se neoříznou.</p>
-      </div>
-      <div class="anim-card">
-        <h5>GrainOverlay</h5>
-        <p>SVG <code>feTurbulence</code> noise na dark sections. <code>baseFrequency: 0.9</code>, <code>numOctaves: 4</code>, <code>opacity: 0.03-0.04</code>. Pointer-events: none. Textura, ne šum.</p>
-      </div>
-      <div class="anim-card">
-        <h5>ScrollNav</h5>
-        <p>Navbar: <code>backdrop-filter: blur(16px)</code>. Při scrollu > 100px: compact mode (menší padding), shadow. <code>useMotionValueEvent</code> na scroll position.</p>
-      </div>
-      <div class="anim-card">
-        <h5>HoverCard</h5>
-        <p>Karty služeb/situací. Hover: <code>scale: 1.02</code>, <code>boxShadow</code> s tónovanou barvou (gold pro A, champagne pro B, espresso pro C). <code>transition: { duration: 0.2 }</code>.</p>
-      </div>
-      <div class="anim-card">
-        <h5>StaggerChildren</h5>
-        <p>Pilíře, stat karty, FAQ items. Parent: <code>staggerChildren: 0.1</code> (A/B: 0.15). Children: fade-up. Spouští se <code>whileInView</code>.</p>
-      </div>
-      <div class="anim-card">
-        <h5>Scroll-aware CTA</h5>
-        <p>Kontaktní CTA se objeví fixed bottom-right po scrollu přes hero. <code>AnimatePresence</code> + <code>motion.div</code> slide-up. Jen na desktopu, ne mobile.</p>
-      </div>
-    </div>
-
-    <div class="subsection mt-32">
-      <h4>Timing guidelines</h4>
-      <div style="overflow-x:auto;">
-      <table class="comparison">
-        <thead>
-          <tr>
-            <th>Element</th>
-            <th>A · Quiet Power</th>
-            <th>B · Editorial Noir</th>
-            <th>C · Warm Authority</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Section fade-in</td>
-            <td>0.8s, ease-out</td>
-            <td>1.0s, ease-out</td>
-            <td>0.6s, ease-out</td>
-          </tr>
-          <tr>
-            <td>RevealText stagger</td>
-            <td>0.05s per word</td>
-            <td>0.06s per word</td>
-            <td>0.04s per word</td>
-          </tr>
-          <tr>
-            <td>Card hover scale</td>
-            <td>1.01 (subtle)</td>
-            <td>1.02 (medium)</td>
-            <td>1.02 (medium)</td>
-          </tr>
-          <tr>
-            <td>Parallax range</td>
-            <td>±3% (minimal)</td>
-            <td>±5% (noticeable)</td>
-            <td>±4% (moderate)</td>
-          </tr>
-          <tr>
-            <td>Stagger delay</td>
-            <td>0.15s</td>
-            <td>0.12s</td>
-            <td>0.10s</td>
-          </tr>
-          <tr>
-            <td>Easing</td>
-            <td>[0.25, 0.1, 0.25, 1]</td>
-            <td>[0.16, 1, 0.3, 1]</td>
-            <td>[0.33, 1, 0.68, 1]</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-
-    <div class="subsection mt-32">
-      <h4>Next.js Tech Stack</h4>
-      <div class="pencil-prompt" style="font-family:'Inter',sans-serif;">
-<span class="key">Framework:</span> <span class="val">Next.js 14+ (App Router)</span>
-<span class="key">Styling:</span> <span class="val">Tailwind CSS 3.4+</span>
-<span class="key">Animation:</span> <span class="val">Framer Motion 11+</span>
-<span class="key">Fonts:</span> <span class="val">next/font — Playfair Display + Inter (local)</span>
-<span class="key">Deploy:</span> <span class="val">Vercel</span>
-<span class="key">Analytics:</span> <span class="val">Vercel Analytics + Web Vitals</span>
-
-<span class="comment">// Instalace:</span>
-npx create-next-app@latest alice-hejzlarova --typescript --tailwind --app
-npm install framer-motion
-
-<span class="comment">// Struktura komponent:</span>
-src/components/motion/
-  ├── AnimatedSection.tsx
-  ├── RevealText.tsx
-  ├── ParallaxImage.tsx
-  ├── GrainOverlay.tsx
-  ├── ScrollNav.tsx
-  ├── HoverCard.tsx
-  └── StaggerChildren.tsx
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <script>
-const sectionObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('section').forEach(s => sectionObs.observe(s));
+// Intersection Observer for fade-up animations
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
+// Active nav link
 const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
 const navObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       navLinks.forEach(l => l.classList.remove('active'));
-      const id = e.target.id;
-      const link = document.querySelector('.nav-link[href="#' + id + '"]');
-      if (link) link.classList.add('active');
+      const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
     }
   });
-}, { rootMargin: '-72px 0px -60% 0px' });
-document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
+}, { threshold: 0.3 });
+sections.forEach(s => navObs.observe(s));
 </script>
-
 </body>
 </html>
