@@ -548,19 +548,19 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // Easter egg: "Tým míru" → "Tým na míru"
+        // Easter egg: "Tým míru" → "Tým na míru" (4s after marble section appears)
         const tymNa = document.getElementById('tym-na');
-        const tymParagraph = document.getElementById('tym-paragraph');
-        if (tymNa && tymParagraph) {
+        const marbleSection = tymNa ? tymNa.closest('section') : null;
+        if (tymNa && marbleSection) {
             const tymObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        tymNa.style.opacity = '1';
+                        setTimeout(() => { tymNa.style.opacity = '1'; }, 4000);
                         tymObs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.5 });
-            tymObs.observe(tymParagraph);
+            }, { threshold: 0.1 });
+            tymObs.observe(marbleSection);
         }
 
         setTimeout(() => {
