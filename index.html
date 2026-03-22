@@ -243,14 +243,14 @@
                         <div class="md:w-2/5 flex-shrink-0">
                             <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Moje síť je vaše páka</span>
                             <h2 class="tracking-tight leading-tight" style="font-family: 'DM Serif Display', serif; color: #F0EBE8; font-size: clamp(40px, 6vw, 72px);">
-                                Tým na míru
+                                Tým <span id="tym-na" style="display: inline-block; opacity: 0; max-width: 0; overflow: hidden; vertical-align: baseline; transition: opacity 0.8s ease, max-width 0.6s ease;">na </span>míru
                             </h2>
                         </div>
 
                         <!-- Right: text -->
                         <div class="flex-1 md:pt-4">
                             <p class="leading-relaxed mb-8" style="color: rgba(240,235,232,0.75); font-family: 'Crimson Pro', serif; font-size: clamp(20px, 2.2vw, 24px);">
-                                Pokud situace vyžaduje širší tým, spolupracuji s pečlivě vybranou sítí špičkových odborníků. Nejde o klasické poradenské týmy. Jsou to stejně orientovaní private counsels ve svých oborech — lidé, kteří pracují vysoce diskrétně, osobně a na nejvyšší úrovni.
+                                <span id="tym-paragraph">Pokud situace vyžaduje širší tým, spolupracuji s pečlivě vybranou sítí špičkových odborníků. Nejde o klasické poradenské týmy. Jsou to stejně orientovaní private counsels ve svých oborech — lidé, kteří pracují vysoce diskrétně, osobně a na nejvyšší úrovni.</span>
                             </p>
                             <!-- Mobile: vertical centered list, sorted longest→shortest -->
                             <div class="flex md:hidden flex-col items-center gap-2">
@@ -547,6 +547,22 @@
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Easter egg: "Tým míru" → "Tým na míru"
+        const tymNa = document.getElementById('tym-na');
+        const tymParagraph = document.getElementById('tym-paragraph');
+        if (tymNa && tymParagraph) {
+            const tymObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        tymNa.style.opacity = '1';
+                        tymNa.style.maxWidth = '3em';
+                        tymObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            tymObs.observe(tymParagraph);
+        }
 
         setTimeout(() => {
             revealElements.forEach(el => {
