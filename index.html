@@ -549,9 +549,9 @@
         revealElements.forEach(el => revealObserver.observe(el));
 
         // Easter egg: "Tým míru" ↔ "Tým na míru" (reversible on scroll)
-        const tymNa = document.getElementById('tym-na');
-        const marbleSection = tymNa ? tymNa.closest('section') : null;
-        if (tymNa && marbleSection) {
+        const tymLabel = document.getElementById('tym-label');
+        const marbleSection = tymLabel ? tymLabel.closest('section') : null;
+        if (tymLabel && marbleSection) {
             const tymObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     const tymLabel = document.getElementById('tym-label');
