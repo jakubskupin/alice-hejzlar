@@ -549,23 +549,28 @@
         revealElements.forEach(el => revealObserver.observe(el));
 
         // Easter egg: "Tým míru" ↔ "Tým na míru" (reversible on scroll)
-        const tymLabel = document.getElementById('tym-label');
-        const marbleSection = tymLabel ? tymLabel.closest('section') : null;
-        if (tymLabel && marbleSection) {
+        const tymLabelOuter = document.getElementById('tym-label');
+        const marbleSection = tymLabelOuter ? tymLabelOuter.closest('section') : null;
+        if (tymLabelOuter && marbleSection) {
+            const isMobile = window.innerWidth < 768;
+            // Desktop: trigger when 95% of section visible
+            // Mobile: trigger when paragraph scrolls into view (section too tall for threshold)
+            const tymTarget = isMobile ? document.getElementById('tym-paragraph') || marbleSection : marbleSection;
+            const tymThreshold = isMobile ? 0.5 : 0.95;
             const tymObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    const tymLabel = document.getElementById('tym-label');
-                    const tymNaLabel = document.getElementById('tym-na-label');
+                    const tl = document.getElementById('tym-label');
+                    const tnl = document.getElementById('tym-na-label');
                     if (entry.isIntersecting) {
-                        tymLabel.style.opacity = '0';
-                        tymNaLabel.style.opacity = '1';
+                        tl.style.opacity = '0';
+                        tnl.style.opacity = '1';
                     } else {
-                        tymLabel.style.opacity = '1';
-                        tymNaLabel.style.opacity = '0';
+                        tl.style.opacity = '1';
+                        tnl.style.opacity = '0';
                     }
                 });
-            }, { threshold: 0.95 });
-            tymObs.observe(marbleSection);
+            }, { threshold: tymThreshold });
+            tymObs.observe(tymTarget);
         }
 
         setTimeout(() => {
