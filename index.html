@@ -243,7 +243,7 @@
                         <div class="md:w-2/5 flex-shrink-0">
                             <span class="block mb-6" style="font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #B8A0C8;">Moje síť je vaše páka</span>
                             <h2 class="tracking-tight leading-tight" style="font-family: 'DM Serif Display', serif; color: #F0EBE8; font-size: clamp(40px, 6vw, 72px);">
-                                Tým <span id="tym-na" style="display: inline; opacity: 0; transition: opacity 1s ease;">na </span>míru
+                                Tým <span id="tym-na" style="display: inline-block; width: 0; opacity: 0; overflow: hidden; white-space: nowrap; vertical-align: bottom; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;">na </span>míru
                             </h2>
                         </div>
 
@@ -555,7 +555,7 @@
             const tymObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => { tymNa.style.opacity = '1'; }, 4000);
+                        setTimeout(() => { tymNa.style.width = '1.6em'; tymNa.style.opacity = '1'; }, 2500);
                         tymObs.unobserve(entry.target);
                     }
                 });
